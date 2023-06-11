@@ -17,7 +17,7 @@
 <header>
 	<nav class="lg:pl-32 lg:pr-32 2xl:pl-64 2xl:pr-64 flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-100 nav-bg">
 		<div>
-			<a href="#">
+			<a href="/">
 				<img src={logo} class="h-8 mr-3" alt="Flowbite Logo" />	
 			</a>
 		</div>
@@ -32,12 +32,12 @@
 					
 				-->
 				<li>
-					<a class="md:p-4 py-2 block text-lg" href="#">
+					<a class="md:p-4 py-2 block text-lg" href="/news">
 						News
 					</a>
 				</li>
 				<li>
-					<a class="md:p-4 py-2 block text-lg" href="#">
+					<a class="md:p-4 py-2 block text-lg" href="https://twitter.com/order332">
 						Join
 					</a>
 				</li>		

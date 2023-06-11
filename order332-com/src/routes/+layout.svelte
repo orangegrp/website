@@ -5,6 +5,10 @@
 	import logo from '$lib/images/polygon-icon.png';
 </script>
 
+<svelte:head>
+	<link rel="icon" type="image/svg" href={logo} />
+</svelte:head>
+
 <div class="app">
 	<Header />
 
@@ -22,16 +26,16 @@
 				</a>
 				<ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-zinc-500 sm:mb-0">
 					<li>
-						<a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+						<a href="/about" class="mr-4 hover:underline md:mr-6 ">About</a>
 					</li>
 					<li>
-						<a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+						<a href="/privacy" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
 					</li>
 					<li>
-						<a href="#" class="mr-4 hover:underline md:mr-6 ">Terms of Service</a>
+						<a href="/terms" class="mr-4 hover:underline md:mr-6 ">Terms of Service</a>
 					</li>
 					<li>
-						<a href="#" class="hover:underline">Contact</a>
+						<a href="https://twitter.com/@order332" class="hover:underline">Contact</a>
 					</li>
 				</ul>
 			</div>

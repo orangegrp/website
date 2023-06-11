@@ -1,26 +1,37 @@
 <svelte:head>
 	<title>About</title>
-	<meta name="description" content="About this app" />
+	<meta name="description" content="About Order 332" />	
 </svelte:head>
 
-<div class="text-column">
-	<h1>About this app</h1>
-
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<pre>npm create svelte@latest</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
-		using it with JavaScript disabled!
-	</p>
-</div>
+<section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48">
+	<div class="writer mt-20">
+		<h1 class="text-3xl 2xl:text-4xl mb-2">
+			It all started in 2018
+		</h1>
+		<p class="mb-6">
+			On IRC, a group known as "The Order" was founded. Members within this group were primarily from the Russian-speaking world. This group
+			is now known as Order 322 and it's our sister community.
+		</p>
+		<h1 class="text-3xl 2xl:text-4xl mb-2">
+			Then comes 2020
+		</h1>
+		<p class="mb-6">
+			Order 332 started from the same group and branched into the world of Discord, with a slightly different approach. 
+			Its goal was to disrupt the ever-growing trend of "skids" and phony hacking and offer something unique - real community,
+			real friendship and real sharing of knowledge. The goal of 332 was always and will always be self-betterment. For these reasons,
+			it was and will continue to be invite-only with our rigorous member vetting processes.
+		</p>
+		<h1 class="text-3xl 2xl:text-4xl mb-2">
+			The Present
+		</h1>
+		<p class="mb-2">
+			Order 332 and Order 322, both collectively under "The Order", enjoy to continue to grow and improve every single day. Some of our oldest
+			members have gone on to make successful careers in IT and cybersecurity with more to follow.
+		</p>
+		<p class="mb-6">
+			Since 2022, both communities have been devastated by the ongoing conflict in Ukraine with Order 322 being directly impacted due to having
+			members on both sides of the border. The Order as a whole remains neutral on this issue and will continue to support all its members on both
+			sides of the border.
+		</p>
+	</div>
+</section>
