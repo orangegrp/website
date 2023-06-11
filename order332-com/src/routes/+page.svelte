@@ -14,13 +14,13 @@
 	<meta name="description" content="Community. Knowledge. Friendship" />
 </svelte:head>
 
-<section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48">
+<section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48" style="overflow-x:hidden">
 	<div class="writer mt-20">
-		<h1 class="text-3xl 2xl:text-4xl">
+		<h1 class="md:text-3xl 2xl:text-4xl text-2xl">
 			We're a global community of
 		</h1>
-		<h1 id="typer" class="writer-text text-emerald-400 text-3xl 2xl:text-4xl">
-			cybersecurity students <span class="text-white">&</span> experts.
+		<h1 id="typer" class="writer-text text-emerald-400 md:text-3xl 2xl:text-4xl text-2xl">
+			cybersec students <span class="text-white">&</span> experts.
 		</h1>
 		<h1>
 			Bound by our founding principles of community, knowledge & friendship.
