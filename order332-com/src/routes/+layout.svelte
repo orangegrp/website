@@ -6,7 +6,7 @@
 
 <div class="app">
 	<Header />
-n
+
 	<main>
 		<slot />
 	</main>
