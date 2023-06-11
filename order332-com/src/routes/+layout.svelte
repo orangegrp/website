@@ -35,12 +35,12 @@
 						<a href="/terms" class="mr-4 hover:underline md:mr-6 ">Terms of Service</a>
 					</li>
 					<li>
-						<a href="https://twitter.com/@order332" class="hover:underline">Contact</a>
+						<a href="https://twitter.com/messages/compose?recipient_id=1477674069596192768" class="hover:underline">Contact</a>
 					</li>
 				</ul>
 			</div>
 			<hr class="my-6 border-zinc-800 sm:mx-auto lg:my-8" />
-			<span class="block text-sm text-zinc-500 sm:text-center">© 2023 <a href="#" class="hover:underline">Order 332</a>. All Rights Reserved.</span>
+			<span class="block text-sm text-zinc-500 sm:text-center">© 2023 <a href="https://order332.com" class="hover:underline">Order 332</a>. All Rights Reserved.</span>
 		</div>
 	</footer>
 

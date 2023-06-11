@@ -13,7 +13,7 @@
 			is now known as Order 322 and it's our sister community.
 		</p>
 		<h1 class="text-3xl 2xl:text-4xl mb-2">
-			Then comes 2020
+			2020 & COVID-19
 		</h1>
 		<p class="mb-6">
 			Order 332 started from the same group and branched into the world of Discord, with a slightly different approach. 

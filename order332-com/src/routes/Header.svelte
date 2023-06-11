@@ -37,7 +37,7 @@
 					</a>
 				</li>
 				<li>
-					<a class="md:p-4 py-2 block text-lg" href="https://twitter.com/order332">
+					<a class="md:p-4 py-2 block text-lg" href="https://twitter.com/messages/compose?recipient_id=1477674069596192768">
 						Join
 					</a>
 				</li>		
