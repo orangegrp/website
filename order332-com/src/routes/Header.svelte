@@ -16,7 +16,7 @@
 	
 </script>
 
-<header>
+<header class="sticky top-0" style="z-index: 999">
 	<nav class="lg:pl-32 lg:pr-32 2xl:pl-64 2xl:pr-64 flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-100 nav-bg">
 		<div>
 			<a href="/">
@@ -56,7 +56,7 @@
 <style>
 .nav-bg {
 	background-color: #000000aa;
-	backdrop-filter: blur(5px) saturate(180%);;
-	-webkit-backdrop-filter: blur(5px) saturate(180%);
+	backdrop-filter: blur(16px) saturate(180%);;
+	-webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 </style>
