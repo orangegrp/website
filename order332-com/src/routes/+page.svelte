@@ -3,10 +3,12 @@
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
 	import { onMount } from 'svelte';
 
-	import redhat_ibm_logo from '$lib/images/redhat-ibm-logo.png';
+	import redhat_logo from '$lib/images/redhat-logo.png';
 	import msft_logo from '$lib/images/msft-logo.png';
 	import twitter_logo from '$lib/images/twitter-logo.png';
 	import envelope_icon from '$lib/images/envelope-icon.png';
+	import verizon_logo from '$lib/images/verizon-logo.png';
+	import tmobile_logo from '$lib/images/tmobile-logo.png';
 </script>
 
 <svelte:head>
@@ -29,8 +31,10 @@
 			Our members have worked at:
 		</h5>
 		<div>
-			<img src={redhat_ibm_logo} class="w-auto h-6 inline pr-2" alt="IBM RedHat"/>
-			<img src={msft_logo} class="w-auto h-6 inline pr-2 pl-2" alt="Microsoft"/>
+			<img src={redhat_logo} class="w-auto h-8 inline pr-2 mb-4 pt-1" alt="IBM RedHat"/>
+			<img src={verizon_logo} class="w-auto h-5 inline pr-2 pl-1 mb-4" alt="Verizon"/>
+			<img src={msft_logo} class="w-auto h-6 inline pr-2 pl-1 mb-4" alt="Microsoft"/>
+			<img src={tmobile_logo} class="w-auto h-4 inline pr-2 pl-1 mb-4" alt="T-Mobile"/>
 		</div>
 	</div>
 </section>
