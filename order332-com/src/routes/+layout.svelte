@@ -40,7 +40,13 @@
 				</ul>
 			</div>
 			<hr class="my-6 border-zinc-800 sm:mx-auto lg:my-8" />
-			<span class="block text-sm text-zinc-500 sm:text-center">© 2023 <a href="https://order332.com" class="hover:underline">Order 332</a>. All Rights Reserved.</span>
+			<span class="block text-sm text-zinc-500 sm:text-center mb-1">© 2023 <a href="https://order332.com" class="hover:underline">Order 332</a>. All Rights Reserved.</span>
+			<span class="block text-xs text-zinc-500 sm:text-center">
+				Order 332 is not affiliated with any of the brands listed on this site including but not limited to Microsoft Corporation,
+				Red Hat Inc, Verizon Communications Inc & T-Mobile US Inc. The respective brands are owned by their respective owners.
+				Use of these images is legally permitted in the United States (falls under "Fair use" of the DMCA),
+				United Kingdom (falls under "Fair dealing" of Section 30 CDPA) & the EU (falls under "Criticism", Article 57 of Directive (EU) 2019/790).
+			</span>
 		</div>
 	</footer>
 
