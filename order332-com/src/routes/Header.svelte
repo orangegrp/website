@@ -41,6 +41,11 @@
 						Join
 					</a>
 				</li>		
+				<li>
+					<a class="md:p-4 py-2 block text-lg" href="https://ru.order332.com/">
+						Русский Язык
+					</a>
+				</li>	
 			</ul>
 		</div>
 	</nav>
