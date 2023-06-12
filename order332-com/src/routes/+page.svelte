@@ -1,8 +1,4 @@
 <script>
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
-	import { onMount } from 'svelte';
-
 	import redhat_logo from '$lib/images/redhat-logo.png';
 	import msft_logo from '$lib/images/msft-logo.png';
 	import twitter_logo from '$lib/images/twitter-logo.png';
@@ -18,10 +14,10 @@
 
 <section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48" style="overflow-x:hidden">
 	<div class="writer mt-20">
-		<h1 class="md:text-3xl 2xl:text-4xl text-2xl">
-			We're a global community of
+		<h1 class="md:text-3xl 2xl:text-4xl text-2xl text-glow-white">
+			We're a global community of 
 		</h1>
-		<h1 id="typer" class="writer-text text-emerald-400 md:text-3xl 2xl:text-4xl text-2xl">
+		<h1 id="typer" class="writer-text text-emerald-400 md:text-3xl 2xl:text-4xl text-2xl text-glow-green-accent">
 			cybersec students <span class="text-white">&</span> experts.
 		</h1>
 		<h1>

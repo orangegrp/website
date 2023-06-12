@@ -36,6 +36,13 @@ body {
 		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
 }
 
+.text-glow-white {
+	text-shadow: 1px 1px 12px #ffffff64
+}
+.text-glow-green-accent {
+	text-shadow: 1px 1px 12px #34D39964
+}
+
 .card {
 	background-image: radial-gradient(
 			50% 100% at 50% 0%,
@@ -43,6 +50,9 @@ body {
 			#040404aa 100%
 		);
 	box-shadow: 0 2px 0.5rem #000000ff;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	
 }
 .card-warning {
 	background-image: radial-gradient(
@@ -51,6 +61,8 @@ body {
 			#040404aa 100%
 		);
 	box-shadow: 0 2px 0.5rem #000000ff;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
 }
 .card-error {
 	background-image: radial-gradient(
@@ -59,6 +71,8 @@ body {
 			#040404aa 100%
 		);
 	box-shadow: 0 2px 0.5rem #000000ff;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
 }
 .card-info {
 	background-image: radial-gradient(
@@ -67,6 +81,8 @@ body {
 			#040404aa 100%
 		);
 	box-shadow: 0 2px 0.5rem #000000ff;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
 }
 .card-success {
 	background-image: radial-gradient(
@@ -75,6 +91,8 @@ body {
 			#040404aa 100%
 		);
 	box-shadow: 0 2px 0.5rem #000000ff;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
 }
 
 h1,

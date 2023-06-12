@@ -12,6 +12,8 @@
 			});
 		}
 	});
+
+	
 </script>
 
 <header>
@@ -54,7 +56,7 @@
 <style>
 .nav-bg {
 	background-color: #000000aa;
-	backdrop-filter: blur(16px) brightness(100%);
-	-webkit-backdrop-filter: blur(16px) brightness(100%);
+	backdrop-filter: blur(5px) saturate(180%);;
+	-webkit-backdrop-filter: blur(5px) saturate(180%);
 }
 </style>
