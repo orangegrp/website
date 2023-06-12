@@ -44,6 +44,38 @@ body {
 		);
 	box-shadow: 0 2px 0.5rem #000000ff;
 }
+.card-warning {
+	background-image: radial-gradient(
+			50% 100% at 50% 0%,
+			#646424aa -100%,
+			#040404aa 100%
+		);
+	box-shadow: 0 2px 0.5rem #000000ff;
+}
+.card-error {
+	background-image: radial-gradient(
+			50% 100% at 50% 0%,
+			#642424aa -100%,
+			#040404aa 100%
+		);
+	box-shadow: 0 2px 0.5rem #000000ff;
+}
+.card-info {
+	background-image: radial-gradient(
+			50% 100% at 50% 0%,
+			#244864aa -100%,
+			#040404aa 100%
+		);
+	box-shadow: 0 2px 0.5rem #000000ff;
+}
+.card-success {
+	background-image: radial-gradient(
+			50% 100% at 50% 0%,
+			#246424aa -100%,
+			#040404aa 100%
+		);
+	box-shadow: 0 2px 0.5rem #000000ff;
+}
 
 h1,
 h2,

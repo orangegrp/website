@@ -40,15 +40,15 @@
 </section>
 
 <section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48 mt-20">
-	<div class="inline-block max-w-xl p-6 border border-zinc-800 rounded-lg card mb-4">
+	<div class="inline-block max-w-xl p-6 border border-zinc-800 rounded-lg card mb-4 mr-1">
 		<img src={envelope_icon} class="w-auto h-6 inline pr-2" alt="Twitter"/>
 		<h1 class="text-xl mt-4">Want to be part of the community?</h1>
 		<p class="leading-none mt-2">
 			As we're invite-only, you'll need to reach out to us through Twitter DMs in order to join. That keeps everyone safe.
 		</p>	
 	</div>
-	<div class="inline-block md:max-w-xs sm:max-w-xl p-6 border border-zinc-800 rounded-lg card mb-4 ml-2">
-		<img src={twitter_logo} class="w-auto h-5 inline pr-2" alt="Twitter"/>
+	<div class="inline-block md:max-w-xs sm:max-w-xl p-6 border border-zinc-800 rounded-lg card mb-4 mr-1">
+		<img src={twitter_logo} class="w-auto h-6 inline pr-2" alt="Twitter"/>
 		<h1 class="text-xl mt-4">Follow us on Twitter</h1>
 		<p class="leading-none mt-2">
 			Keep up to date with the latest news & service updates
