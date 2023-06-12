@@ -5,12 +5,29 @@
 	import envelope_icon from '$lib/images/envelope-icon.png';
 	import verizon_logo from '$lib/images/verizon-logo.png';
 	import tmobile_logo from '$lib/images/tmobile-logo.png';
+	import stixenskaya_eagle from '$lib/images/stixenskaya-eagle.png';
 </script>
 
 <svelte:head>
 	<title>Order 332</title>
 	<meta name="description" content="Community. Knowledge. Friendship" />
 </svelte:head>
+
+<!--
+<section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48 mt-10">
+	<div class="inline-block max-w-4xl p-6 border border-yellow-800 rounded-lg card-warning mb-4 mr-1">
+		<img src={stixenskaya_eagle} class="w-auto h-6 inline pr-2" alt="Stixenskaya"/>
+		<h1 class="text-xl mt-4">Stixen Day 2024</h1>
+		<h5 class="text-xs"> 19/03/2024 </h5>
+		<p class="leading-none mt-2">
+			Today, The Order hosts the second anniversary of Stixen Day in honour and memory of our friend and
+			dear member of Order 322, Stixen, who died in Kiev (Kyiv), Ukraine defending his homeland.
+			<br><br>
+			Слава Стіксену. Спочивай з миром.
+		</p>	
+	</div>
+</section>
+-->
 
 <section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48" style="overflow-x:hidden">
 	<div class="writer mt-20">
