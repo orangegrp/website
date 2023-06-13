@@ -45,9 +45,9 @@
 		</h5>
 		<div>
 			<img src={msft_logo} class="w-auto h-6 inline pr-2 mb-4" alt="Microsoft"/>
-			<img src={redhat_logo} class="w-auto h-8 inline pr-2 mb-4" alt="IBM RedHat"/>
-			<img src={verizon_logo} class="w-auto h-7 inline pr-2 pb-1 mb-4" alt="Verizon"/>
-			<img src={tmobile_logo} class="w-auto h-5 inline pr-2 pl-1 mb-4" alt="T-Mobile"/>
+			<img src={redhat_logo} class="w-auto h-6 inline pr-2 mb-4" alt="IBM RedHat"/>
+			<img src={verizon_logo} class="w-auto h-6 inline pr-2 pb-1 mb-4" alt="Verizon"/>
+			<img src={tmobile_logo} class="w-auto h-4 inline pr-2 pl-1 mb-4" alt="T-Mobile"/>
 		</div>
 	</div>
 </section>
