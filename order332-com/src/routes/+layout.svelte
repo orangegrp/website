@@ -20,7 +20,7 @@
 	<footer class="rounded-lg shadow m-4 mt-24">
 		<div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
 			<div class="sm:flex sm:items-center sm:justify-between">
-				<a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0">
+				<a href="https://order332.com" class="flex items-center mb-4 sm:mb-0">
 					<img src={logo} class="h-8 mr-3" alt="Order 332 Logo" />
 					<span class="self-center text-xl font-semibold whitespace-nowrap">Order 332</span>
 				</a>
