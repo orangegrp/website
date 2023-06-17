@@ -1,5 +1,6 @@
 <script>
 	import logo from '$lib/images/polygon-icon.png';
+	import logo_svg from '$lib/images/polygon-icon.svg';
     import { onMount } from 'svelte';
 
 	onMount(() => {
@@ -20,7 +21,7 @@
 	<nav class="lg:pl-32 lg:pr-32 2xl:pl-64 2xl:pr-64 flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-100 nav-bg">
 		<div>
 			<a href="/">
-				<img src={logo} class="h-8 mr-3" alt="Order 332 Logo" />	
+				<img src={logo_svg} class="h-8 mr-3" alt="Order 332 Logo" />	
 			</a>
 		</div>
 	
