@@ -25,7 +25,7 @@
 					<img src={logo_svg} class="h-8 mr-3" alt="Order 332 Logo" />
 					<span class="self-center text-xl font-semibold whitespace-nowrap">Order 332</span>
 				</a>
-                                <a href="https://512kb.club"><img src="https://512kb.club/assets/images/blue-team.svg"
+                                <a href="https://512kb.club" class="mt-2 mb-2 md:ml-2 md:mr-2"><img src="https://512kb.club/assets/images/blue-team.svg"
                                 alt="a proud member of the blue team of 512KB club"/></a>
 				<ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-zinc-500 sm:mb-0">
 					<li>
