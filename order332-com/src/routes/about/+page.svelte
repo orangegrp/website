@@ -6,10 +6,10 @@
 <section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48">
 	<div class="writer mt-20">
 		<h1 class="text-3xl 2xl:text-4xl mb-2">
-			It all started in 2018
+			Our Origins
 		</h1>
 		<p class="mb-6">
-			On IRC, a group known as "The Order" was founded. Members within this group were primarily from the Russian-speaking world. This group
+			In 2018, on IRC, a group known as "The Order" was founded. Members within this group were primarily from the Russian-speaking world. This group
 			is now known as Order 322 and it's our sister community.
 		</p>
 		<h1 class="text-3xl 2xl:text-4xl mb-2">
@@ -30,8 +30,8 @@
 		</p>
 		<p class="mb-6">
 			Since 2022, both communities have been devastated by the ongoing conflict in Ukraine with Order 322 being directly impacted due to having
-			members on both sides of the border. The Order as a whole remains neutral on this issue and will continue to support all its members on both
-			sides of the border.
+			members on both sides of the border. The Order as a whole remains neutral on this issue and will continue to support all its members regardless
+			of which side they happen to be on.
 		</p>
 	</div>
 </section>

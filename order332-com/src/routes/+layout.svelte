@@ -30,12 +30,6 @@
 						<a href="/about" class="mr-4 hover:underline md:mr-6 ">About</a>
 					</li>
 					<li>
-						<a href="/privacy" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-					</li>
-					<li>
-						<a href="/terms" class="mr-4 hover:underline md:mr-6 ">Terms of Service</a>
-					</li>
-					<li>
 						<a href="https://twitter.com/messages/compose?recipient_id=1477674069596192768" class="hover:underline">Contact</a>
 					</li>
 				</ul>
