@@ -1,6 +1,6 @@
 <svelte:head>
 	<title>Changes in August 2023</title>
-	<meta name="description" content="Privacy Policy" />	
+	<meta name="description" content="Changes in August 2023" />	
 </svelte:head>
 
 <section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48">
