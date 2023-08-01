@@ -14,11 +14,11 @@
 		<p class="mb-2 leading-none">
 			Since the 1st of August 2023, Order 332 has removed its official privacy policy and terms of service pages from its website. This is due to several reasons:
 		</p>
-		<ul class="list-decimal ml-10 leading-5">
+		<ol class="list-decimal ml-10 leading-5">
 			<li>The old policy was redundant and not required for visitors of the website.</li>
 			<li>Currently, Order 332 does not operate any services which would require such policies.</li>
 			<li>Going forward, for any new services introduced, a new policy framework will be used.</li>
-		</ul>
+		</ol>
 		<h1 class="mt-5 mb-2 text-2xl 2xl:text-3xl">
 			What this means for you
 		</h1>
