@@ -31,7 +31,7 @@ body {
 	background-size: 100vw 100vh;
 	background-image: radial-gradient(
 			60% 50% at 50% 0%,
-			var(--color-bg-3) 0%,
+			var(--color-bg-4) 0%,
 			var(--color-bg-0) 100%
 		),
 		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
@@ -39,6 +39,9 @@ body {
 
 .text-glow-white {
 	text-shadow: 1px 1px 12px #ffffff64
+}
+.text-glow-yellow-accent {
+	text-shadow: 1px 1px 12px #D3D39964
 }
 .text-glow-green-accent {
 	text-shadow: 1px 1px 12px #34D39964

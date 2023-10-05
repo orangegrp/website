@@ -32,8 +32,6 @@
 		<div class="hidden w-full md:flex md:items-center md:w-auto" id="nav-menu">
 			<ul class="pt-4 text-base text-grau-100 md:flex md:justify-between md:pt-0 text-zinc-300">
 				<!--
-					
-				-->
 				<li>
 					<a class="md:p-4 py-2 block text-lg" href="/news">
 						News
@@ -49,6 +47,12 @@
 						Русский Язык
 					</a>
 				</li>	
+				-->
+				<li>
+					<a class="md:p-4 py-2 block text-lg" href="/">
+						&nbsp;
+					</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
