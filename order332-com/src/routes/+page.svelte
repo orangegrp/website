@@ -35,10 +35,10 @@
 	<div class="writer mt-20">
 
 		<h1 class="md:text-3xl 2xl:text-4xl text-2xl text-glow-white">
-			Order 332 has closed. But we will
+			Order 332 has closed. But we
 		</h1>
 		<h1 id="typer" class="writer-text text-yellow-500 md:text-3xl 2xl:text-4xl text-2xl text-glow-yellow-accent">
-			return soon. <span class="text-white">Stay tuned.</span>
+			will return soon. <span class="text-white">Stay tuned.</span>
 		</h1>
 
 		<p class="leading-none mt-2 mb-6">
