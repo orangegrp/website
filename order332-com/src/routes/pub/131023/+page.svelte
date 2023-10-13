@@ -24,7 +24,7 @@ import stixenskaya_eagle from '$lib/images/stixenskaya-eagle.png';
 </p>
 
 <p class="mb-4">
-    With that being said, what happened was no more than a short-lived ego boost for some arrogant group of people that have no integrity. It's unfortunate they chose the path of betrayal, hostility and cowardliness by not only trying to destroy 332 but also spit in their and our friend's, Stixen, grave.
+    With that being said, what happened was no more than a short-lived ego boost for some arrogant group of people that have no integrity. It's unfortunate they chose the path of betrayal, hostility and cowardliness by not only trying to destroy 332 but also spitting in their and our friend's, Stixen, grave.
 </p>
 
 <p class="mb-4">
