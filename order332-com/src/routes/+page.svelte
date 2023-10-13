@@ -34,26 +34,17 @@
 <section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48" style="overflow-x:hidden">
 	<div class="writer mt-20">
 
-		<h1 class="md:text-3xl 2xl:text-4xl text-2xl text-glow-white">
-			Order 332 has closed. But we
-		</h1>
-		<h1 id="typer" class="writer-text text-yellow-500 md:text-3xl 2xl:text-4xl text-2xl text-glow-yellow-accent">
-			will return soon. <span class="text-white">Stay tuned.</span>
-		</h1>
 
-		<p class="leading-none mt-2 mb-6">
-			Due to a multitude of reasons, The Order and all its chapters have been closed including Order 332 and our sister IRC group, 322.
-			This was not an easy decision to make but it is necessary to move on.
-			
-		</p>	
+		<div class="inline-block max-w-xl p-6 border border-zinc-800 rounded-lg card mb-12">
+			<img src={envelope_icon} class="w-auto h-8 inline pr-2" alt="Envelope"/>
+			<h1 class="text-xl mt-4">"Order 332" is now "332"</h1>
+			<h5 class="bold text-zinc-400 mb-2">13/10/23</h5>
+			<p class="leading-none mt-2">
+				On the 5th October, Order 332 closed due to issues with the parent organisation, The Order. Several events followed, learn more <a class="underline" href="/pub/131023">here</a>.
+			</p>	
+		</div>
 
-		<p class="leading-none mt-3 mb-3">
-			Слава Стіксену. Спочивай з миром.
-		</p>	
 
-		<img src={stixenskaya_eagle} class="w-auto h-6 inline pr-2" alt="Stixenskaya"/>
-		
-		<!--
 		<h1 class="md:text-3xl 2xl:text-4xl text-2xl text-glow-white">
 			We're a global community of 
 		</h1>
@@ -72,7 +63,6 @@
 			<img src={verizon_logo} class="w-auto h-6 inline pr-2 pb-1 mb-4" alt="Verizon"/>
 			<img src={tmobile_logo} class="w-auto h-4 inline pr-2 pl-1 mb-4" alt="T-Mobile"/>
 		</div>
-		-->
 	</div>
 </section>
 

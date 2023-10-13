@@ -22,8 +22,8 @@
 		<div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
 			<div class="sm:flex sm:items-center sm:justify-between">
 				<a href="https://order332.com" class="flex items-center mb-4 sm:mb-0">
-					<img src={logo_svg} class="h-8 mr-3" alt="Order 332 Logo" />
-					<span class="self-center text-xl font-semibold whitespace-nowrap">Order 332</span>
+					<img src={logo_svg} class="h-8 mr-3" alt="332 Logo" />
+					<span class="self-center text-xl font-semibold whitespace-nowrap">332</span>
 				</a>
 				<ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-zinc-500 sm:mb-0">
 
@@ -32,7 +32,7 @@
                         <a href="https://512kb.club" class="mt-2 mb-2 md:ml-2 md:mr-2"><img src="https://512kb.club/assets/images/blue-team.svg"
                         alt="a proud member of the blue team of 512KB club"/></a>
 			<hr class="my-6 border-zinc-800 sm:mx-auto lg:my-8" />
-			<span class="block text-sm text-zinc-500 sm:text-center mb-1">© 2020-2023 <a href="https://order332.com" class="hover:underline">Order 332</a>. All Rights Reserved.</span>
+			<span class="block text-sm text-zinc-500 sm:text-center mb-1">© 2023 <a href="https://order332.com" class="hover:underline">332</a>. All Rights Reserved.</span>
 		</div>
 	</footer>
 
