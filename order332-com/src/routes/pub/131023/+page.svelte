@@ -3,7 +3,7 @@ import stixenskaya_eagle from '$lib/images/stixenskaya-eagle.png';
 </script>
 
 <div class="text-column">
-    <h2 class="text-2xl mt-8">"Order 332" is now just "332"</h2>
+    <h2 class="text-2xl mt-8">"Order 332" is now "332"</h2>
 <h5 class="bold text-zinc-400 mb-4">13/10/23</h5>
 <h3 class="text-xl underline mb-2">What happened?</h3>
 

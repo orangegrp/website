@@ -36,8 +36,7 @@
 
 
 		<div class="inline-block max-w-xl p-6 border border-zinc-800 rounded-lg card mb-12">
-			<img src={envelope_icon} class="w-auto h-8 inline pr-2" alt="Envelope"/>
-			<h1 class="text-xl mt-4">"Order 332" is now "332"</h1>
+			<h1 class="text-xl">"Order 332" is now "332"</h1>
 			<h5 class="bold text-zinc-400 mb-2">13/10/23</h5>
 			<p class="leading-none mt-2">
 				On the 5th October, Order 332 closed due to issues with the parent organisation, The Order. Several events followed, learn more <a class="underline" href="/pub/131023">here</a>.
