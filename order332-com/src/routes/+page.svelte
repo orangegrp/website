@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>Order 332</title>
+	<title>332</title>
 	<meta name="description" content="Community. Knowledge. Friendship" />
 </svelte:head>
 
@@ -28,19 +28,30 @@
 		</p>	
 	</div>
 </section>
--->
 
 
-<section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48" style="overflow-x:hidden">
-	<div class="writer mt-20">
-
-
-		<div class="inline-block max-w-xl p-6 border border-zinc-800 rounded-lg card mb-12">
+	<div class="inline-block max-w-xl p-6 border border-zinc-800 rounded-lg card mb-12">
 			<h1 class="text-xl">"Order 332" is now "332"</h1>
 			<h5 class="bold text-zinc-400 mb-2">13/10/23</h5>
 			<p class="leading-none mt-2">
 				On the 5th October, Order 332 closed due to issues with the parent organisation, The Order. Several events followed, learn more <a class="underline" href="/pub/131023">here</a>.
 			</p>	
+		</div>
+-->
+
+
+<section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48" style="overflow-x:hidden">
+	<div class="writer mt-20">
+		<div class="inline-block max-w-xl p-6 border border-zinc-800 rounded-lg card mb-12">
+			<h1 class="text-xl">Introducing project
+				<span class="k-bold bg-gradient-to-r from-orange-400 to-orange-500 inline-block text-transparent bg-clip-text">
+					orange🟠
+				</span>
+			</h1>
+			<h5 class="bold text-zinc-400 mb-2">30/12/2023</h5>
+			<p class="leading-none mt-2">
+				A new Discord bot platform and web app ecosystem, developed by 332, for 332. Learn more at the project site <a class="underline" href="https://orange.order332.com">here</a>.
+			</p>
 		</div>
 
 

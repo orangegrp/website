@@ -29,10 +29,8 @@
 
 				</ul>
 			</div>
-                        <a href="https://512kb.club" class="mt-2 mb-2 md:ml-2 md:mr-2"><img src="https://512kb.club/assets/images/blue-team.svg"
-                        alt="a proud member of the blue team of 512KB club"/></a>
 			<hr class="my-6 border-zinc-800 sm:mx-auto lg:my-8" />
-			<span class="block text-sm text-zinc-500 sm:text-center mb-1">© 2023 <a href="https://order332.com" class="hover:underline">332</a>. All Rights Reserved.</span>
+			<span class="block text-sm text-zinc-500 sm:text-center mb-1">© 2024 <a href="https://order332.com" class="hover:underline">332</a>. All Rights Reserved.</span>
 		</div>
 	</footer>
 
