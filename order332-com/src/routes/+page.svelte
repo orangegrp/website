@@ -6,6 +6,8 @@
 	import verizon_logo from '$lib/images/verizon-logo.png';
 	import tmobile_logo from '$lib/images/tmobile-logo.png';
 	import stixenskaya_eagle from '$lib/images/stixenskaya-eagle.png';
+	import icon332 from '$lib/images/polygon-icon.svg';
+	import iconOrange from '$lib/images/orange-logo-w.svg';
 </script>
 
 <svelte:head>
@@ -43,6 +45,12 @@
 <section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48" style="overflow-x:hidden">
 	<div class="writer mt-20">
 		<div class="inline-block max-w-xl p-6 border border-zinc-800 rounded-lg card mb-12">
+			<div class="mb-4">
+				<img src={icon332} alt="332 Icon" class="h-6 inline"/>
+				×
+				<img src={iconOrange} alt="Project orange Icon" class="h-4 inline"/>
+			</div>
+
 			<h1 class="text-xl">Introducing project
 				<span class="k-bold bg-gradient-to-r from-orange-400 to-orange-500 inline-block text-transparent bg-clip-text">
 					orange🟠
