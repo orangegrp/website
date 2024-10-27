@@ -47,18 +47,13 @@
 		<div class="inline-block max-w-xl p-6 border border-zinc-800 rounded-lg card mb-12">
 			<div class="mb-4">
 				<img src={icon332} alt="332 Icon" class="h-6 inline"/>
-				×
-				<img src={iconOrange} alt="Project orange Icon" class="h-4 inline"/>
 			</div>
 
-			<h1 class="text-xl">Introducing project
-				<span class="k-bold bg-gradient-to-r from-orange-400 to-orange-500 inline-block text-transparent bg-clip-text">
-					orange🟠
-				</span>
+			<h1 class="text-xl">
+				We're actively looking for new members!
 			</h1>
-			<h5 class="bold text-zinc-400 mb-2">30/12/2023</h5>
 			<p class="leading-none mt-2">
-				A new Discord bot platform and web app ecosystem, developed by 332, for 332. Learn more at the project site <a class="underline" href="https://orange.order332.com">here</a>.
+				332 is growing, and we're looking for passionate members who are willing to learn, teach and become the best version of themselves. Join us <a class="underline" href="https://discord.gg/technology">here</a>.
 			</p>
 		</div>
 
@@ -72,6 +67,7 @@
 		<h1>
 			Bound by our founding principles of community, knowledge & friendship.
 		</h1>
+		<!--
 		<h5 class="text-zinc-400 text-xs mt-8 mb-2">
 			Our members have worked at:
 		</h5>
@@ -81,6 +77,7 @@
 			<img src={verizon_logo} class="w-auto h-6 inline pr-2 pb-1 mb-4" alt="Verizon"/>
 			<img src={tmobile_logo} class="w-auto h-4 inline pr-2 pl-1 mb-4" alt="T-Mobile"/>
 		</div>
+		-->
 	</div>
 </section>
 
