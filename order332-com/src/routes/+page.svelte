@@ -44,33 +44,34 @@
 
 <section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48" style="overflow-x:hidden">
 	<div class="writer mt-20">
-		<div class="inline-block max-w-xl p-0 borderborder-zinc-800 card mb-12">
-			<!--
-						<div class="mb-4">
+		<div class="z-index-10 inline-block max-w-xl p-4 border rounded-lg border-zinc-800 card mb-12">
+			<div class="mb-4">
 				<img src={icon332} alt="332 Icon" class="h-6 inline"/>
 			</div>
-
 			<h1 class="text-xl">
 				We're actively looking for new members!
 			</h1>
-			<p class="leading-none mt-2">
+			<p class="leading-none mt-2 mb-8">
 				332 is growing, and we're looking for passionate members who are willing to learn, teach and become the best version of themselves. Join us <a class="underline" href="https://discord.gg/technology">here</a>.
 			</p>
+			<!--
+		
+						<video src="https://utfs.io/f/Hqd7taZdF7DENwS8NAcfoeU2FAv6MgpHSrC0zsQ1iRjn9Lhx" controls loop class="w-full"></video>
 			-->
 			<!-- svelte-ignore a11y-media-has-caption -->
-			<video src="https://utfs.io/f/Hqd7taZdF7DENwS8NAcfoeU2FAv6MgpHSrC0zsQ1iRjn9Lhx" controls autoplay muted loop class="w-full"></video>
+			<hr class="border-zinc-700">
+
+			<h1 class="mt-6 md:text-3xl 2xl:text-4xl text-2xl text-glow-white">
+				We're a global community of 
+			</h1>
+			<h1 id="typer" class="writer-text text-emerald-400 md:text-3xl 2xl:text-4xl text-2xl text-glow-green-accent">
+				cybersec students <span class="text-white">&</span> experts.
+			</h1>
+			<h1 class="mb-4">
+				Bound by our founding principles of community, knowledge & friendship.
+			</h1>
 		</div>
 
-
-		<h1 class="md:text-3xl 2xl:text-4xl text-2xl text-glow-white">
-			We're a global community of 
-		</h1>
-		<h1 id="typer" class="writer-text text-emerald-400 md:text-3xl 2xl:text-4xl text-2xl text-glow-green-accent">
-			cybersec students <span class="text-white">&</span> experts.
-		</h1>
-		<h1>
-			Bound by our founding principles of community, knowledge & friendship.
-		</h1>
 		<!--
 		<h5 class="text-zinc-400 text-xs mt-8 mb-2">
 			Our members have worked at:
