@@ -44,8 +44,9 @@
 
 <section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48" style="overflow-x:hidden">
 	<div class="writer mt-20">
-		<div class="inline-block max-w-xl p-6 border border-zinc-800 rounded-lg card mb-12">
-			<div class="mb-4">
+		<div class="inline-block max-w-xl p-0 borderborder-zinc-800 card mb-12">
+			<!--
+						<div class="mb-4">
 				<img src={icon332} alt="332 Icon" class="h-6 inline"/>
 			</div>
 
@@ -55,6 +56,9 @@
 			<p class="leading-none mt-2">
 				332 is growing, and we're looking for passionate members who are willing to learn, teach and become the best version of themselves. Join us <a class="underline" href="https://discord.gg/technology">here</a>.
 			</p>
+			-->
+			<!-- svelte-ignore a11y-media-has-caption -->
+			<video src="https://utfs.io/f/Hqd7taZdF7DENwS8NAcfoeU2FAv6MgpHSrC0zsQ1iRjn9Lhx" controls autoplay muted loop class="w-full"></video>
 		</div>
 
 
