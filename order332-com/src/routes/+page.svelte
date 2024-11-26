@@ -65,7 +65,7 @@
         <div>
             <!-- svelte-ignore a11y_media_has_caption -->
             <video
-                src="https://utfs.io/f/Hqd7taZdF7DENwS8NAcfoeU2FAv6MgpHSrC0zsQ1iRjn9Lhx"
+                src="https://utfs.io/f/Hqd7taZdF7DE5sUBN0E3IsNzjhy1SpPi7TUGMHZaVnwoWFBX"
                 loop
                 muted
                 autoplay
