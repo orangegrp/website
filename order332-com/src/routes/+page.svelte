@@ -66,10 +66,8 @@
             <!-- svelte-ignore a11y_media_has_caption -->
             <video
                 src="https://utfs.io/f/Hqd7taZdF7DENwS8NAcfoeU2FAv6MgpHSrC0zsQ1iRjn9Lhx"
-                controls
                 loop
                 autoplay
-                muted
                 class="w-auto max-h-[400px]"
             ></video>
         </div>

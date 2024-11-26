@@ -207,51 +207,6 @@
     </div>
 </main>
 
-<main
-    class="my-2 md:my-6 lg:my-8 p-4 md:mx-8 lg:mx-24 flex flex-col gap-y-4 gap-2 md:gap-x-4 relative"
->
-    <h1 class="text-xl">Values &amp; Ethos</h1>
-
-    <div class="relative">
-        <Root
-            opts={{
-                align: "start",
-                loop: true,
-            }}
-            plugins={[
-                Autoplay({
-                    delay: 1000,
-                }),
-            ]}
-        >
-            <Content class="w-64">
-                {#each values as value}
-                    <Item>
-                        <Item>
-                            <div
-                                class="h-64 w-auto border border-primary/5 rounded-sm select-none bg-gradient-to-br from-transparent via-secondary/5 to-transparent md:row-span-2 overflow-hidden relative transition-transform duration-300 flex items-center justify-center"
-                            >
-                                <h1
-                                    class="text-xl"
-                                    style="
-                                background: linear-gradient(to bottom, white, silver);
-                                -webkit-background-clip: text;
-                                -webkit-text-fill-color: transparent;
-                            "
-                                >
-                                    {value}
-                                </h1>
-                            </div>
-                        </Item>
-                    </Item>
-                {/each}
-                <Previous class="hidden"/>
-                <Next class="hidden" />
-            </Content>
-        </Root>
-    </div>
-</main>
-
 <style>
     .writer {
         display: inline-block;
