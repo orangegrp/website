@@ -67,6 +67,7 @@
             <video
                 src="https://utfs.io/f/Hqd7taZdF7DENwS8NAcfoeU2FAv6MgpHSrC0zsQ1iRjn9Lhx"
                 loop
+                muted
                 autoplay
                 class="w-auto max-h-[400px]"
             ></video>
