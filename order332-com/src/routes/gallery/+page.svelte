@@ -48,7 +48,7 @@
                             alt={image.alt}
                             class="w-full h-full object-cover select-none transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" ></div>
                     </div>
                 </Drawer.Trigger>
                 <Drawer.Content>

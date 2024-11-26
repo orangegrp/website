@@ -50,7 +50,7 @@
             </h1>
             <h1
                 id="typer"
-                class="writer-text text-foreground/80 md:text-3xl 2xl:text-4xl text-2xl text-glow-green-accent"
+                class="writer-text md:text-3xl 2xl:text-4xl text-2xl font-bold text-glow-white"
             >
                 cybersec students <span class="text-white">&</span> experts.
             </h1>
@@ -81,7 +81,7 @@
 >
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div
-            class="grayscale hover:grayscale-0 px-4 py-6 rounded-lg bg-gradient-to-br from-transparent via-primary/5 to-transparent border border-primary/5 md:row-span-2 overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]" 
+            class="grayscale hover:grayscale-0 px-4 py-6 rounded-lg bg-gradient-to-br from-transparent via-secondary/5 to-transparent border border-primary/5 md:row-span-2 overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]"
         >
             <h2
                 class="text-sm text-foreground/50 uppercase text-glow-white tracking-widest"
@@ -95,17 +95,17 @@
                 Whether you're from the world of infosec, programming, or just
                 have a tech issue you need help with, 332 is the place to go for
                 all things tech. Access a wide range of free resources, learn
-                from others, and connect with like-minded individuals who will be
-                by your side for life.
+                from others, and connect with like-minded individuals who will
+                be by your side for life.
             </p>
             <img
-            src={tech_help_png}
-            alt="Chat"
-            class="absolute -bottom-28 -right-2 w-96 opacity-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all duration-300 hover:opacity-100 hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
-        />
+                src={tech_help_png}
+                alt="Chat"
+                class="hidden md:inline absolute -bottom-28 -right-2 w-96 opacity-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all duration-300 hover:opacity-100 hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+            />
         </div>
         <div
-            class="grayscale hover:grayscale-0 px-4 pr-36 py-6 rounded-lg bg-gradient-to-tr from-transparent via-primary/5 to-transparent border border-primary/5 overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]"
+            class="grayscale hover:grayscale-0 px-4 pr-36 py-6 rounded-lg bg-gradient-to-tr from-transparent via-secondary/5 to-transparent border border-primary/5 overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]"
         >
             <h2
                 class="text-sm text-foreground/50 uppercase text-glow-white tracking-widest"
@@ -120,13 +120,13 @@
                 the same games as you.
             </p>
             <img
-            src={gaming_png}
-            alt="Gaming"
-            class="absolute -bottom-12 -right-12 w-48 h-48 opacity-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all duration-300 hover:opacity-100 hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
-        />
+                src={gaming_png}
+                alt="Gaming"
+                class="absolute -bottom-12 -right-12 w-48 h-48 opacity-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all duration-300 hover:opacity-100 hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+            />
         </div>
         <div
-            class="grayscale hover:grayscale-0 px-4 pr-36 py-6 rounded-lg bg-gradient-to-bl from-transparent via-primary/5 to-transparent border border-primary/5 overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]"
+            class="grayscale hover:grayscale-0 px-4 pr-36 py-6 rounded-lg bg-gradient-to-bl from-transparent via-secondary/5 to-transparent border border-primary/5 overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]"
         >
             <h2
                 class="text-sm text-foreground/50 uppercase text-glow-white tracking-widest"
@@ -186,6 +186,10 @@
 <style>
     .writer {
         display: inline-block;
+    }
+
+    .text-glow-white {
+        text-shadow: 1px 1px 12px #ffffff64;
     }
 
     .writer-text {
