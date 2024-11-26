@@ -1,125 +1,224 @@
-<script>
-	import redhat_logo from '$lib/images/redhat-logo.png';
-	import msft_logo from '$lib/images/msft-logo.png';
-	import twitter_logo from '$lib/images/x.jpg';
-	import envelope_icon from '$lib/images/envelope-icon.png';
-	import verizon_logo from '$lib/images/verizon-logo.png';
-	import tmobile_logo from '$lib/images/tmobile-logo.png';
-	import stixenskaya_eagle from '$lib/images/stixenskaya-eagle.png';
-	import icon332 from '$lib/images/polygon-icon.svg';
-	import iconOrange from '$lib/images/orange-logo-w.svg';
+<script lang="ts">
+    import Button from "$lib/components/ui/button/button.svelte";
+
+    import {
+        Root,
+        Content,
+        Item,
+        Previous,
+        Next,
+    } from "$lib/components/ui/carousel";
+    import Autoplay from "embla-carousel-autoplay";
+    import img1 from "$lib/images/gallery/1.png";
+    import img2 from "$lib/images/gallery/2.png";
+    import img3 from "$lib/images/gallery/3.png";
+    import img4 from "$lib/images/gallery/4.png";
+    import img5 from "$lib/images/gallery/5.png";
+    import img6 from "$lib/images/gallery/6.png";
+    import img7 from "$lib/images/gallery/7.png";
+    import img8 from "$lib/images/gallery/8.png";
+    import img9 from "$lib/images/gallery/9.png";
+    import img10 from "$lib/images/gallery/10.png";
+    import img11 from "$lib/images/gallery/11.png";
+
+    const galleryImages = [
+        { src: img1, alt: "Gallery image 1" },
+        { src: img2, alt: "Gallery image 2" },
+        { src: img3, alt: "Gallery image 3" },
+        { src: img4, alt: "Gallery image 4" },
+        { src: img5, alt: "Gallery image 5" },
+        { src: img6, alt: "Gallery image 6" },
+        { src: img7, alt: "Gallery image 7" },
+        { src: img8, alt: "Gallery image 8" },
+        { src: img9, alt: "Gallery image 9" },
+        { src: img10, alt: "Gallery image 10" },
+        { src: img11, alt: "Gallery image 11" },
+    ];
+
+    import globe_png from "$lib/images/globe.png";
+    import gaming_png from "$lib/images/gaming.png";
+    import tech_help_png from "$lib/images/tech-help.png";
 </script>
 
-<svelte:head>
-	<title>332</title>
-	<meta name="description" content="Community. Knowledge. Friendship" />
-</svelte:head>
+<main
+    class="my-2 md:my-6 lg:my-8 p-4 md:mx-8 lg:mx-24 flex flex-col gap-4 relative"
+>
+    <div class="flex flex-col justify-between lg:flex-row gap-x-24 gap-y-8">
+        <div class="writer">
+            <h1 class="mt-6 md:text-3xl 2xl:text-4xl text-2xl text-glow-white">
+                We're a global community of
+            </h1>
+            <h1
+                id="typer"
+                class="writer-text md:text-3xl 2xl:text-4xl text-2xl font-bold text-glow-white"
+            >
+                cybersec students <span class="text-white">&</span> experts.
+            </h1>
+            <h1 class="mb-4">
+                Bound by our founding principles of community, knowledge &
+                friendship.
+            </h1>
+            <Button href="/about-us" class="hidden md:inline h-8"
+                >Learn More</Button
+            >
+        </div>
+        <div>
+            <!-- svelte-ignore a11y_media_has_caption -->
+            <video
+                src="https://utfs.io/f/Hqd7taZdF7DENwS8NAcfoeU2FAv6MgpHSrC0zsQ1iRjn9Lhx"
+                controls
+                loop
+                autoplay
+                muted
+                class="w-auto max-h-[400px]"
+            ></video>
+        </div>
+    </div>
+</main>
 
+<main
+    class="my-2 md:my-6 lg:my-8 p-4 md:mx-8 lg:mx-24 flex flex-col gap-y-4 gap-2 md:gap-x-4 relative"
+>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div
+            class="grayscale hover:grayscale-0 px-4 py-6 rounded-lg bg-gradient-to-br from-transparent via-secondary/5 to-transparent border border-primary/5 md:row-span-2 overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]"
+        >
+            <h2
+                class="text-sm text-foreground/50 uppercase text-glow-white tracking-widest"
+            >
+                Technology
+            </h2>
+            <h1 class="text-xl mb-1.5">
+                Discord's #1 hub for all things tech.
+            </h1>
+            <p class="text-foreground/70 leading-none text-sm">
+                Whether you're from the world of infosec, programming, or just
+                have a tech issue you need help with, 332 is the place to go for
+                all things tech. Access a wide range of free resources, learn
+                from others, and connect with like-minded individuals who will
+                be by your side for life.
+            </p>
+            <img
+                src={tech_help_png}
+                alt="Chat"
+                class="hidden md:inline absolute -bottom-28 -right-2 w-96 opacity-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all duration-300 hover:opacity-100 hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+            />
+        </div>
+        <div
+            class="grayscale hover:grayscale-0 px-4 pr-36 py-6 rounded-lg bg-gradient-to-tr from-transparent via-secondary/5 to-transparent border border-primary/5 overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]"
+        >
+            <h2
+                class="text-sm text-foreground/50 uppercase text-glow-white tracking-widest"
+            >
+                Gaming
+            </h2>
+            <h1 class="text-xl mb-1.5">We play games too.</h1>
+            <p class="text-foreground/70 leading-none text-sm">
+                Whether you play Minecraft, CoD or Battlefield 1 or something
+                else, we've probably got you covered. Join our Discord server
+                and connect with others in the community that probably also play
+                the same games as you.
+            </p>
+            <img
+                src={gaming_png}
+                alt="Gaming"
+                class="absolute -bottom-12 -right-12 w-48 h-48 opacity-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all duration-300 hover:opacity-100 hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+            />
+        </div>
+        <div
+            class="grayscale hover:grayscale-0 px-4 pr-36 py-6 rounded-lg bg-gradient-to-bl from-transparent via-secondary/5 to-transparent border border-primary/5 overflow-hidden relative transition-transform duration-300 hover:scale-[1.02]"
+        >
+            <h2
+                class="text-sm text-foreground/50 uppercase text-glow-white tracking-widest"
+            >
+                Diverse Community
+            </h2>
+            <h1 class="text-xl mb-1.5">We're a truly global community.</h1>
+            <p class="text-foreground/70 leading-none text-sm">
+                332 is a global community with members from all over the world.
+                We welcome anyone, no matter their background and beliefs. We
+                value freedom of speech and the exchange of ideas without
+                needless limitations.
+            </p>
+            <img
+                src={globe_png}
+                alt="Globe"
+                class="absolute -bottom-16 -right-12 w-48 h-48 opacity-80 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all duration-300 hover:opacity-100 hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+            />
+        </div>
+    </div>
+</main>
 
-<!--
-<section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48 mt-10">
-	<div class="inline-block max-w-4xl p-6 border border-yellow-800 rounded-lg card-warning mb-4 mr-1">
-		<img src={stixenskaya_eagle} class="w-auto h-6 inline pr-2" alt="Stixenskaya"/>
-		<h1 class="text-xl mt-4">Stixen Day 2024</h1>
-		<h5 class="text-xs"> 19/03/2024 </h5>
-		<p class="leading-none mt-2">
-			Today, The Order hosts the second anniversary of Stixen Day in honour and memory of our friend and
-			dear member of Order 322, Stixen, who died in Kiev (Kyiv), Ukraine defending his homeland.
-			<br><br>
-			Слава Стіксену. Спочивай з миром.
-		</p>	
-	</div>
-</section>
+<main
+    class="my-2 md:my-6 lg:my-8 p-4 md:mx-8 lg:mx-24 flex flex-col gap-y-4 gap-2 md:gap-x-4 relative"
+>
+    <h1 class="text-xl">Explore 332 Art</h1>
 
+    <div class="relative px-16 md:px-4">
+        <Root
+            opts={{
+                align: "start",
+                loop: true,
+            }}
+            plugins={[
+                Autoplay({
+                    delay: 2000,
+                }),
+            ]}
+        >
+            <Content class="w-64">
+                {#each galleryImages as image}
+                    <Item>
+                        <img
+                            src={image.src}
+                            alt={image.alt}
+                            class="h-64 w-auto border border-primary/5 rounded-sm select-none"
+                        />
+                    </Item>
+                {/each}
+            </Content>
+            <Previous />
+            <Next />
+        </Root>
+    </div>
+</main>
 
-	<div class="inline-block max-w-xl p-6 border border-zinc-800 rounded-lg card mb-12">
-			<h1 class="text-xl">"Order 332" is now "332"</h1>
-			<h5 class="bold text-zinc-400 mb-2">13/10/23</h5>
-			<p class="leading-none mt-2">
-				On the 5th October, Order 332 closed due to issues with the parent organisation, The Order. Several events followed, learn more <a class="underline" href="/pub/131023">here</a>.
-			</p>	
-		</div>
--->
-
-
-<section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48" style="overflow-x:hidden">
-	<div class="writer mt-20">
-		<div class="z-index-10 inline-block max-w-xl p-4 border rounded-lg border-zinc-800 card mb-12">
-			<div class="mb-4">
-				<img src={icon332} alt="332 Icon" class="h-6 inline"/>
-			</div>
-			<h1 class="text-xl">
-				We're actively looking for new members!
-			</h1>
-			<p class="leading-none mt-2 mb-8">
-				332 is growing, and we're looking for passionate members who are willing to learn, teach and become the best version of themselves. Join us <a class="underline" href="https://discord.gg/technology">here</a>.
-			</p>
-			<!--
-		
-						<video src="https://utfs.io/f/Hqd7taZdF7DENwS8NAcfoeU2FAv6MgpHSrC0zsQ1iRjn9Lhx" controls loop class="w-full"></video>
-			-->
-			<!-- svelte-ignore a11y-media-has-caption -->
-			<hr class="border-zinc-700">
-
-			<h1 class="mt-6 md:text-3xl 2xl:text-4xl text-2xl text-glow-white">
-				We're a global community of 
-			</h1>
-			<h1 id="typer" class="writer-text text-emerald-400 md:text-3xl 2xl:text-4xl text-2xl text-glow-green-accent">
-				cybersec students <span class="text-white">&</span> experts.
-			</h1>
-			<h1 class="mb-4">
-				Bound by our founding principles of community, knowledge & friendship.
-			</h1>
-		</div>
-
-		<!--
-		<h5 class="text-zinc-400 text-xs mt-8 mb-2">
-			Our members have worked at:
-		</h5>
-		<div>
-			<img src={msft_logo} class="w-auto h-6 inline pr-2 mb-4" alt="Microsoft"/>
-			<img src={redhat_logo} class="w-auto h-6 inline pr-2 mb-4" alt="IBM RedHat"/>
-			<img src={verizon_logo} class="w-auto h-6 inline pr-2 pb-1 mb-4" alt="Verizon"/>
-			<img src={tmobile_logo} class="w-auto h-4 inline pr-2 pl-1 mb-4" alt="T-Mobile"/>
-		</div>
-		-->
-	</div>
-</section>
-
-<section class="lg:pl-24 lg:pr-24 2xl:pl-48 2xl:pr-48 mt-20">
-
-</section>
-
-
-<style>	
-.writer {
-	display: inline-block;
-}
-
-.writer-text {
-    display: inline-block;
-  	overflow: hidden;
- 	animation: typing 1s steps(20, end), blink .75s step-end infinite;
-    white-space: nowrap;
-    border-right: 10px solid white;
-    box-sizing: border-box;
-}
-
-@keyframes typing {
-    from { 
-        width: 0% 
+<style>
+    .writer {
+        display: inline-block;
     }
-    to { 
-        width: 100% 
-    }
-}
 
-@keyframes blink {
-    from, to { 
-        border-color: transparent 
+    .text-glow-white {
+        text-shadow: 1px 1px 12px #ffffff64;
     }
-    50% { 
-        border-color: white; 
+
+    .writer-text {
+        display: inline-block;
+        overflow: hidden;
+        animation:
+            typing 1s steps(20, end),
+            blink 0.75s step-end infinite;
+        white-space: nowrap;
+        border-right: 10px solid white;
+        box-sizing: border-box;
     }
-}
+
+    @keyframes typing {
+        from {
+            width: 0%;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    @keyframes blink {
+        from,
+        to {
+            border-color: transparent;
+        }
+        50% {
+            border-color: white;
+        }
+    }
 </style>
