@@ -21,6 +21,14 @@
         property="og:image"
         content="/mfa-332.png"
     />
+    <meta
+        name="twitter:card" 
+        content="summary_large_image"
+    />
+    <meta
+        name="twitter:image"
+        content="/mfa-332.png" 
+    />
     <meta property="og:site_name" content="332" />
 </svelte:head>
 
