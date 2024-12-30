@@ -57,6 +57,7 @@
     class="bg-black/80 rounded-xl backdrop-blur-2xl shadow-xl my-2 md:my-6 lg:my-8 p-4 md:mx-8 lg:mx-24 flex flex-col gap-4 relative"
 >
     <div class="p-8 md:p-12 rounded-lg shadow-lg">
+        <h5 class="text-lg font-semibold mb-2">December 30, 2024</h5>
         <h1 class="text-3xl font-bold mb-6">
             Official Statement: Response to Malicious Incident
         </h1>
