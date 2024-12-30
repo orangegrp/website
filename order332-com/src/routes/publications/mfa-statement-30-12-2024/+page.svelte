@@ -64,8 +64,7 @@
             The Ministry of Foreign Affairs of <span class="font-bold">332</span
             >
             wishes to address recent events that have impacted our community. An
-            incident of malicious activity occurred, involving an individual
-            referred to as <span class="font-semibold">"Noobcat" (NC)</span>,
+            incident of malicious activity occurred, involving an unnamed individual
             who sought to undermine the integrity of our digital infrastructure
             by executing a deliberate and destructive act commonly known as
             <span class="italic">"nuking."</span>
@@ -83,9 +82,9 @@
                 we endure such challenges with unity and resolve.
             </li>
             <li class="mb-2">
-                <span class="font-bold">Nature of the Attack:</span> NC attempted
+                <span class="font-bold">Nature of the Attack:</span> The perpetrator attempted
                 to misattribute his actions to a third party, but the inaccuracies
-                of his claims reveal their lack of substance. The attack stemmed
+                of his claims reveal his lack of substance. The attack stemmed
                 from a failure to constructively engage with criticism, culminating
                 in malicious actions against our community. Additionally, the attack
                 extended to associated resources, including the bot development server
@@ -93,7 +92,7 @@
             </li>
             <li>
                 <span class="font-bold">Current Status of the Perpetrator:</span
-                > Following the incident, NC has deleted his account and associated
+                > Following the incident, the perpetrator has deleted his account and associated
                 external profiles, effectively removing himself from public view.
             </li>
         </ul>
