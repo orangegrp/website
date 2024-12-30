@@ -100,25 +100,24 @@
         <h2 class="text-2xl font-semibold mt-6 mb-4">Moving Forward:</h2>
         <ul class="list-disc pl-6 mb-4">
             <li class="mb-2">
-                <span class="font-bold">Rebuilding:</span> Efforts are already in
-                motion to recover from the damage. This includes the reconstruction
-                of critical resources and systems.
+                <span class="font-bold">Incident Response:</span> The recovery of the affected resources has already been completed. This includes the restoration
+                of critical services and systems such as the bot development server and the GitHub repositories linked to our projects. Technical details can be found on the <a href="https://status.order332.com/" class="underline" target="_blank" rel="noopener noreferrer">status page</a>.
             </li>
             <li class="mb-2">
                 <span class="font-bold">Boosting Reminder:</span> For those members
                 who were boosting the server, please ensure to re-enable your boosts
-                to support the recovery process.
+                after re-joining.
             </li>
             <li>
                 <span class="font-bold">Acknowledgment:</span> The leadership recognizes
                 this incident as a result of an oversight in access permissions.
-                Measures are being implemented to prevent similar occurrences in
+                Measures have been implemented to prevent similar occurrences in
                 the future.
             </li>
         </ul>
 
         <p class="text-lg mt-6">
-            The Ministry encourages all members to continue engaging with one
+            332's leadership encourages all members to continue engaging with one
             another and to view this incident as a testament to our resilience
             and shared purpose. While challenges may arise, the spirit of <span
                 class="font-bold">332</span
@@ -131,9 +130,9 @@
 
         <div class="mt-8">
             <p class="font-bold text-lg">
-                Issued by the Ministry of Foreign Affairs, 332
+                Ministry of Foreign Affairs, 332
             </p>
-            <p class="italic">"332: Community. Knowledge. Friendship"</p>
+            <p class="italic">"332: Community. Knowledge. Friendship."</p>
         </div>
     </div>
 </main>
