@@ -14,7 +14,7 @@
     />
     <meta
         property="og:description"
-        content="An official statement from 332's leadership addressing a recent incident involving malicious actions against the community. Learn about our resilience and ongoing recovery."
+        content="An official statement from 332's leadership addressing a recent incident involving malicious actions against the community. Learn about our resilience and steps forward."
     />
     <meta property="og:type" content="website" />
     <meta
