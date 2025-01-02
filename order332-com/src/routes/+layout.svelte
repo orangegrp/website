@@ -72,7 +72,7 @@
 		</div>
 		<hr class="my-6 border-primary/10 sm:mx-auto lg:my-8" />
 		<span class="block text-sm text-primary sm:text-center mb-1"
-			>© 2024 <a href="https://order332.com" class="hover:underline"
+			>© 2025 <a href="https://order332.com" class="hover:underline"
 				>332</a
 			>. All Rights Reserved.</span
 		>
