@@ -21,6 +21,7 @@
     import img9 from "$lib/images/gallery/9.png";
     import img10 from "$lib/images/gallery/10.png";
     import img11 from "$lib/images/gallery/11.png";
+    import img12 from "$lib/images/gallery/12.png";
 
     const galleryImages = [
         { src: img1, alt: "Gallery image 1" },
@@ -34,6 +35,7 @@
         { src: img9, alt: "Gallery image 9" },
         { src: img10, alt: "Gallery image 10" },
         { src: img11, alt: "Gallery image 11" },
+        { src: img12, alt: "he brown lolololool" },
     ];
 </script>
 
