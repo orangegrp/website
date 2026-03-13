@@ -11,7 +11,7 @@
 				destructive:
 					"glass-button-destructive focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 text-white",
 				outline: "text-foreground",
-				secondary: "text-secondary-foreground",
+				secondary: "glass-button-secondary text-secondary-foreground",
 				ghost: "glass-button-ghost hover:text-accent-foreground",
 				link: "!bg-transparent !border-transparent !shadow-none !backdrop-blur-none text-primary underline-offset-4 hover:underline",
 			},

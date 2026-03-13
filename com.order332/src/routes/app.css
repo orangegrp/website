@@ -4,13 +4,16 @@
 
 .glass-card {
   background: oklch(1 0 0 / 3%);
-  border: 1px solid oklch(1 0 0 / 7%);
+  border-top: 1px solid oklch(1 0 0 / 16%);
+  border-left: 1px solid oklch(1 0 0 / 8%);
+  border-right: 1px solid oklch(1 0 0 / 6%);
+  border-bottom: 1px solid oklch(1 0 0 / 4%);
   border-radius: 1.5rem;
   backdrop-filter: blur(40px) saturate(1.2);
   -webkit-backdrop-filter: blur(40px) saturate(1.2);
   box-shadow:
-    inset 0 1px 0 oklch(1 0 0 / 5%),
-    inset 0 -1px 0 oklch(1 0 0 / 2%),
+    inset 0 1px 0 oklch(1 0 0 / 10%),
+    inset 0 -1px 0 oklch(0 0 0 / 10%),
     0 0 60px oklch(1 0 0 / 3%),
     0 20px 40px oklch(0 0 0 / 35%);
 }
@@ -19,49 +22,81 @@
 
 .glass-button {
   background: oklch(1 0 0 / 5%);
-  border: 1px solid oklch(1 0 0 / 10%);
+  border-top: 1px solid oklch(1 0 0 / 14%);
+  border-left: 1px solid oklch(1 0 0 / 8%);
+  border-right: 1px solid oklch(1 0 0 / 6%);
+  border-bottom: 1px solid oklch(0 0 0 / 12%);
   backdrop-filter: blur(20px) saturate(1.1);
   -webkit-backdrop-filter: blur(20px) saturate(1.1);
   box-shadow:
-    inset 0 1px 0 oklch(1 0 0 / 8%),
+    inset 0 1px 0 oklch(1 0 0 / 10%),
+    inset 0 -1px 0 oklch(0 0 0 / 10%),
     0 0 20px oklch(1 0 0 / 3%);
   transition: all 0.25s ease;
 }
 
 .glass-button:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: oklch(1 0 0 / 10%);
-  border-color: oklch(1 0 0 / 18%);
+  background: oklch(1 0 0 / 9%);
+  border-top-color: oklch(1 0 0 / 20%);
   box-shadow:
-    inset 0 1px 0 oklch(1 0 0 / 12%),
+    inset 0 1px 0 oklch(1 0 0 / 14%),
+    inset 0 -1px 0 oklch(0 0 0 / 12%),
     0 0 30px oklch(1 0 0 / 6%),
-    0 8px 24px oklch(0 0 0 / 30%);
+    0 8px 24px oklch(0 0 0 / 28%);
   transform: translateY(-1px);
 }
 
 .glass-button:active:not(:disabled):not([aria-disabled="true"]) {
   transform: translateY(0);
-  background: oklch(1 0 0 / 7%);
+  background: oklch(1 0 0 / 4%);
   box-shadow:
     inset 0 1px 0 oklch(1 0 0 / 6%),
-    0 0 12px oklch(1 0 0 / 2%);
+    inset 0 1px 3px oklch(0 0 0 / 12%);
 }
 
-/* Default variant: white/light glass so text stays dark */
+/* Default variant: light solid */
 .glass-button-default {
-  background: oklch(0.92 0 0 / 0.85);
-  border-color: oklch(1 0 0 / 25%);
+  background: oklch(0.92 0 0 / 0.88);
+  border-top: 1px solid oklch(1 0 0 / 35%);
+  border-left: 1px solid oklch(1 0 0 / 20%);
+  border-right: 1px solid oklch(0.8 0 0 / 18%);
+  border-bottom: 1px solid oklch(0.7 0 0 / 22%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   box-shadow:
-    inset 0 1px 0 oklch(1 0 0 / 40%),
-    0 0 20px oklch(1 0 0 / 8%);
+    inset 0 1px 0 oklch(1 0 0 / 30%),
+    0 2px 6px oklch(0 0 0 / 18%);
 }
 
 .glass-button-default:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: oklch(0.95 0 0 / 0.9);
-  border-color: oklch(1 0 0 / 35%);
+  background: oklch(0.96 0 0 / 0.92);
+  border-top-color: oklch(1 0 0 / 45%);
   box-shadow:
-    inset 0 1px 0 oklch(1 0 0 / 50%),
-    0 0 30px oklch(1 0 0 / 12%),
-    0 8px 24px oklch(0 0 0 / 25%);
+    inset 0 1px 0 oklch(1 0 0 / 40%),
+    0 4px 10px oklch(0 0 0 / 20%);
+  transform: translateY(-1px);
+}
+
+/* Secondary variant: dark solid */
+.glass-button-secondary {
+  background: oklch(0.12 0 0);
+  border-top: 1px solid oklch(1 0 0 / 14%);
+  border-left: 1px solid oklch(1 0 0 / 8%);
+  border-right: 1px solid oklch(1 0 0 / 6%);
+  border-bottom: 1px solid oklch(1 0 0 / 6%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 10%),
+    0 2px 6px oklch(0 0 0 / 18%);
+}
+
+.glass-button-secondary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background: oklch(0.16 0 0);
+  border-top-color: oklch(1 0 0 / 20%);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 14%),
+    0 4px 10px oklch(0 0 0 / 22%);
   transform: translateY(-1px);
 }
 
@@ -75,21 +110,22 @@
 }
 
 .glass-button-ghost:hover:not(:disabled):not([aria-disabled="true"]) {
-  background: oklch(1 0 0 / 10%);
-  border: 1px solid oklch(1 0 0 / 18%);
+  background: oklch(1 0 0 / 8%);
+  border: 1px solid oklch(1 0 0 / 12%);
   backdrop-filter: blur(20px) saturate(1.1);
   -webkit-backdrop-filter: blur(20px) saturate(1.1);
   box-shadow:
-    inset 0 1px 0 oklch(1 0 0 / 12%),
-    0 0 30px oklch(1 0 0 / 6%),
-    0 8px 24px oklch(0 0 0 / 30%);
+    inset 0 1px 0 oklch(1 0 0 / 10%),
+    0 0 30px oklch(1 0 0 / 5%),
+    0 8px 24px oklch(0 0 0 / 28%);
   transform: translateY(-1px);
 }
 
 /* Destructive variant glass tint */
 .glass-button-destructive {
   background: oklch(0.7 0.19 22 / 10%);
-  border-color: oklch(0.7 0.19 22 / 20%);
+  border: 1px solid oklch(0.7 0.19 22 / 22%);
+  box-shadow: inset 0 1px 0 oklch(0.9 0.08 22 / 10%);
 }
 
 .glass-button-destructive:hover:not(:disabled) {
@@ -97,8 +133,8 @@
   border-color: oklch(0.7 0.19 22 / 30%);
   box-shadow:
     inset 0 1px 0 oklch(0.9 0.08 22 / 12%),
-    0 0 30px oklch(0.7 0.19 22 / 10%),
-    0 8px 24px oklch(0 0 0 / 30%);
+    0 4px 10px oklch(0 0 0 / 20%);
+  transform: translateY(-1px);
 }
 
 /* ── Liquid Glass: Navigation ─────────────────────────────────────── */
@@ -118,16 +154,22 @@
 
 /* Same glass look for viewport=false dropdowns */
 .glass-nav-content,
-[data-viewport="false"] [data-slot="navigation-menu-content"] {
-  background: oklch(0 0 0 / 35%);
-  border: 1px solid oklch(1 0 0 / 12%);
+[data-viewport="false"] [data-slot="navigation-menu-content"],
+.glass-popover {
+  background:
+    linear-gradient(180deg, oklch(1 0 0 / 5%) 0%, oklch(1 0 0 / 0%) 60%),
+    oklch(0.09 0 0 / 90%);
   border-radius: 1rem;
-  backdrop-filter: blur(24px) saturate(1.2);
-  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border-top: 1px solid oklch(1 0 0 / 14%);
+  border-left: 1px solid oklch(1 0 0 / 8%);
+  border-right: 1px solid oklch(1 0 0 / 6%);
+  border-bottom: 1px solid oklch(1 0 0 / 8%);
+  backdrop-filter: blur(40px) saturate(1.4);
+  -webkit-backdrop-filter: blur(40px) saturate(1.4);
   box-shadow:
-    inset 0 1px 0 oklch(1 0 0 / 8%),
-    inset 0 -1px 0 oklch(0 0 0 / 20%),
-    0 0 60px oklch(1 0 0 / 3%),
+    inset 0 1px 0 oklch(1 0 0 / 10%),
+    inset 0 -1px 0 oklch(0 0 0 / 15%),
+    0 8px 20px oklch(0 0 0 / 25%),
     0 20px 40px oklch(0 0 0 / 35%);
 }
 
@@ -142,14 +184,14 @@
 
 .glass-nav-trigger:hover,
 .glass-nav-trigger[data-state="open"] {
-  background: oklch(1 0 0 / 10%);
-  border-color: oklch(1 0 0 / 18%);
+  background: oklch(1 0 0 / 9%);
+  border: 1px solid oklch(1 0 0 / 14%);
   backdrop-filter: blur(20px) saturate(1.1);
   -webkit-backdrop-filter: blur(20px) saturate(1.1);
   box-shadow:
     inset 0 1px 0 oklch(1 0 0 / 12%),
-    0 0 30px oklch(1 0 0 / 6%),
-    0 8px 24px oklch(0 0 0 / 30%);
+    0 0 30px oklch(1 0 0 / 5%),
+    0 8px 24px oklch(0 0 0 / 28%);
 }
 
 .glass-nav-trigger:hover {
@@ -168,11 +210,11 @@
   border-radius: 0.375rem;
   backdrop-filter: blur(12px) saturate(1.05);
   -webkit-backdrop-filter: blur(12px) saturate(1.05);
-  box-shadow: inset 0 1px 0 oklch(1 0 0 / 6%);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 8%);
 }
 
 .glass-nav-link:active {
-  background: oklch(1 0 0 / 6%);
+  background: oklch(1 0 0 / 5%);
   box-shadow: inset 0 1px 0 oklch(1 0 0 / 4%);
 }
 
@@ -188,11 +230,11 @@
   border-radius: 0.375rem;
   backdrop-filter: blur(12px) saturate(1.05);
   -webkit-backdrop-filter: blur(12px) saturate(1.05);
-  box-shadow: inset 0 1px 0 oklch(1 0 0 / 6%);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 8%);
 }
 
 .glass-link:active {
-  background: oklch(1 0 0 / 6%);
+  background: oklch(1 0 0 / 5%);
   box-shadow: inset 0 1px 0 oklch(1 0 0 / 4%);
 }
 
@@ -204,4 +246,39 @@
   box-shadow:
     inset 0 1px 0 oklch(1 0 0 / 8%),
     0 2px 8px oklch(0 0 0 / 25%);
+}
+
+/* ── Liquid Glass: Popovers & Overlays ───────────────────────────── */
+
+/*
+ * Catches all floating UI panels from shadcn-svelte / bits-ui components
+ * (select, dropdown-menu, context-menu, popover, tooltip, hover-card,
+ *  menubar, combobox) so they automatically get the glass treatment.
+ */
+[data-slot="popover-content"],
+[data-slot="select-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="context-menu-content"],
+[data-slot="tooltip-content"],
+[data-slot="hover-card-content"],
+[data-slot="menubar-content"],
+[data-slot="menubar-sub-content"],
+[data-slot="dropdown-menu-sub-content"],
+[data-slot="context-menu-sub-content"],
+[data-slot="combobox-content"],
+[data-slot="command"] {
+  background:
+    linear-gradient(180deg, oklch(1 0 0 / 5%) 0%, oklch(1 0 0 / 0%) 60%),
+    oklch(0.09 0 0 / 90%) !important;
+  border-top: 1px solid oklch(1 0 0 / 14%) !important;
+  border-left: 1px solid oklch(1 0 0 / 8%) !important;
+  border-right: 1px solid oklch(1 0 0 / 6%) !important;
+  border-bottom: 1px solid oklch(1 0 0 / 8%) !important;
+  backdrop-filter: blur(40px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(1.4) !important;
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 10%),
+    inset 0 -1px 0 oklch(0 0 0 / 15%),
+    0 8px 20px oklch(0 0 0 / 25%),
+    0 20px 40px oklch(0 0 0 / 35%) !important;
 }
