@@ -1,25 +1,32 @@
+<script lang="ts">
+	import Navbar from "$lib/components/elements/navbar/navbar.svelte";
+	import { Button } from "$lib/components/ui/button/index.js";
+</script>
+
 <svelte:head>
-	<title>332 — Something big is coming</title>
-	<meta name="description" content="We're building something new. Stay tuned." />
+	<title>332 — Order332</title>
+	<meta name="description" content="332 — A new kind of platform. Explore our blog, projects, and more." />
 
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="332 — Something big is coming" />
-	<meta property="og:description" content="We're building something new. Stay tuned." />
+	<meta property="og:title" content="332 — Order332" />
+	<meta property="og:description" content="A new kind of platform. Explore our blog, projects, and more." />
 	<meta property="og:image" content="https://order332.com/og-image.png" />
 	<meta property="og:url" content="https://order332.com" />
 	<meta property="og:site_name" content="332" />
 
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="332 — Something big is coming" />
-	<meta name="twitter:description" content="We're building something new. Stay tuned." />
+	<meta name="twitter:title" content="332 — Order332" />
+	<meta name="twitter:description" content="A new kind of platform. Explore our blog, projects, and more." />
 	<meta name="twitter:image" content="https://order332.com/og-image.png" />
 </svelte:head>
 
-<main class="page-root relative flex min-h-screen items-center justify-center overflow-hidden">
+<Navbar />
+
+<main class="page-root relative flex min-h-screen items-center justify-center overflow-hidden px-4 pt-24">
 	<!-- Dot grid pattern -->
 	<div class="dot-pattern pointer-events-none absolute inset-0" aria-hidden="true"></div>
 
-	<!-- Ambient floating orbs (white/gray) -->
+	<!-- Ambient floating orbs -->
 	<div class="pointer-events-none absolute inset-0" aria-hidden="true">
 		<div
 			class="absolute -left-[10%] -top-[10%] h-[700px] w-[700px] rounded-full"
@@ -47,30 +54,48 @@
 		></div>
 	</div>
 
-	<!-- Glass card -->
+	<!-- Hero content -->
 	<div
-		class="glass-card relative z-10 mx-4 flex max-w-md flex-col items-center gap-6 px-8 py-12 text-center sm:px-14 sm:py-16"
+		class="relative z-10 mx-auto flex max-w-2xl flex-col items-center gap-8 text-center animate-[fade-in-up_0.8s_ease-out_both]"
 	>
-		<!-- Logo -->
-		<img
-			src="/polygon.svg"
-			alt="332"
-			class="h-20 w-20 sm:h-24 sm:w-24"
-			style="filter: drop-shadow(0 0 16px oklch(1 0 0 / 15%));"
-		/>
+		<!-- Logo mark -->
+		<div class="logo-glow">
+			<img
+				src="/polygon.svg"
+				alt="332"
+				class="h-16 w-16 sm:h-20 sm:w-20"
+				style="filter: drop-shadow(0 0 24px oklch(1 0 0 / 20%));"
+			/>
+		</div>
 
 		<!-- Headline -->
-		<h1 class="text-xl leading-snug tracking-wider text-foreground sm:text-2xl">
-			Something big is coming<span class="blink-cursor">_</span>
-		</h1>
+		<div class="flex flex-col gap-3">
+			<h1 class="text-5xl leading-none tracking-widest text-foreground sm:text-7xl lg:text-8xl">
+				332<span class="blink-cursor">_</span>
+			</h1>
+			<p class="text-lg tracking-widest text-muted-foreground sm:text-xl">
+				A new kind of platform.
+			</p>
+		</div>
 
-		<!-- Subtext -->
-		<p class="text-sm text-muted-foreground sm:text-base">
-			We're building something new. Stay tuned.
+		<!-- Body copy -->
+		<p class="max-w-md text-sm leading-relaxed tracking-wide text-muted-foreground sm:text-base">
+			We're building tools, ideas, and experiences worth paying attention to.
+			Explore our projects, read the blog, and join the community.
 		</p>
 
+		<!-- CTA buttons -->
+		<div class="flex flex-wrap items-center justify-center gap-3">
+			<Button href="/projects" variant="default" size="lg" class="tracking-wider">
+				Explore Projects
+			</Button>
+			<Button href="/blog" variant="ghost" size="lg" class="tracking-wider">
+				Read the Blog
+			</Button>
+		</div>
+
 		<!-- Status indicator -->
-		<div class="mt-2 flex items-center gap-2 text-xs tracking-widest text-muted-foreground uppercase">
+		<div class="flex items-center gap-2 text-xs tracking-widest text-muted-foreground uppercase">
 			<span
 				class="inline-block h-1.5 w-1.5 rounded-full"
 				style="
@@ -79,7 +104,7 @@
 					box-shadow: 0 0 6px oklch(0.7 0 0 / 40%);
 				"
 			></span>
-			<span>In development</span>
+			<span>Live</span>
 		</div>
 	</div>
 </main>
@@ -94,21 +119,11 @@
 		background-size: 24px 24px;
 	}
 
-	.glass-card {
-		background: oklch(1 0 0 / 3%);
-		border: 1px solid oklch(1 0 0 / 7%);
-		border-radius: 1.5rem;
-		backdrop-filter: blur(40px) saturate(1.2);
-		-webkit-backdrop-filter: blur(40px) saturate(1.2);
-		box-shadow:
-			inset 0 1px 0 oklch(1 0 0 / 5%),
-			inset 0 -1px 0 oklch(1 0 0 / 2%),
-			0 0 60px oklch(1 0 0 / 3%),
-			0 20px 40px oklch(0 0 0 / 35%);
-		animation: fade-in-up 0.8s ease-out both;
-	}
-
 	.blink-cursor {
 		animation: blink-cursor 1s step-end infinite;
+	}
+
+	.logo-glow {
+		animation: float-orb-1 6s ease-in-out infinite;
 	}
 </style>
