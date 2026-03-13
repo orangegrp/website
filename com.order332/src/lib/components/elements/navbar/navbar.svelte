@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from "$app/stores";
+	import { page } from "$app/state";
 	import { Button } from "$lib/components/ui/button/index.js";
 	import { cn } from "$lib/utils.js";
 	import { MenuIcon, XIcon, ChevronRightIcon, ChevronDownIcon } from "@lucide/svelte/icons";
@@ -28,7 +28,7 @@
 	];
 
 	$effect(() => {
-		$page.url.pathname;
+		page.url.pathname;
 		mobileOpen = false;
 		projectsOpen = false;
 		mobileProjectsOpen = false;
@@ -56,8 +56,8 @@
 	});
 
 	function isActive(href: string) {
-		if (href === "/") return $page.url.pathname === "/";
-		return $page.url.pathname.startsWith(href);
+		if (href === "/") return page.url.pathname === "/";
+		return page.url.pathname.startsWith(href);
 	}
 </script>
 
@@ -153,7 +153,7 @@
 			<!-- Desktop: Members Area button -->
 			<Button
 				href="/members"
-				variant="secondary"
+				variant="glass"
 				size="sm"
 				class="hidden shrink-0 tracking-wider md:inline-flex"
 			>
@@ -228,7 +228,7 @@
 				<div class="mt-2 border-t border-white/5 pt-2">
 					<Button
 						href="/members"
-						variant="secondary"
+						variant="glass"
 						size="sm"
 						class="w-full tracking-wider"
 					>

@@ -97,9 +97,10 @@
 			<Button href="/projects" variant="default" size="lg" class="tracking-wider">
 				Explore Projects
 			</Button>
-			<Button href="/blog" variant="ghost" size="lg" class="tracking-wider">
+			<Button href="/blog" variant="glass" size="lg" class="tracking-wider">
 				Read the Blog
 			</Button>
+
 		</div>
 
 		<ContextMenu.Root>

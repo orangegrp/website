@@ -13,6 +13,7 @@
 				outline: "text-foreground",
 				secondary: "glass-button-secondary text-secondary-foreground",
 				ghost: "glass-button-ghost hover:text-accent-foreground",
+				glass: "glass-button-glass",
 				link: "!bg-transparent !border-transparent !shadow-none !backdrop-blur-none text-primary underline-offset-4 hover:underline",
 			},
 			size: {
