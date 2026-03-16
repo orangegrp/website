@@ -16,15 +16,16 @@
 
 	const navLinks = [
 		{ label: "Home", href: "/" },
-		{ label: "Blog", href: "/blog" },
-		{ label: "About", href: "/about" },
+		{ label: "Blog", href: "#blog" },
+		{ label: "About", href: "#about" },
 	];
 
 	const projects = [
-		{ label: "All Projects", href: "/projects", description: "Browse everything we're building" },
-		{ label: "Open Platform", href: "/projects/platform", description: "Tools and APIs for builders" },
-		{ label: "Community", href: "/projects/community", description: "Forums, events, and more" },
-		{ label: "Labs", href: "/projects/labs", description: "Experimental ideas in the works" },
+		{ label: "All Projects", href: "#projects", description: "Browse everything we're building" },
+		{ label: "Telos", href: "#telos", description: "Coming soon" },
+		{ label: "CTF", href: "#ctf", description: "Coming soon" },
+		{ label: "332 Labs", href: "#labs", description: "Coming soon" },
+		{ label: "twanOS", href: "#twanos", description: "Coming soon" },
 	];
 
 	$effect(() => {
@@ -152,7 +153,7 @@
 
 			<!-- Desktop: Members Area button -->
 			<Button
-				href="/members"
+				href="#members"
 				variant="glass"
 				size="sm"
 				class="hidden shrink-0 tracking-wider md:inline-flex"
@@ -227,7 +228,7 @@
 
 				<div class="mt-2 border-t border-white/5 pt-2">
 					<Button
-						href="/members"
+						href="#members"
 						variant="glass"
 						size="sm"
 						class="w-full tracking-wider"
