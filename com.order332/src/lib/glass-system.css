@@ -834,17 +834,41 @@
 /* ── Sonner (toast) ───────────────────────────────────────────────── */
 
 .toaster [data-sonner-toast] {
-  background:
-    linear-gradient(180deg, oklch(1 0 0 / 5%) 0%, oklch(1 0 0 / 0%) 60%),
-    var(--glass-bg-overlay) !important;
-  border-top:    1px solid var(--glass-border-top)    !important;
-  border-left:   1px solid var(--glass-border-left)   !important;
-  border-right:  1px solid var(--glass-border-faint)  !important;
-  border-bottom: 1px solid var(--glass-border-subtle) !important;
+  background: var(--glass-bg-overlay) !important;
+  border: 1px solid oklch(1 0 0 / 12%) !important;
+  border-radius: var(--glass-radius-lg) !important;
   backdrop-filter: var(--glass-blur-panel) !important;
   -webkit-backdrop-filter: var(--glass-blur-panel) !important;
   box-shadow: var(--glass-shadow-overlay) !important;
   color: oklch(0.92 0 0) !important;
+}
+
+/* Success — green tint */
+.toaster [data-sonner-toast][data-type="success"] {
+  background: oklch(0.25 0.06 145 / 70%) !important;
+  border-color: oklch(0.55 0.15 145 / 35%) !important;
+  color: oklch(0.88 0.1 145) !important;
+}
+
+/* Error — red tint */
+.toaster [data-sonner-toast][data-type="error"] {
+  background: oklch(0.22 0.07 22 / 70%) !important;
+  border-color: oklch(0.55 0.18 22 / 35%) !important;
+  color: oklch(0.88 0.1 22) !important;
+}
+
+/* Info — blue tint */
+.toaster [data-sonner-toast][data-type="info"] {
+  background: oklch(0.22 0.06 250 / 70%) !important;
+  border-color: oklch(0.55 0.15 250 / 35%) !important;
+  color: oklch(0.88 0.1 250) !important;
+}
+
+/* Warning — amber tint */
+.toaster [data-sonner-toast][data-type="warning"] {
+  background: oklch(0.25 0.07 70 / 70%) !important;
+  border-color: oklch(0.65 0.15 70 / 35%) !important;
+  color: oklch(0.88 0.1 70) !important;
 }
 
 /* ── Calendar ─────────────────────────────────────────────────────── */
