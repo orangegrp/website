@@ -890,3 +890,137 @@
   border-color: oklch(1 0 0 / 10%);
   border-top-color: oklch(0.88 0 0 / 80%);
 }
+
+
+/* ══════════════════════════════════════════════════════════════════
+ *  MOBILE  (≤ 767px)
+ *  Larger touch targets and overlay sizes for phone use.
+ *  Everything above is untouched at ≥ 768px (desktop).
+ * ══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+
+  /* ── 1. Clickable elements — ≥ 44 px touch targets (≈ 1.25×) ─── */
+
+  /* Buttons */
+  [data-slot="button"] {
+    min-height: 2.75rem;   /* 44px — up from ~36px */
+    min-width:  2.75rem;   /* icon buttons become square at same size */
+    font-size:  1rem;
+  }
+
+  /* Inputs — 1rem prevents iOS Safari auto-zoom on focus */
+  [data-slot="input"],
+  [data-slot="select-trigger"],
+  [data-slot="input-group"] {
+    min-height: 2.75rem;
+    font-size:  1rem;
+  }
+
+  [data-slot="textarea"] {
+    font-size: 1rem;
+  }
+
+  /* Input OTP slots */
+  [data-slot="input-otp-slot"] {
+    min-height: 2.75rem;
+    min-width:  2.75rem;
+    font-size:  1.125rem;
+  }
+
+  /* Checkbox */
+  [data-slot="checkbox"] {
+    width:     1.375rem;   /* 22px */
+    height:    1.375rem;
+    min-width: 1.375rem;
+  }
+
+  /* Tabs */
+  [data-slot="tabs-trigger"] {
+    min-height: 2.5rem;
+    font-size:  0.9375rem;
+  }
+
+  /* Accordion */
+  [data-slot="accordion-trigger"] {
+    min-height: 3rem;
+    font-size:  1rem;
+  }
+
+  /* Toggle / Toggle Group items */
+  [data-slot="toggle"],
+  [data-slot="toggle-group-item"] {
+    min-height: 2.75rem;
+    min-width:  2.75rem;
+  }
+
+  /* Pagination */
+  [data-slot="pagination-link"],
+  [data-slot="pagination-previous"],
+  [data-slot="pagination-next"] {
+    min-height: 2.75rem;
+    min-width:  2.75rem;
+  }
+
+  /* Breadcrumb */
+  [data-slot="breadcrumb-link"] {
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Slider thumb — easier to grab */
+  [data-slot="slider-thumb"] {
+    width:  1.5rem;
+    height: 1.5rem;
+  }
+
+  /* ── 2. Floating panels — 1.5× touch targets for menus ───────── */
+
+  /* Panel container: larger font + generous padding */
+  [data-slot="popover-content"],
+  [data-slot="select-content"],
+  [data-slot="dropdown-menu-content"],
+  [data-slot="context-menu-content"],
+  [data-slot="hover-card-content"],
+  [data-slot="menubar-content"],
+  [data-slot="menubar-sub-content"],
+  [data-slot="dropdown-menu-sub-content"],
+  [data-slot="context-menu-sub-content"],
+  [data-slot="combobox-content"],
+  [data-slot="command"] {
+    font-size: 1.0625rem !important;   /* 17px ≈ 1.2× the 14px base */
+    min-width: 14rem !important;
+    padding:   0.5rem !important;
+  }
+
+  /* Menu / select rows — 1.5× height (36px → 54px) */
+  [data-slot="dropdown-menu-item"],
+  [data-slot="dropdown-menu-checkbox-item"],
+  [data-slot="dropdown-menu-radio-item"],
+  [data-slot="dropdown-menu-label"],
+  [data-slot="context-menu-item"],
+  [data-slot="context-menu-checkbox-item"],
+  [data-slot="context-menu-radio-item"],
+  [data-slot="context-menu-label"],
+  [data-slot="menubar-item"],
+  [data-slot="menubar-sub-trigger"],
+  [data-slot="select-item"],
+  [data-slot="command-item"] {
+    min-height:    3rem;       /* 48px */
+    padding-top:   0.75rem;
+    padding-bottom: 0.75rem;
+    font-size:     1.0625rem;
+  }
+
+  /* Command / combobox search input */
+  [data-slot="command-input"] {
+    font-size:  1rem;
+    min-height: 3rem;
+  }
+
+  /* Toasts */
+  .toaster [data-sonner-toast] {
+    font-size: 1rem !important;
+    padding:   1rem 1.25rem !important;
+  }
+}
+
