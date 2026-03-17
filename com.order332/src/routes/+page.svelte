@@ -163,7 +163,7 @@
 </main>
 
 <!-- ── Component Showcase ─────────────────────────────────────────── -->
-<section class="showcase relative overflow-hidden px-4 py-24">
+<section class="showcase relative overflow-hidden px-4 py-12 sm:py-24">
 	<div
 		class="dot-pattern pointer-events-none absolute inset-0"
 		aria-hidden="true"
@@ -171,7 +171,7 @@
 
 	<div class="relative z-10 mx-auto max-w-6xl">
 		<!-- Heading -->
-		<div class="mb-16 flex flex-col items-center gap-3 text-center">
+		<div class="mb-8 flex flex-col items-center gap-3 text-center sm:mb-16">
 			<p class="text-xs tracking-[0.3em] text-muted-foreground uppercase">
 				Design System
 			</p>

@@ -921,88 +921,102 @@
 
 /* ══════════════════════════════════════════════════════════════════
  *  MOBILE  (≤ 767px)
- *  Larger touch targets and overlay sizes for phone use.
- *  Everything above is untouched at ≥ 768px (desktop).
+ *  Proportional scaling — subtle +4px on clickable elements,
+ *  larger overlay panels for thumb-friendliness.
+ *  Desktop (≥ 768px) is completely unaffected.
  * ══════════════════════════════════════════════════════════════════ */
 
 @media (max-width: 767px) {
 
-  /* ── 1. Clickable elements — ≥ 44 px touch targets (≈ 1.25×) ─── */
+  /* ── 1. Clickable elements — 40px floor (+4px from default 36px) ── */
 
-  /* Buttons */
+  /* Buttons: tiny +2px floor to keep sizes from shrinking on small viewports */
   [data-slot="button"] {
-    min-height: 2.75rem;   /* 44px — up from ~36px */
-    min-width:  2.75rem;   /* icon buttons become square at same size */
+    min-height: 2.25rem;   /* 36px — matches Tailwind h-9; prevents sub-36 sizing */
     font-size:  1rem;
   }
 
-  /* Inputs — 1rem prevents iOS Safari auto-zoom on focus */
+  /* Inputs — font-size: 1rem prevents iOS Safari auto-zoom on focus */
   [data-slot="input"],
   [data-slot="select-trigger"],
   [data-slot="input-group"] {
-    min-height: 2.75rem;
+    min-height: 2.5rem;
     font-size:  1rem;
   }
 
   [data-slot="textarea"] {
-    font-size: 1rem;
+    font-size: 1rem;   /* iOS zoom prevention only, no height change */
   }
 
-  /* Input OTP slots */
+  /* OTP slots */
   [data-slot="input-otp-slot"] {
-    min-height: 2.75rem;
-    min-width:  2.75rem;
-    font-size:  1.125rem;
-  }
-
-  /* Checkbox */
-  [data-slot="checkbox"] {
-    width:     1.375rem;   /* 22px */
-    height:    1.375rem;
-    min-width: 1.375rem;
-  }
-
-  /* Tabs */
-  [data-slot="tabs-trigger"] {
     min-height: 2.5rem;
-    font-size:  0.9375rem;
-  }
-
-  /* Accordion */
-  [data-slot="accordion-trigger"] {
-    min-height: 3rem;
+    min-width:  2.5rem;
     font-size:  1rem;
   }
 
-  /* Toggle / Toggle Group items */
+  /* Checkbox: 16px → 20px */
+  [data-slot="checkbox"] {
+    width:     1.25rem;
+    height:    1.25rem;
+    min-width: 1.25rem;
+  }
+
+  /* Switch: extend tap target without changing visual size or breaking animation */
+  [data-slot="switch"] {
+    position: relative;
+  }
+  [data-slot="switch"]::before {
+    content: '';
+    position: absolute;
+    inset: -0.625rem;   /* +10px tap area on all sides */
+  }
+
+  /* Tabs: equal-width triggers, larger font, consistent height */
+  [data-slot="tabs-list"] {
+    width: 100%;
+  }
+  [data-slot="tabs-trigger"] {
+    flex: 1;
+    min-height: 2.5rem;
+    font-size: 1rem;
+  }
+
+  /* Accordion — section rows benefit from a touch more height */
+  [data-slot="accordion-trigger"] {
+    min-height: 2.75rem;
+    font-size:  1rem;
+  }
+
+  /* Toggle / Toggle Group */
   [data-slot="toggle"],
   [data-slot="toggle-group-item"] {
-    min-height: 2.75rem;
-    min-width:  2.75rem;
+    min-height: 2.5rem;
+    min-width:  2.5rem;
   }
 
   /* Pagination */
   [data-slot="pagination-link"],
   [data-slot="pagination-previous"],
   [data-slot="pagination-next"] {
-    min-height: 2.75rem;
-    min-width:  2.75rem;
+    min-height: 2.5rem;
+    min-width:  2.5rem;
   }
 
   /* Breadcrumb */
   [data-slot="breadcrumb-link"] {
-    padding: 0.5rem 0.75rem;
+    padding: 0.375rem 0.625rem;
   }
 
-  /* Slider thumb — easier to grab */
+  /* Slider thumb: 20px → 22px */
   [data-slot="slider-thumb"] {
-    width:  1.5rem;
-    height: 1.5rem;
+    width:  1.375rem;
+    height: 1.375rem;
   }
 
-  /* ── 2. Floating panels — 1.5× touch targets for menus ───────── */
+  /* ── 2. Floating panels — larger for overlay/thumb use ─────────── */
 
-  /* Panel container: larger font + generous padding */
+  /* Panel containers: bigger font + breathing room */
   [data-slot="popover-content"],
   [data-slot="select-content"],
   [data-slot="dropdown-menu-content"],
@@ -1014,12 +1028,14 @@
   [data-slot="context-menu-sub-content"],
   [data-slot="combobox-content"],
   [data-slot="command"] {
-    font-size: 1.0625rem !important;   /* 17px ≈ 1.2× the 14px base */
-    min-width: 14rem !important;
-    padding:   0.5rem !important;
+    font-size:     1rem !important;   /* base size — no inflation */
+    min-width:     14rem !important;
+    padding-block:  0.25rem !important;   /* tight top/bottom */
+    padding-inline: 0.5rem !important;    /* keep text clear of rounded edges */
+    border-radius: var(--glass-radius-xl) !important;  /* 1.5rem — rounder on mobile */
   }
 
-  /* Menu / select rows — 1.5× height (36px → 54px) */
+  /* Menu / select rows — 48px touch targets */
   [data-slot="dropdown-menu-item"],
   [data-slot="dropdown-menu-sub-trigger"],
   [data-slot="dropdown-menu-checkbox-item"],
@@ -1034,16 +1050,16 @@
   [data-slot="menubar-sub-trigger"],
   [data-slot="select-item"],
   [data-slot="command-item"] {
-    min-height:    3rem;       /* 48px */
-    padding-top:   0.75rem;
-    padding-bottom: 0.75rem;
-    font-size:     1.0625rem;
+    min-height:     2.75rem;   /* 44px */
+    padding-top:    0.625rem;
+    padding-bottom: 0.625rem;
+    font-size:      1rem;
   }
 
   /* Command / combobox search input */
   [data-slot="command-input"] {
     font-size:  1rem;
-    min-height: 3rem;
+    min-height: 2.75rem;
   }
 
   /* Toasts */
