@@ -129,6 +129,9 @@
 				src="/polygon.svg"
 				alt="332"
 				class="h-20 w-20 sm:h-24 sm:w-24"
+				fetchpriority="high"
+				width="96"
+				height="96"
 				style="filter: drop-shadow(0 0 16px oklch(1 0 0 / 15%));"
 			/>
 
@@ -212,7 +215,7 @@
 				<div class="flex items-center gap-3">
 					<Avatar.Root class="h-12 w-12">
 						<Avatar.Image
-							src="https://github.com/shadcn.png"
+							src="https://github.com/shadcn.png?size=100"
 							alt="shadcn"
 						/>
 						<Avatar.Fallback>SC</Avatar.Fallback>
@@ -430,7 +433,7 @@
 				</div>
 				<div class="flex flex-col gap-2">
 					<Label class="text-xs">Verification code</Label>
-					<InputOTP.Root maxlength={6} bind:value={otpValue}>
+					<InputOTP.Root maxlength={6} bind:value={otpValue} aria-label="Verification code">
 						{#snippet children({ cells })}
 							<InputOTP.Group>
 								{#each cells.slice(0, 3) as cell}
@@ -524,6 +527,7 @@
 					<Label class="text-xs">Native</Label>
 					<NativeSelect.Root
 						class="w-full rounded-md border border-white/10 bg-white/3 px-3 py-2 text-sm backdrop-blur-sm"
+						aria-label="Pick a colour"
 					>
 						<NativeSelect.Option value=""
 							>Pick a colour…</NativeSelect.Option
@@ -570,6 +574,7 @@
 						max={100}
 						step={1}
 						class="w-full"
+						aria-label="Volume"
 					/>
 				</div>
 				<Separator />
@@ -579,12 +584,12 @@
 					>
 						<span>Upload</span><span>{progressValue}%</span>
 					</div>
-					<Progress value={progressValue} class="h-2" />
+					<Progress value={progressValue} class="h-2" aria-label="Upload progress" />
 				</div>
 				<div class="flex flex-col gap-1.5">
-					<Progress value={25} class="h-1.5" />
-					<Progress value={60} class="h-1.5" />
-					<Progress value={100} class="h-1.5" />
+					<Progress value={25} class="h-1.5" aria-label="Storage 25%" />
+					<Progress value={60} class="h-1.5" aria-label="Battery 60%" />
+					<Progress value={100} class="h-1.5" aria-label="Download complete" />
 				</div>
 			</div>
 		</div>
@@ -1225,7 +1230,7 @@
 			<div class="glass-card flex flex-col gap-0 overflow-hidden p-0">
 				<p class="card-label p-6 pb-3">Command</p>
 				<Command.Root class="rounded-none border-0">
-					<Command.Input placeholder="Type a command…" />
+					<Command.Input placeholder="Type a command…" aria-label="Search commands" />
 					<Command.List class="max-h-48">
 						<Command.Empty class="text-xs"
 							>No results found.</Command.Empty

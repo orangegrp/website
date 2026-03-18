@@ -110,6 +110,9 @@
 					src="/polygon.svg"
 					alt="332 logo"
 					class="h-6 w-6"
+					fetchpriority="high"
+					width="24"
+					height="24"
 					style="filter: drop-shadow(0 0 6px oklch(1 0 0 / 20%));"
 				/>
 				<span class="text-lg tracking-widest text-foreground">332</span>
