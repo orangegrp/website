@@ -30,9 +30,11 @@
 
 	$effect(() => {
 		if (!projectsOpen || !triggerEl) return;
-		const rect = triggerEl.getBoundingClientRect();
-		dropdownTop = rect.bottom + 8;
-		dropdownLeft = rect.left + rect.width / 2;
+		requestAnimationFrame(() => {
+			const rect = triggerEl!.getBoundingClientRect();
+			dropdownTop = rect.bottom + 8;
+			dropdownLeft = rect.left + rect.width / 2;
+		});
 	});
 
 	$effect(() => {
@@ -55,7 +57,6 @@
 
 <nav
 	class="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
-	role="banner"
 >
 	<!-- Projects dropdown rendered here — outside glass-card to escape its backdrop-filter stacking context -->
 	{#if projectsOpen}

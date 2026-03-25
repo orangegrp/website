@@ -6,10 +6,10 @@ description: "332 — A new kind of platform. Explore our blog, projects, and mo
 
 import Navbar from '$lib/components/elements/navbar/navbar.svelte';
 import Hero from '../components/Hero.astro';
-import ComponentShowcase from '../components/ComponentShowcase.svelte';
+import ShowcaseLazy from '../components/ShowcaseLazy.svelte';
 
-<Navbar client:only="svelte" />
+<Navbar client:load />
 
 <Hero />
 
-<ComponentShowcase client:only="svelte" />
+<ShowcaseLazy client:only="svelte" />
