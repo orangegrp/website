@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { page } from "$app/state";
 	import { Button } from "$lib/components/ui/button/index.js";
 	import { cn } from "$lib/utils.js";
 	import { MenuIcon, XIcon, ChevronRightIcon, ChevronDownIcon } from "@lucide/svelte/icons";
+
+	let pathname = $state(typeof window !== "undefined" ? window.location.pathname : "/");
 
 	let mobileOpen = $state(false);
 	let projectsOpen = $state(false);
 	let mobileProjectsOpen = $state(false);
 
-	// Trigger button ref — used to position the fixed dropdown
 	let triggerEl: HTMLButtonElement | undefined = $state();
 	let dropdownEl: HTMLDivElement | undefined = $state();
 	let dropdownTop = $state(0);
@@ -29,21 +29,12 @@
 	];
 
 	$effect(() => {
-		page.url.pathname;
-		mobileOpen = false;
-		projectsOpen = false;
-		mobileProjectsOpen = false;
-	});
-
-	// Recalculate dropdown anchor whenever it opens
-	$effect(() => {
 		if (!projectsOpen || !triggerEl) return;
 		const rect = triggerEl.getBoundingClientRect();
 		dropdownTop = rect.bottom + 8;
 		dropdownLeft = rect.left + rect.width / 2;
 	});
 
-	// Close on outside click
 	$effect(() => {
 		if (!projectsOpen) return;
 		function handleClick(e: MouseEvent) {
@@ -57,8 +48,8 @@
 	});
 
 	function isActive(href: string) {
-		if (href === "/") return page.url.pathname === "/";
-		return page.url.pathname.startsWith(href);
+		if (href === "/") return pathname === "/";
+		return pathname.startsWith(href);
 	}
 </script>
 

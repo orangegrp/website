@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Navbar from "$lib/components/elements/navbar/navbar.svelte";
 	import { Button } from "$lib/components/ui/button/index.js";
 
 	import * as Accordion from "$lib/components/ui/accordion/index.js";
@@ -52,7 +51,6 @@
 	import { Toaster } from "$lib/components/ui/sonner/index.js";
 	import { toast } from "svelte-sonner";
 
-	// Form state
 	let sliderValue = $state([40]);
 	let progressValue = $state(65);
 	let switchChecked = $state(true);
@@ -61,111 +59,13 @@
 	let otpValue = $state("");
 	let collapsibleOpen = $state(false);
 
-	// Context menu state
 	let showBookmarks = $state(false);
 	let showFullURLs = $state(true);
 	let ctxPerson = $state("pedro");
 </script>
 
-<svelte:head>
-	<title>332 — Order332</title>
-	<meta
-		name="description"
-		content="332 — A new kind of platform. Explore our blog, projects, and more."
-	/>
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="332 — Order332" />
-	<meta
-		property="og:description"
-		content="A new kind of platform. Explore our blog, projects, and more."
-	/>
-	<meta property="og:image" content="https://order332.com/og-image.png" />
-	<meta property="og:url" content="https://order332.com" />
-	<meta property="og:site_name" content="332" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="332 — Order332" />
-	<meta
-		name="twitter:description"
-		content="A new kind of platform. Explore our blog, projects, and more."
-	/>
-	<meta name="twitter:image" content="https://order332.com/og-image.png" />
-</svelte:head>
-
 <Toaster />
-<Navbar />
 
-<!-- ── Hero ──────────────────────────────────────────────────────── -->
-<main
-	class="page-root relative flex min-h-screen items-center justify-center overflow-clip px-4 pt-24"
->
-	<div
-		class="dot-pattern pointer-events-none absolute inset-0"
-		aria-hidden="true"
-	></div>
-
-	<div class="pointer-events-none absolute inset-0" aria-hidden="true">
-		<div
-			class="absolute -left-[10%] -top-[10%] h-[700px] w-[700px] rounded-full"
-			style="background: radial-gradient(circle, oklch(0.9 0 0 / 8%), transparent 65%); animation: float-orb-1 28s ease-in-out infinite; filter: blur(100px);"
-		></div>
-		<div
-			class="absolute -right-[5%] top-[20%] h-[800px] w-[800px] rounded-full"
-			style="background: radial-gradient(circle, oklch(0.8 0 0 / 6%), transparent 65%); animation: float-orb-2 34s ease-in-out infinite; filter: blur(120px);"
-		></div>
-		<div
-			class="absolute bottom-[5%] left-[30%] h-[650px] w-[650px] rounded-full"
-			style="background: radial-gradient(circle, oklch(0.85 0 0 / 7%), transparent 65%); animation: float-orb-3 24s ease-in-out infinite; filter: blur(110px);"
-		></div>
-	</div>
-
-	<div
-		class="relative z-10 mx-auto flex max-w-2xl flex-col items-center gap-8 text-center animate-[fade-in-up_0.8s_ease-out_both]"
-	>
-		<div
-			class="glass-card relative z-10 mx-4 flex max-w-md flex-col items-center gap-6 px-8 py-12 text-center sm:px-14 sm:py-16"
-		>
-			<!-- Logo -->
-			<img
-				src="/polygon.svg"
-				alt="332"
-				class="h-20 w-20 sm:h-24 sm:w-24"
-				fetchpriority="high"
-				width="96"
-				height="96"
-				style="filter: drop-shadow(0 0 16px oklch(1 0 0 / 15%));"
-			/>
-
-			<!-- Headline -->
-			<h1
-				class="text-xl leading-snug tracking-wider text-foreground sm:text-2xl"
-			>
-				Something big is coming<span class="blink-cursor">_</span>
-			</h1>
-
-			<!-- Subtext -->
-			<p class="text-sm text-muted-foreground sm:text-base">
-				We're building something new. Stay tuned.
-			</p>
-
-			<!-- Status indicator -->
-			<div
-				class="mt-2 flex items-center gap-2 text-xs tracking-widest text-muted-foreground uppercase"
-			>
-				<span
-					class="inline-block h-1.5 w-1.5 rounded-full"
-					style="
-					background: oklch(0.7 0 0);
-					animation: pulse-glow 2.5s ease-in-out infinite;
-					box-shadow: 0 0 6px oklch(0.7 0 0 / 40%);
-				"
-				></span>
-				<span>In development</span>
-			</div>
-		</div>
-	</div>
-</main>
-
-<!-- ── Component Showcase ─────────────────────────────────────────── -->
 <section class="showcase relative overflow-clip px-4 py-12 sm:py-24">
 	<div
 		class="dot-pattern pointer-events-none absolute inset-0"
@@ -1368,39 +1268,3 @@
 		</div>
 	</div>
 </section>
-
-<style>
-	.page-root,
-	.showcase {
-		background: var(--background);
-	}
-
-	.dot-pattern {
-		background-image: radial-gradient(
-			circle,
-			oklch(1 0 0 / 4%) 1px,
-			transparent 1px
-		);
-		background-size: 24px 24px;
-	}
-
-	.blink-cursor {
-		animation: blink-cursor 1s step-end infinite;
-	}
-
-	:global(.section-label) {
-		font-size: 0.65rem;
-		letter-spacing: 0.25em;
-		text-transform: uppercase;
-		color: oklch(1 0 0 / 30%);
-		margin-bottom: 0.75rem;
-		padding-left: 0.25rem;
-	}
-
-	:global(.card-label) {
-		font-size: 0.65rem;
-		letter-spacing: 0.2em;
-		text-transform: uppercase;
-		color: oklch(1 0 0 / 40%);
-	}
-</style>

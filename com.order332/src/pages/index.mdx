@@ -1,0 +1,15 @@
+---
+layout: ../layouts/BaseLayout.astro
+title: "332 — Order332"
+description: "332 — A new kind of platform. Explore our blog, projects, and more."
+---
+
+import Navbar from '$lib/components/elements/navbar/navbar.svelte';
+import Hero from '../components/Hero.astro';
+import ComponentShowcase from '../components/ComponentShowcase.svelte';
+
+<Navbar client:only="svelte" />
+
+<Hero />
+
+<ComponentShowcase client:only="svelte" />

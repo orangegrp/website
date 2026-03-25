@@ -2,6 +2,8 @@
 
 @import "tw-animate-css";
 
+@import "../lib/glass-system.css";
+
 @font-face {
   font-family: 'VT323';
   font-style: normal;
@@ -190,5 +192,49 @@
   }
   50% {
     opacity: 0.8;
+  }
+}
+
+.page-root,
+.showcase {
+  background: var(--background);
+}
+
+.dot-pattern {
+  background-image: radial-gradient(
+    circle,
+    oklch(1 0 0 / 4%) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+.blink-cursor {
+  animation: blink-cursor 1s step-end infinite;
+}
+
+.section-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: oklch(1 0 0 / 30%);
+  margin-bottom: 0.75rem;
+  padding-left: 0.25rem;
+}
+
+.card-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: oklch(1 0 0 / 40%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
