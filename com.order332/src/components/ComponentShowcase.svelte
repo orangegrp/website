@@ -1129,7 +1129,7 @@
 			<!-- Command -->
 			<div class="glass-card flex flex-col gap-0 overflow-clip p-0">
 				<p class="card-label p-6 pb-3">Command</p>
-				<Command.Root class="rounded-none border-0">
+				<Command.Root class="rounded-none border-0" disableInitialScroll={true}>
 					<Command.Input placeholder="Type a command…" aria-label="Search commands" />
 					<Command.List class="max-h-48">
 						<Command.Empty class="text-xs"
