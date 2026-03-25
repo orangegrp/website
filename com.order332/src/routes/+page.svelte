@@ -96,7 +96,7 @@
 
 <!-- ── Hero ──────────────────────────────────────────────────────── -->
 <main
-	class="page-root relative flex min-h-screen items-center justify-center overflow-hidden px-4 pt-24"
+	class="page-root relative flex min-h-screen items-center justify-center overflow-clip px-4 pt-24"
 >
 	<div
 		class="dot-pattern pointer-events-none absolute inset-0"
@@ -166,7 +166,7 @@
 </main>
 
 <!-- ── Component Showcase ─────────────────────────────────────────── -->
-<section class="showcase relative overflow-hidden px-4 py-12 sm:py-24">
+<section class="showcase relative overflow-clip px-4 py-12 sm:py-24">
 	<div
 		class="dot-pattern pointer-events-none absolute inset-0"
 		aria-hidden="true"
@@ -1227,7 +1227,7 @@
 			</div>
 
 			<!-- Command -->
-			<div class="glass-card flex flex-col gap-0 overflow-hidden p-0">
+			<div class="glass-card flex flex-col gap-0 overflow-clip p-0">
 				<p class="card-label p-6 pb-3">Command</p>
 				<Command.Root class="rounded-none border-0">
 					<Command.Input placeholder="Type a command…" aria-label="Search commands" />
