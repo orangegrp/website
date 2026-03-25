@@ -1,43 +1,47 @@
 ---
-import { getCollection } from 'astro:content';
-import PageLayout from '../layouts/PageLayout.astro';
-import Hero from '../components/Hero.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from "astro:content";
+import PageLayout from "../layouts/PageLayout.astro";
+import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import BlogCard from "../components/BlogCard.astro";
 
-const posts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = await getCollection("blog", ({ data }) => !data.draft);
 const latestPosts = posts
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 	.slice(0, 3);
 
 const projects = [
 	{
-		name: 'Telos',
-		description: 'A multifunction Discord bot with an AI assistant and smart memory system. Moderation, utilities, CTF access, and more.',
-		href: '/projects/telos',
-		status: 'live' as const,
-		tags: ['Discord', 'AI', 'Bot'],
+		name: "Telos",
+		description:
+			"A multifunction Discord bot with an AI assistant and smart memory system. Moderation, utilities, CTF access, and more.",
+		href: "/projects/telos",
+		status: "live" as const,
+		tags: ["Discord", "AI", "Bot"],
 	},
 	{
-		name: 'CTF Platform',
-		description: 'Our Capture the Flag platform, accessible through Telos. Hosted challenges, scoreboards, and community-driven content.',
-		href: '/projects/ctf',
-		status: 'live' as const,
-		tags: ['Security', 'CTF', 'Hacking'],
+		name: "CTF Platform",
+		description:
+			"Our Capture the Flag platform, accessible through Telos. Hosted challenges, scoreboards, and community-driven content.",
+		href: "/projects/ctf",
+		status: "live" as const,
+		tags: ["Security", "CTF", "Hacking"],
 	},
 	{
-		name: '332 Labs',
-		description: 'A platform bringing together the CTF platform, courses, video and audio content, and more. Coming soon.',
-		href: '/projects/332-labs',
-		status: 'coming-soon' as const,
-		tags: ['Platform', 'Courses', 'Media'],
+		name: "332 Labs",
+		description:
+			"A platform bringing together the CTF platform, courses, video and audio content, and more. Coming soon.",
+		href: "/projects/332-labs",
+		status: "coming-soon" as const,
+		tags: ["Platform", "Courses", "Media"],
 	},
 	{
-		name: 'TwanOS',
-		description: 'A lightweight real-time separation kernel designed for adaptability, mixed-criticality workloads, and paravirtualised guests.',
-		href: '/projects/twanos',
-		status: 'active' as const,
-		tags: ['Kernel', 'RTOS', 'C'],
+		name: "TwanOS",
+		description:
+			"A lightweight real-time separation kernel designed for adaptability, mixed-criticality workloads, and paravirtualised guests.",
+		href: "/projects/twanos",
+		status: "active" as const,
+		tags: ["Kernel", "RTOS", "C"],
 	},
 ];
 ---
@@ -51,7 +55,11 @@ const projects = [
 
 	<!-- About section -->
 	<section class="relative overflow-hidden px-4 py-24">
-		<div class="dot-pattern pointer-events-none absolute inset-0 opacity-40" aria-hidden="true"></div>
+		<div
+			class="dot-pattern pointer-events-none absolute inset-0 opacity-40"
+			aria-hidden="true"
+		>
+		</div>
 		<div class="relative z-10 mx-auto max-w-4xl">
 			<div class="mb-10 text-center">
 				<p class="section-label">Who We Are</p>
@@ -63,31 +71,93 @@ const projects = [
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 				<div class="glass-card rounded-2xl p-6">
 					<div class="mb-4 text-muted-foreground">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							><polyline points="4 17 10 11 4 5"></polyline><line
+								x1="12"
+								x2="20"
+								y1="19"
+								y2="19"></line></svg
+						>
 					</div>
-					<h3 class="mb-2 text-base tracking-wider text-foreground">Cyber Roots</h3>
+					<h3 class="mb-2 text-base tracking-wider text-foreground">
+						Our origin: Cyber
+					</h3>
 					<p class="text-sm leading-relaxed text-muted-foreground">
-						[A short description of the community's background in cybersecurity — what draws people here, the ethos around hacking, security research, etc.]
+						332 started on IRC and moved to Discord in 2020. It was
+						originally a place for us to chat and share ideas, but
+						it quickly grew into so much more.
 					</p>
 				</div>
 
 				<div class="glass-card rounded-2xl p-6">
 					<div class="mb-4 text-muted-foreground">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							><circle cx="12" cy="12" r="10"></circle><path
+								d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+							></path><path d="M2 12h20"></path></svg
+						>
 					</div>
-					<h3 class="mb-2 text-base tracking-wider text-foreground">Global Community</h3>
+					<h3 class="mb-2 text-base tracking-wider text-foreground">
+						Our reach: Global
+					</h3>
 					<p class="text-sm leading-relaxed text-muted-foreground">
-						[A short line about your global reach — member count if you want to share it, countries represented, 24/7 presence, etc.]
+						Members of 332 come from every corner of the world:
+						North America, Europe, Asia, the Middle East, and more.
 					</p>
 				</div>
 
-				<div class="glass-card rounded-2xl p-6 sm:col-span-2 lg:col-span-1">
+				<div
+					class="glass-card rounded-2xl p-6 sm:col-span-2 lg:col-span-1"
+				>
 					<div class="mb-4 text-muted-foreground">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<circle cx="8" cy="8" r="4"></circle>
+							<circle cx="16" cy="10" r="3"></circle>
+							<path d="M2 20c0-2.5 2.5-4.5 6-4.5s6 2 6 4.5"
+							></path>
+							<path
+								d="M14 20c0-1.38 1.79-2.5 4-2.5 1 .07 2 .56 2 2.5"
+							></path>
+						</svg>
 					</div>
-					<h3 class="mb-2 text-base tracking-wider text-foreground">Free Speech</h3>
+					<h3 class="mb-2 text-base tracking-wider text-foreground">
+						Our values: Community, knowledge and friendship
+					</h3>
 					<p class="text-sm leading-relaxed text-muted-foreground">
-						[Your take on free speech within the community — what it means to you, how you handle it, why it matters. Be direct.]
+						Our people are social beings, and we believe in building
+						strong ties with each other, sharing knowledge, and
+						being there for each other when needed. We're also open
+						and frank with each other, and we don't shy away from
+						discussing difficult topics or holding each other
+						accountable.
 					</p>
 				</div>
 			</div>
@@ -98,8 +168,17 @@ const projects = [
 					class="glass-button inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm tracking-wider text-muted-foreground no-underline transition-all hover:text-foreground"
 				>
 					More about us
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="m9 18 6-6-6-6"/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-3.5 w-3.5"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="m9 18 6-6-6-6"></path>
 					</svg>
 				</a>
 			</div>
@@ -112,7 +191,9 @@ const projects = [
 			<div class="mb-10 flex items-end justify-between gap-4">
 				<div>
 					<p class="section-label">What We Build</p>
-					<h2 class="text-2xl tracking-wider text-foreground sm:text-3xl">
+					<h2
+						class="text-2xl tracking-wider text-foreground sm:text-3xl"
+					>
 						Projects<span class="blink-cursor">_</span>
 					</h2>
 				</div>
@@ -125,48 +206,51 @@ const projects = [
 			</div>
 
 			<div class="grid gap-4 sm:grid-cols-2">
-				{projects.map(project => (
-					<ProjectCard {...project} />
-				))}
+				{projects.map((project) => <ProjectCard {...project} />)}
 			</div>
 		</div>
 	</section>
 
 	<!-- Blog section -->
-	{latestPosts.length > 0 && (
-		<section class="relative overflow-hidden px-4 py-24">
-			<div class="dot-pattern pointer-events-none absolute inset-0 opacity-30" aria-hidden="true"></div>
-			<div class="relative z-10 mx-auto max-w-4xl">
-				<div class="mb-10 flex items-end justify-between gap-4">
-					<div>
-						<p class="section-label">From the Team</p>
-						<h2 class="text-2xl tracking-wider text-foreground sm:text-3xl">
-							Latest Posts<span class="blink-cursor">_</span>
-						</h2>
+	{
+		latestPosts.length > 0 && (
+			<section class="relative overflow-hidden px-4 py-24">
+				<div
+					class="dot-pattern pointer-events-none absolute inset-0 opacity-30"
+					aria-hidden="true"
+				/>
+				<div class="relative z-10 mx-auto max-w-4xl">
+					<div class="mb-10 flex items-end justify-between gap-4">
+						<div>
+							<p class="section-label">From the Community</p>
+							<h2 class="text-2xl tracking-wider text-foreground sm:text-3xl">
+								Latest Posts<span class="blink-cursor">_</span>
+							</h2>
+						</div>
+						<a
+							href="/blog"
+							class="glass-nav-link shrink-0 rounded-lg px-3 py-1.5 text-sm tracking-wider text-muted-foreground no-underline transition-all hover:text-foreground"
+						>
+							All posts →
+						</a>
 					</div>
-					<a
-						href="/blog"
-						class="glass-nav-link shrink-0 rounded-lg px-3 py-1.5 text-sm tracking-wider text-muted-foreground no-underline transition-all hover:text-foreground"
-					>
-						All posts →
-					</a>
-				</div>
 
-				<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-					{latestPosts.map(post => (
-						<BlogCard
-							title={post.data.title}
-							description={post.data.description}
-							date={post.data.date}
-							slug={post.id}
-							author={post.data.author}
-							tags={post.data.tags}
-						/>
-					))}
+					<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+						{latestPosts.map((post) => (
+							<BlogCard
+								title={post.data.title}
+								description={post.data.description}
+								date={post.data.date}
+								slug={post.id}
+								author={post.data.author}
+								tags={post.data.tags}
+							/>
+						))}
+					</div>
 				</div>
-			</div>
-		</section>
-	)}
+			</section>
+		)
+	}
 
 	<!-- Join CTA section -->
 	<section class="relative overflow-hidden px-4 py-32">
@@ -174,31 +258,49 @@ const projects = [
 			<div
 				class="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full"
 				style="background: radial-gradient(circle, oklch(0.9 0 0 / 6%), transparent 60%); filter: blur(80px);"
-			></div>
+			>
+			</div>
 		</div>
 
 		<div class="relative z-10 mx-auto max-w-2xl text-center">
 			<p class="section-label">Membership</p>
-			<h2 class="mb-4 text-2xl tracking-wider text-foreground sm:text-3xl">
-				Invite Only<span class="blink-cursor">_</span>
+			<h2
+				class="mb-4 text-2xl tracking-wider text-foreground sm:text-3xl"
+			>
+				Invite only<span class="blink-cursor">_</span>
 			</h2>
-			<p class="mb-8 text-sm leading-relaxed text-muted-foreground sm:text-base">
-				332 is a private community. If you've been invited, or you know someone who can vouch for you, use the link below.
-				[If you have a process for requesting an invite — explain it here briefly.]
+			<p
+				class="mb-8 text-sm leading-relaxed text-muted-foreground sm:text-base"
+			>
+				332 is a private community. If you've been invited, or you know
+				someone who can vouch for you, use the link below to join.
+				Likewise, if you're interested in joining but don't hae an
+				invite, you can apply to join using the same link.
 			</p>
 
 			<div class="flex flex-wrap items-center justify-center gap-4">
 				<a
-					href="[DISCORD_INVITE_URL]"
+					href="https://discord.gg/WuGrkMZeNG"
 					class="glass-button glass-button-glass inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm tracking-wider text-foreground no-underline transition-all"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
 					Join on Discord
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-						<polyline points="15 3 21 3 21 9"/>
-						<line x1="10" y1="14" x2="21" y2="3"/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-4 w-4"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path
+							d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+						></path>
+						<polyline points="15 3 21 3 21 9"></polyline>
+						<line x1="10" y1="14" x2="21" y2="3"></line>
 					</svg>
 				</a>
 				<a
@@ -213,16 +315,39 @@ const projects = [
 
 	<!-- Footer -->
 	<footer class="border-t border-white/5 px-4 py-8">
-		<div class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 sm:flex-row">
+		<div
+			class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 sm:flex-row"
+		>
 			<div class="flex items-center gap-2.5">
-				<img src="/polygon.svg" alt="332" class="h-5 w-5 opacity-60" width="20" height="20" />
-				<span class="text-sm tracking-widest text-muted-foreground">332</span>
+				<img
+					src="/polygon.svg"
+					alt="332"
+					class="h-5 w-5 opacity-60"
+					width="20"
+					height="20"
+				/>
+				<span class="text-sm tracking-widest text-muted-foreground"
+					>332</span
+				>
 			</div>
-			<div class="flex items-center gap-6 text-xs tracking-wider text-muted-foreground">
-				<a href="/about" class="hover:text-foreground transition-colors no-underline">About</a>
-				<a href="/projects" class="hover:text-foreground transition-colors no-underline">Projects</a>
-				<a href="/blog" class="hover:text-foreground transition-colors no-underline">Blog</a>
-				<a href="[DISCORD_INVITE_URL]" class="hover:text-foreground transition-colors no-underline" target="_blank" rel="noopener noreferrer">Discord</a>
+			<div
+				class="flex items-center gap-6 text-xs tracking-wider text-muted-foreground"
+			>
+				<a
+					href="/about"
+					class="hover:text-foreground transition-colors no-underline"
+					>About</a
+				>
+				<a
+					href="/projects"
+					class="hover:text-foreground transition-colors no-underline"
+					>Projects</a
+				>
+				<a
+					href="/blog"
+					class="hover:text-foreground transition-colors no-underline"
+					>Blog</a
+				>
 			</div>
 			<p class="text-xs tracking-wider text-muted-foreground opacity-40">
 				© {new Date().getFullYear()} 332

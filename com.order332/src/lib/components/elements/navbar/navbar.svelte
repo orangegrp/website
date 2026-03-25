@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Button } from "$lib/components/ui/button/index.js";
 	import { cn } from "$lib/utils.js";
-	import { MenuIcon, XIcon, ChevronRightIcon, ChevronDownIcon } from "@lucide/svelte/icons";
+	import { MenuIcon, XIcon, ChevronRightIcon, ChevronDownIcon, LockIcon } from "@lucide/svelte/icons";
 
 	let pathname = $state(typeof window !== "undefined" ? window.location.pathname : "/");
 
@@ -146,17 +146,24 @@
 				</div>
 			</div>
 
-			<!-- Desktop: Members Area button -->
+		<!-- Desktop: Members Area button -->
+		<div
+			class="hidden shrink-0 cursor-not-allowed md:inline-flex"
+			aria-disabled="true"
+			title="Members Area — coming soon"
+		>
 			<Button
-				href="[DISCORD_INVITE_URL]"
 				variant="glass"
 				size="sm"
-				class="hidden shrink-0 tracking-wider md:inline-flex"
+				class="pointer-events-none select-none tracking-wider opacity-50"
+				disabled
 			>
-				Members Area <ChevronRightIcon class="h-4 w-4" />
+				<LockIcon class="h-4 w-4 text-foreground drop-shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
+				<span class="text-xs tracking-widest text-foreground">Coming Soon</span>
 			</Button>
+		</div>
 
-			<!-- Mobile: hamburger -->
+		<!-- Mobile: hamburger -->
 			<button
 				class="glass-button glass-button-ghost rounded-lg p-2 transition-all md:hidden"
 				onclick={() => (mobileOpen = !mobileOpen)}
@@ -221,16 +228,17 @@
 					</div>
 				{/if}
 
-				<div class="mt-2 border-t border-white/5 pt-2">
+			<div class="mt-2 cursor-not-allowed border-t border-white/5 pt-2" aria-disabled="true" title="Members Area — coming soon">
 				<Button
-					href="[DISCORD_INVITE_URL]"
 					variant="glass"
 					size="sm"
-					class="w-full tracking-wider"
+					class="pointer-events-none w-full select-none tracking-wider opacity-50"
+					disabled
 				>
-					Members Area
+					<LockIcon class="h-4 w-4 text-foreground drop-shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
+					<span class="text-xs tracking-widest text-foreground">Coming Soon</span>
 				</Button>
-				</div>
+			</div>
 			</div>
 		{/if}
 	</div>

@@ -28,7 +28,7 @@
 		class="relative z-10 mx-auto flex max-w-3xl flex-col items-center gap-8 text-center animate-[fade-in-up_0.8s_ease-out_both]"
 	>
 		<div
-			class="glass-card relative z-10 mx-4 flex max-w-2xl flex-col items-center gap-8 px-8 py-14 text-center sm:px-16 sm:py-20"
+			class="relative z-10 mx-4 flex max-w-2xl flex-col items-center gap-8 px-8 py-14 text-center sm:px-16 sm:py-20"
 		>
 			<img
 				src="/polygon.svg"
@@ -46,9 +46,17 @@
 						class="inline-block h-1.5 w-1.5 rounded-full"
 						style="background: oklch(0.65 0.15 145); animation: pulse-glow 2.5s ease-in-out infinite; box-shadow: 0 0 6px oklch(0.65 0.15 145 / 60%);"
 					></span>
-					<span>Private community</span>
+					<span id="days-active"></span>
+					<script is:inline>
+						const startedAt = new Date(Date.UTC(2020, 8, 6));
+						const msPerDay = 1000 * 60 * 60 * 24;
+						const now = new Date();
+						const diffDays = Math.floor((now.getTime() - startedAt.getTime()) / msPerDay);
+						const el = document.getElementById('days-active');
+						if (el) el.textContent = `Active for ${diffDays} days`;
+					</script>
 					<span class="opacity-30">·</span>
-					<span>Global</span>
+					<span>EST. 2020</span>
 				</div>
 
 				<h1 class="text-3xl leading-snug tracking-wider text-foreground sm:text-4xl md:text-5xl">
@@ -56,12 +64,12 @@
 				</h1>
 
 				<p class="max-w-md text-sm leading-relaxed text-muted-foreground sm:text-base">
-					[YOUR TAGLINE HERE — a short line about what 332 stands for, e.g. "Cyber. Community. No compromises." — edit to your voice]
+					Community. Knowledge. Friendship.
 				</p>
 			</div>
 
 			<p class="max-w-lg text-sm leading-relaxed text-muted-foreground">
-				[2-3 sentences about the community. Roots in cybersecurity, global members, what makes it different. Invite-only. Honest. Built by people who do things.]
+				Welcome to 332: Discord's best invite-only hub for all things cybersecurity, gaming and unrivalled freedom. Keep scrolling to learn more about what you're missing out on.
 			</p>
 
 			<div class="flex flex-wrap items-center justify-center gap-3">
@@ -85,7 +93,7 @@
 
 		<!-- Scroll indicator -->
 		<div
-			class="flex flex-col items-center gap-2 text-xs tracking-widest text-muted-foreground uppercase opacity-40"
+			class="flex flex-col items-center gap-2 text-xs tracking-widest uppercase opacity-40"
 			aria-hidden="true"
 		>
 			<span>Scroll</span>

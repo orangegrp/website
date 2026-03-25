@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import BlogCard from '../../components/BlogCard.astro';
+import * as Alert from "$lib/components/ui/alert/";
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -28,6 +29,11 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
 		</div>
 
 		<div class="relative z-10 mx-auto max-w-4xl">
+			<Alert.Root variant="info" class="mb-8">
+				<Alert.Title>
+					This part of the website is currently in <span class="text-white bg-blue-500 p-1 rounded-md">beta</span>. Your feedback will help us improve it.
+				</Alert.Title>
+			</Alert.Root>
 
 			<!-- Page header -->
 			<div class="mb-12 animate-[fade-in-up_0.7s_ease-out_both]">
@@ -36,7 +42,7 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
 					Blog<span class="blink-cursor">_</span>
 				</h1>
 				<p class="max-w-xl text-base leading-relaxed text-muted-foreground">
-					[Short description of what this blog is — writeups, project updates, community news, technical deep dives, etc.]
+					Welcome to the blog section of our website. Here you'll find writeups, project updates, community news, technical deep dives, and more.
 				</p>
 			</div>
 

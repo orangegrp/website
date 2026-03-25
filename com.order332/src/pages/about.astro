@@ -1,5 +1,5 @@
 ---
-import PageLayout from '../layouts/PageLayout.astro';
+import PageLayout from "../layouts/PageLayout.astro";
 ---
 
 <PageLayout
@@ -7,29 +7,45 @@ import PageLayout from '../layouts/PageLayout.astro';
 	description="[YOUR META DESCRIPTION for the about page]"
 >
 	<div class="page-root relative min-h-screen px-4 pb-32 pt-32">
-		<div class="dot-pattern pointer-events-none absolute inset-0" aria-hidden="true"></div>
+		<div
+			class="dot-pattern pointer-events-none absolute inset-0"
+			aria-hidden="true"
+		>
+		</div>
 
-		<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+		<div
+			class="pointer-events-none absolute inset-0 overflow-hidden"
+			aria-hidden="true"
+		>
 			<div
 				class="absolute -left-[10%] top-[5%] h-[600px] w-[600px] rounded-full"
 				style="background: radial-gradient(circle, oklch(0.9 0 0 / 6%), transparent 65%); filter: blur(100px);"
-			></div>
+			>
+			</div>
 			<div
 				class="absolute -right-[5%] top-[40%] h-[500px] w-[500px] rounded-full"
 				style="background: radial-gradient(circle, oklch(0.8 0 0 / 5%), transparent 65%); filter: blur(80px);"
-			></div>
+			>
+			</div>
 		</div>
 
 		<div class="relative z-10 mx-auto max-w-4xl">
-
 			<!-- Page header -->
-			<div class="mb-16 text-center animate-[fade-in-up_0.7s_ease-out_both]">
+			<div
+				class="mb-16 text-center animate-[fade-in-up_0.7s_ease-out_both]"
+			>
 				<p class="section-label">Who We Are</p>
-				<h1 class="mb-4 text-4xl tracking-wider text-foreground sm:text-5xl">
+				<h1
+					class="mb-4 text-4xl tracking-wider text-foreground sm:text-5xl"
+				>
 					About 332<span class="blink-cursor">_</span>
 				</h1>
-				<p class="mx-auto max-w-xl text-base leading-relaxed text-muted-foreground">
-					[A one-liner about 332 — the short version of what you tell people when they ask what this place is.]
+				<p
+					class="mx-auto max-w-xl text-base leading-relaxed text-muted-foreground"
+				>
+					332 started on IRC and moved to Discord in 2020. It was
+					originally a place for us to chat and share ideas, but it
+					quickly grew into so much more.
 				</p>
 			</div>
 
@@ -40,16 +56,12 @@ import PageLayout from '../layouts/PageLayout.astro';
 					<h2 class="mb-6 text-2xl tracking-wider text-foreground">
 						Where we came from<span class="blink-cursor">_</span>
 					</h2>
-					<div class="space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-						<p>
-							[The origin story of 332 — formerly Order 332. How it started, what the name means or where it came from, who was there at the beginning. Be honest and direct.]
-						</p>
-						<p>
-							[The evolution — how the community has changed, grown, shifted focus. What's stayed the same.]
-						</p>
-						<p>
-							[What 332 is today — the current state, what keeps people around, what the community is known for among members.]
-						</p>
+					<div
+						class="space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base"
+					>
+						<p class="scramble-text" data-length="320"></p>
+						<p class="scramble-text" data-length="280"></p>
+						<p class="scramble-text" data-length="300"></p>
 					</div>
 				</div>
 			</section>
@@ -58,191 +70,270 @@ import PageLayout from '../layouts/PageLayout.astro';
 			<section class="mb-12">
 				<p class="section-label mb-6">What We Stand For</p>
 				<div class="grid gap-4 sm:grid-cols-2">
-
 					<div class="glass-card rounded-2xl p-6">
-						<div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground">
-							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+						<div
+							class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="18"
+								height="18"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								><path
+									d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+								></path></svg
+							>
 						</div>
-						<h3 class="mb-2 text-base tracking-wider text-foreground">Free Speech</h3>
-						<p class="text-sm leading-relaxed text-muted-foreground">
-							[Your stance on free speech. What it means practically — not just a slogan. What you will and won't tolerate and why.]
+						<h3
+							class="mb-2 text-base tracking-wider text-foreground"
+						>
+							Freedom
+						</h3>
+						<p
+							class="text-sm leading-relaxed text-muted-foreground"
+						>
+							Because 332 is private, freedom of speech and
+							expression reigns supreme. You can say whatever you
+							want, however you want, without the fear of being
+							banned or silenced<sup>*</sup>. This doesn't mean
+							you can't be held accountable for your actions,
+							though.
 						</p>
 					</div>
 
 					<div class="glass-card rounded-2xl p-6">
-						<div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground">
-							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+						<div
+							class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<!-- Medal circle, shifted down by 2px -->
+								<circle cx="12" cy="10" r="6"></circle>
+								<!-- Medal ribbon left, shorter (4px instead of 6), shifted down by 2px -->
+								<path d="M9 16l-2 4"></path>
+								<!-- Medal ribbon right, shorter (4px instead of 6), shifted down by 2px -->
+								<path d="M15 16l2 4"></path>
+							</svg>
 						</div>
-						<h3 class="mb-2 text-base tracking-wider text-foreground">Cyber First</h3>
-						<p class="text-sm leading-relaxed text-muted-foreground">
-							[Your relationship with cybersecurity — is it a profession, a hobby, a mindset? What kind of cyber topics does the community focus on? CTF, red team, research, OSINT, etc.]
+						<h3
+							class="mb-2 text-base tracking-wider text-foreground"
+						>
+							Winning at life
+						</h3>
+						<p
+							class="text-sm leading-relaxed text-muted-foreground"
+						>
+							332 was built to outlast, to win, and to be the best. If that's you, then we have something in common. You don't need to have "made it", to join. If anything, it's the drive to make it that makes you a good fit for 332.
 						</p>
 					</div>
 
 					<div class="glass-card rounded-2xl p-6">
-						<div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground">
-							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+						<div
+							class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="18"
+								height="18"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								><circle cx="12" cy="12" r="10"></circle><path
+									d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+								></path><path d="M2 12h20"></path></svg
+							>
 						</div>
-						<h3 class="mb-2 text-base tracking-wider text-foreground">Global Reach</h3>
-						<p class="text-sm leading-relaxed text-muted-foreground">
-							[How the global nature of 332 shapes it — different timezones, backgrounds, expertise. How many members or countries if you want to share.]
+						<h3
+							class="mb-2 text-base tracking-wider text-foreground"
+						>
+							Being truly global
+						</h3>
+						<p
+							class="text-sm leading-relaxed text-muted-foreground"
+						>
+							In the eyes of 332, the world has no borders, and
+							neither do we. Members of 332 come from every corner
+							of the world including North America, Europe, Asia,
+							the Middle East, and more.
 						</p>
 					</div>
 
 					<div class="glass-card rounded-2xl p-6">
-						<div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground">
-							<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+						<div
+							class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="18"
+								height="18"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								><rect
+									width="18"
+									height="11"
+									x="3"
+									y="11"
+									rx="2"
+									ry="2"></rect><path
+									d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg
+							>
 						</div>
-						<h3 class="mb-2 text-base tracking-wider text-foreground">Invite Only</h3>
-						<p class="text-sm leading-relaxed text-muted-foreground">
-							[Why 332 is private and invite-only. What that filter is meant to preserve — quality, trust, signal-to-noise, culture. How the invite process works if you want to explain it.]
+						<h3
+							class="mb-2 text-base tracking-wider text-foreground"
+						>
+							Mutual trust
+						</h3>
+						<p
+							class="text-sm leading-relaxed text-muted-foreground"
+						>
+							Because 332 is private and relies on trust, what is
+							said in 332 must stay in 332. This keeps our
+							community safe and secure and it's the only golden
+							rule of 332.
 						</p>
 					</div>
 				</div>
-			</section>
 
-			<!-- Members section -->
-			<section class="mb-12">
-				<div class="glass-card rounded-2xl p-8 sm:p-12">
-					<p class="section-label">The Community</p>
-					<h2 class="mb-6 text-2xl tracking-wider text-foreground">
-						Who's here<span class="blink-cursor">_</span>
-					</h2>
-
-					<div class="mb-8 grid gap-6 sm:grid-cols-3">
-						<div class="text-center">
-							<div class="mb-1 text-3xl tracking-wider text-foreground">[COUNT]<span class="text-muted-foreground">+</span></div>
-							<div class="text-xs tracking-widest text-muted-foreground uppercase">Members</div>
-						</div>
-						<div class="text-center">
-							<div class="mb-1 text-3xl tracking-wider text-foreground">[COUNT]</div>
-							<div class="text-xs tracking-widest text-muted-foreground uppercase">Countries</div>
-						</div>
-						<div class="text-center">
-							<div class="mb-1 text-3xl tracking-wider text-foreground">[YEAR]</div>
-							<div class="text-xs tracking-widest text-muted-foreground uppercase">Founded</div>
-						</div>
-					</div>
-
-					<p class="text-sm leading-relaxed text-muted-foreground sm:text-base">
-						[A description of who actually makes up 332 — backgrounds, skills, what they're into. Security researchers, developers, students, professionals? What's the vibe?]
-					</p>
-				</div>
-			</section>
-
-			<!-- What happens here section -->
-			<section class="mb-12">
-				<p class="section-label mb-6">Inside 332</p>
-				<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-
-					<div class="glass-card rounded-2xl p-5">
-						<h3 class="mb-2 text-sm tracking-wider text-foreground">Channels & Discussion</h3>
-						<p class="text-xs leading-relaxed text-muted-foreground">
-							[What kinds of conversations happen in 332 — technical, casual, news, projects? What are the main areas of discussion?]
-						</p>
-					</div>
-
-					<div class="glass-card rounded-2xl p-5">
-						<h3 class="mb-2 text-sm tracking-wider text-foreground">CTF & Competitions</h3>
-						<p class="text-xs leading-relaxed text-muted-foreground">
-							[How the community participates in CTFs — team play, the 332 CTF platform, challenges, writeups, etc.]
-						</p>
-					</div>
-
-					<div class="glass-card rounded-2xl p-5">
-						<h3 class="mb-2 text-sm tracking-wider text-foreground">Projects & Building</h3>
-						<p class="text-xs leading-relaxed text-muted-foreground">
-							[How members build things together — open projects, collaboration, the tools and platforms members have created.]
-						</p>
-					</div>
-
-					<div class="glass-card rounded-2xl p-5">
-						<h3 class="mb-2 text-sm tracking-wider text-foreground">Voice & Events</h3>
-						<p class="text-xs leading-relaxed text-muted-foreground">
-							[Regular voice sessions, presentations, watch parties, gaming sessions — whatever happens in VC/events.]
-						</p>
-					</div>
-
-					<div class="glass-card rounded-2xl p-5">
-						<h3 class="mb-2 text-sm tracking-wider text-foreground">Knowledge Sharing</h3>
-						<p class="text-xs leading-relaxed text-muted-foreground">
-							[How knowledge moves through 332 — writeups, resources, tutorials, help channels, mentorship, etc.]
-						</p>
-					</div>
-
-					<div class="glass-card rounded-2xl p-5">
-						<h3 class="mb-2 text-sm tracking-wider text-foreground">Tools & Bots</h3>
-						<p class="text-xs leading-relaxed text-muted-foreground">
-							[Telos and any other tooling that makes the server tick — commands, integrations, automations, the AI assistant.]
-						</p>
-					</div>
-				</div>
-			</section>
-
-			<!-- Rules / expectations -->
-			<section class="mb-12">
-				<div class="glass-card rounded-2xl p-8 sm:p-12">
-					<p class="section-label">Standards</p>
-					<h2 class="mb-6 text-2xl tracking-wider text-foreground">
-						How we operate<span class="blink-cursor">_</span>
-					</h2>
-					<div class="space-y-3">
-						{[
-							['[Rule 1]', '[Explanation of rule 1 — be specific, not generic]'],
-							['[Rule 2]', '[Explanation of rule 2]'],
-							['[Rule 3]', '[Explanation of rule 3]'],
-							['[Rule 4]', '[Explanation of rule 4]'],
-							['[Rule 5]', '[Explanation of rule 5]'],
-						].map(([title, desc]) => (
-							<div class="flex gap-4 border-b border-white/5 pb-3 last:border-0 last:pb-0">
-								<span class="mt-0.5 shrink-0 text-xs tracking-widest text-muted-foreground uppercase">{title}</span>
-								<p class="text-sm leading-relaxed text-muted-foreground">{desc}</p>
-							</div>
-						))}
-					</div>
-				</div>
+				<p class="text-sm text-muted-foreground mt-4">
+					* As a Discord server, we have to abide by Discord's terms
+					of service and community guidelines. If you repeatedly
+					breach Discord's guidelines, you may be banned from the
+					server.
+				</p>
 			</section>
 
 			<!-- CTA -->
 			<section class="text-center">
-				<div class="glass-card rounded-2xl px-8 py-12 sm:px-16">
+				<div class="rounded-2xl px-8 py-12 sm:px-16">
 					<h2 class="mb-4 text-2xl tracking-wider text-foreground">
-						Want in<span class="blink-cursor">_</span>
+						Want in<span class="blink-cursor">?</span>
 					</h2>
-					<p class="mb-8 text-sm leading-relaxed text-muted-foreground sm:text-base">
-						[How do people get invited? What should they know before applying or reaching out? Is there a waitlist, a process, a specific way to get a voucher?]
+					<p
+						class="mb-8 text-sm leading-relaxed text-muted-foreground sm:text-base"
+					>
+						332 is a private community. If you've been invited, or
+						you know someone who can vouch for you, use the link
+						below to join. Likewise, if you're interested in joining
+						but don't hae an invite, you can apply to join using the
+						same link.
 					</p>
 					<a
-						href="[DISCORD_INVITE_URL]"
+						href="https://discord.gg/WuGrkMZeNG"
 						class="glass-button glass-button-glass inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm tracking-wider text-foreground no-underline transition-all"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						Join on Discord
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-							<polyline points="15 3 21 3 21 9"/>
-							<line x1="10" y1="14" x2="21" y2="3"/>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-4 w-4"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path
+								d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+							></path>
+							<polyline points="15 3 21 3 21 9"></polyline>
+							<line x1="10" y1="14" x2="21" y2="3"></line>
 						</svg>
 					</a>
 				</div>
 			</section>
-
 		</div>
 	</div>
 
+	<script>
+		const CHARS =
+			"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		const SPACE_FREQ = 0.1;
+
+		function randomChar() {
+			return Math.random() < SPACE_FREQ
+				? " "
+				: CHARS[Math.floor(Math.random() * CHARS.length)];
+		}
+
+		function buildNoise(length: number) {
+			return Array.from({ length }, randomChar).join("");
+		}
+
+		document
+			.querySelectorAll<HTMLElement>(".scramble-text")
+			.forEach((el) => {
+				const len = parseInt(el.dataset.length ?? "280", 10);
+				el.textContent = buildNoise(len);
+				setInterval(() => {
+					const chars = el.textContent!.split("");
+					const numFlips = Math.floor(len * 0.08);
+					for (let i = 0; i < numFlips; i++) {
+						const idx = Math.floor(Math.random() * len);
+						chars[idx] = randomChar();
+					}
+					el.textContent = chars.join("");
+				}, 80);
+			});
+	</script>
+
 	<!-- Footer -->
 	<footer class="border-t border-white/5 px-4 py-8">
-		<div class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 sm:flex-row">
+		<div
+			class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 sm:flex-row"
+		>
 			<div class="flex items-center gap-2.5">
-				<img src="/polygon.svg" alt="332" class="h-5 w-5 opacity-60" width="20" height="20" />
-				<span class="text-sm tracking-widest text-muted-foreground">332</span>
+				<img
+					src="/polygon.svg"
+					alt="332"
+					class="h-5 w-5 opacity-60"
+					width="20"
+					height="20"
+				/>
+				<span class="text-sm tracking-widest text-muted-foreground"
+					>332</span
+				>
 			</div>
-			<div class="flex items-center gap-6 text-xs tracking-wider text-muted-foreground">
-				<a href="/" class="hover:text-foreground transition-colors no-underline">Home</a>
-				<a href="/projects" class="hover:text-foreground transition-colors no-underline">Projects</a>
-				<a href="/blog" class="hover:text-foreground transition-colors no-underline">Blog</a>
-				<a href="[DISCORD_INVITE_URL]" class="hover:text-foreground transition-colors no-underline" target="_blank" rel="noopener noreferrer">Discord</a>
+			<div
+				class="flex items-center gap-6 text-xs tracking-wider text-muted-foreground"
+			>
+				<a
+					href="/"
+					class="hover:text-foreground transition-colors no-underline"
+					>Home</a
+				>
+				<a
+					href="/projects"
+					class="hover:text-foreground transition-colors no-underline"
+					>Projects</a
+				>
+				<a
+					href="/blog"
+					class="hover:text-foreground transition-colors no-underline"
+					>Blog</a
+				>
 			</div>
 			<p class="text-xs tracking-wider text-muted-foreground opacity-40">
 				© {new Date().getFullYear()} 332
