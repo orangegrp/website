@@ -1,0 +1,95 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
+---
+
+<PageLayout
+	title="Blog — 332"
+	description="Writeups, updates, and thoughts from the 332 community."
+>
+	<div class="page-root relative min-h-screen px-4 pb-32 pt-32">
+		<div class="dot-pattern pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+		<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+			<div
+				class="absolute -left-[10%] top-[5%] h-[600px] w-[600px] rounded-full"
+				style="background: radial-gradient(circle, oklch(0.9 0 0 / 6%), transparent 65%); filter: blur(100px);"
+			></div>
+			<div
+				class="absolute -right-[5%] bottom-[10%] h-[500px] w-[500px] rounded-full"
+				style="background: radial-gradient(circle, oklch(0.8 0 0 / 5%), transparent 65%); filter: blur(80px);"
+			></div>
+		</div>
+
+		<div class="relative z-10 mx-auto max-w-4xl">
+
+			<!-- Page header -->
+			<div class="mb-12 animate-[fade-in-up_0.7s_ease-out_both]">
+				<p class="section-label">From the Community</p>
+				<h1 class="mb-4 text-4xl tracking-wider text-foreground sm:text-5xl">
+					Blog<span class="blink-cursor">_</span>
+				</h1>
+				<p class="max-w-xl text-base leading-relaxed text-muted-foreground">
+					[Short description of what this blog is — writeups, project updates, community news, technical deep dives, etc.]
+				</p>
+			</div>
+
+			{/* Tags */}
+			{allTags.length > 0 && (
+				<div class="mb-10 flex flex-wrap gap-2">
+					{allTags.map(tag => (
+						<span class="glass-button rounded-full px-3 py-1 text-xs tracking-wider text-muted-foreground">
+							{tag}
+						</span>
+					))}
+				</div>
+			)}
+
+			{/* Posts grid */}
+			{posts.length > 0 ? (
+				<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+					{posts.map(post => (
+						<BlogCard
+							title={post.data.title}
+							description={post.data.description}
+							date={post.data.date}
+							slug={post.id}
+							author={post.data.author}
+							tags={post.data.tags}
+						/>
+					))}
+				</div>
+			) : (
+				<div class="glass-card rounded-2xl p-12 text-center">
+					<p class="text-xl tracking-wider text-foreground mb-2">No posts yet<span class="blink-cursor">_</span></p>
+					<p class="text-sm text-muted-foreground">Posts will appear here when published.</p>
+				</div>
+			)}
+
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="border-t border-white/5 px-4 py-8">
+		<div class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 sm:flex-row">
+			<div class="flex items-center gap-2.5">
+				<img src="/polygon.svg" alt="332" class="h-5 w-5 opacity-60" width="20" height="20" />
+				<span class="text-sm tracking-widest text-muted-foreground">332</span>
+			</div>
+			<div class="flex items-center gap-6 text-xs tracking-wider text-muted-foreground">
+				<a href="/" class="hover:text-foreground transition-colors no-underline">Home</a>
+				<a href="/about" class="hover:text-foreground transition-colors no-underline">About</a>
+				<a href="/projects" class="hover:text-foreground transition-colors no-underline">Projects</a>
+			</div>
+			<p class="text-xs tracking-wider text-muted-foreground opacity-40">
+				© {new Date().getFullYear()} 332
+			</p>
+		</div>
+	</footer>
+</PageLayout>

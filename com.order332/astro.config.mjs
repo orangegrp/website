@@ -4,6 +4,7 @@ import mdx from '@astrojs/mdx';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+	site: 'https://order332.com',
 	integrations: [svelte(), mdx()],
 	compressHTML: true,
 	prefetch: {

@@ -1,0 +1,69 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+	title="500 — 332"
+	description="Something went wrong."
+>
+	<div class="page-root relative flex min-h-screen items-center justify-center overflow-clip px-4 pt-20">
+		<div class="dot-pattern pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+		<div class="pointer-events-none absolute inset-0" aria-hidden="true" style="contain: layout style paint;">
+			<div
+				class="absolute -left-[10%] -top-[10%] h-[700px] w-[700px] rounded-full"
+				style="background: radial-gradient(circle, oklch(0.7 0.1 22 / 5%), transparent 65%); animation: float-orb-1 28s ease-in-out infinite; filter: blur(100px); will-change: transform;"
+			></div>
+			<div
+				class="absolute -right-[5%] top-[20%] h-[800px] w-[800px] rounded-full"
+				style="background: radial-gradient(circle, oklch(0.9 0 0 / 4%), transparent 65%); animation: float-orb-2 34s ease-in-out infinite; filter: blur(120px); will-change: transform;"
+			></div>
+		</div>
+
+		<div
+			class="relative z-10 mx-auto flex max-w-lg flex-col items-center gap-8 text-center animate-[fade-in-up_0.8s_ease-out_both]"
+		>
+			<div class="glass-card flex flex-col items-center gap-6 px-10 py-14 sm:px-16 sm:py-16">
+				<img
+					src="/polygon.svg"
+					alt="332"
+					class="h-14 w-14 opacity-40"
+					width="56"
+					height="56"
+					style="filter: drop-shadow(0 0 12px oklch(1 0 0 / 10%));"
+				/>
+
+				<div>
+					<div
+						class="mb-1 text-7xl tracking-widest text-foreground sm:text-8xl"
+						style="opacity: 0.15;"
+					>
+						500
+					</div>
+					<h1 class="text-xl tracking-wider text-foreground sm:text-2xl">
+						Server error<span class="blink-cursor">_</span>
+					</h1>
+				</div>
+
+				<p class="text-sm leading-relaxed text-muted-foreground">
+					Something went wrong on our end. It's not you. Try refreshing, or come back in a bit.
+				</p>
+
+				<div class="flex flex-wrap items-center justify-center gap-3">
+					<a
+						href="/"
+						class="glass-button glass-button-glass inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm tracking-wider text-foreground no-underline transition-all"
+					>
+						Go home
+					</a>
+					<button
+						onclick="window.location.reload()"
+						class="glass-button inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm tracking-wider text-muted-foreground no-underline transition-all hover:text-foreground cursor-pointer"
+					>
+						Try again
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</PageLayout>

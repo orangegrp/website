@@ -1,16 +1,39 @@
 ---
 import '../styles/global.css';
-import favicon from '$lib/assets/favicon.svg';
 
 interface Props {
 	title?: string;
 	description?: string;
+	/**
+	 * Path to the OG image relative to /public, e.g. "/og/about.png".
+	 * If omitted, auto-derived from the current route:
+	 *   /          → /og/index.png
+	 *   /about     → /og/about.png
+	 *   /projects/telos → /og/telos.png  (last path segment)
+	 *   /blog/*    → /og/blog.png        (all blog posts share one)
+	 * Fallback when no file exists: /og/default.png
+	 */
+	ogImage?: string;
 }
 
 const {
 	title = '332 — Order332',
 	description = 'A new kind of platform. Explore our blog, projects, and more.',
+	ogImage,
 } = Astro.props;
+
+function deriveOgImage(pathname: string): string {
+	if (pathname === '/') return '/og/index.png';
+	const segments = pathname.replace(/\/$/, '').split('/').filter(Boolean);
+	// All blog post pages share one image
+	if (segments[0] === 'blog' && segments.length > 1) return '/og/blog.png';
+	// Use last path segment as filename
+	return `/og/${segments[segments.length - 1]}.png`;
+}
+
+const siteOrigin = Astro.url.origin;
+const resolvedOgImage = siteOrigin + (ogImage ?? deriveOgImage(Astro.url.pathname));
+const canonicalUrl = Astro.url.href;
 ---
 
 <!doctype html>
@@ -22,19 +45,20 @@ const {
 		<link rel="preload" href="/fonts/VT323-latin.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
 		<link rel="preload" href="/polygon.svg" as="image" type="image/svg+xml" fetchpriority="high" />
-		<link rel="icon" href={favicon.src} />
+		<link rel="icon" href="/polygon.svg" type="image/svg+xml" />
+		<link rel="canonical" href={canonicalUrl} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content="https://order332.com/og-image.png" />
-		<meta property="og:url" content="https://order332.com" />
+		<meta property="og:image" content={resolvedOgImage} />
+		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:site_name" content="332" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content="https://order332.com/og-image.png" />
+		<meta name="twitter:image" content={resolvedOgImage} />
 	</head>
 	<body>
 		<div class="min-h-screen">
