@@ -31,7 +31,11 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
 		<div class="relative z-10 mx-auto max-w-4xl">
 			<Alert.Root variant="info" class="mb-8">
 				<Alert.Title>
-					This part of the website is currently in <span class="text-white bg-blue-500 p-1 rounded-md">beta</span>. Your feedback will help us improve it.
+					<span class="block sm:inline">
+						This part of the website is currently in
+						<span class="text-white bg-blue-500 p-1 rounded-md mx-1 inline-block align-middle">beta</span>
+						. Your feedback will help us improve it.
+					</span>
 				</Alert.Title>
 			</Alert.Root>
 

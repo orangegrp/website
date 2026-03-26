@@ -293,6 +293,11 @@ import PageLayout from "../layouts/PageLayout.astro";
 			.forEach((el) => {
 				const len = parseInt(el.dataset.length ?? "280", 10);
 				el.textContent = buildNoise(len);
+				// Lock height after first render so reflow can't resize the card
+				requestAnimationFrame(() => {
+					el.style.height = el.offsetHeight + "px";
+					el.style.overflow = "hidden";
+				});
 				setInterval(() => {
 					const chars = el.textContent!.split("");
 					const numFlips = Math.floor(len * 0.08);
