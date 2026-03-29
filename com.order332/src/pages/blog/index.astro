@@ -29,16 +29,6 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
 		</div>
 
 		<div class="relative z-10 mx-auto max-w-4xl">
-			<Alert.Root variant="info" class="mb-8">
-				<Alert.Title>
-					<span class="block sm:inline">
-						This part of the website is currently in
-						<span class="text-white bg-blue-500 p-1 rounded-md mx-1 inline-flex items-center" style="line-height:1.35;">beta</span>
-						. Your feedback will help us improve it.
-					</span>
-				</Alert.Title>
-			</Alert.Root>
-
 			<!-- Page header -->
 			<div class="mb-12 animate-[fade-in-up_0.7s_ease-out_both]">
 				<p class="section-label">From the Community</p>

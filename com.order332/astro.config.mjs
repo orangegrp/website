@@ -6,6 +6,23 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
 	site: 'https://order332.com',
 	integrations: [svelte(), mdx()],
+	markdown: {
+		shikiConfig: {
+			theme: 'github-dark',
+			transformers: [
+				{
+					pre(node) {
+						// Remove Shiki's inline background-color so CSS can control it
+						if (node.properties.style) {
+							node.properties.style = node.properties.style
+								.replace(/background-color:[^;]+;?/, '')
+								.trim();
+						}
+					},
+				},
+			],
+		},
+	},
 	compressHTML: true,
 	prefetch: {
 		prefetchAll: false,
