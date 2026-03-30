@@ -1,7 +1,7 @@
 ---
 title: "How I Hacked a Random Machine"
 description: "A basic walkthrough of how I hacked a random machine."
-date: 2026-03-29
+date: 2026-03-31
 author: "unified"
 tags: ["hacking", "random", "machine"]
 draft: false
@@ -13,25 +13,25 @@ Welcome to my part one walkthrough on how I got initial access and some level of
 
 Picking a random region and county in the US and using masscan on their IP range, I found a bunch of interesting machines: mostly routers, cameras, and then after the fifth machine I looked at this:
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481925634547781704/image.png?ex=69c9858c&is=69c8340c&hm=eb178735dcaadca8eb32ea6c21e8fe4f0fb5409369d2be0466271fb92e43efed&=&format=webp&quality=lossless)
+![Image of website that displays header 'Upload and Play Video' with a file upload field](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/1)
 
 At least to me this is begging to be exploited, so I had to try doing it. Unfortunately I didn’t really document this process until much later, but essentially I was looking through Hacktricks section on file uploads (https://hacktricks.wiki/en/pentesting-web/file-upload/index.html) and trying out what tricks they recommended. Eventually I discovered it was as simple as changing out the MIME content to look like an mp4 (video/mp4) instead of a php file. That was rather stupid easy.
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481925748481720361/image.png?ex=69c985a7&is=69c83427&hm=205b2ee96cbeb54aa78d1601506ba2ba64e654999d0a5af4ac446f9fa9e7259e&=&format=webp&quality=lossless)
+![Image of successfully launched p0wny shell instance; logged in as www-data@lamp-server](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/2)
 
 I now have a simple php shell I ripped off of here (https://github.com/flozz/p0wny-shell). Doing a bunch of manually digging through the server I discovered it looks like its running in an XAMPP environment (Apache PHP and what not) and had some other interesting services going. Using some basic tools like linenum and linpeas, I extracted a lot of interesting information including some logins for an admin user on their main login page and a flixtor movie account (while getting a premium movie account was cool, this becomes much more relevant later). It was getting really late, so before hopping off I dumped all of /var/www/html before logging off (thank god I did).
 
 Waking up in the morning and trying to get back into my shell, nothing came up. “Oh shit” is what I thought. I had no clue whether or not a sysadmin detected my shell and plugged up my gateway at the time (later investigation proved this was some automatic cleaning and other shit I didn’t understand) but I was left with just the original login portal.
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481925921383514205/image.png?ex=69c985d0&is=69c83450&hm=ff2b9029f6fe88bf115ba8eaae8403331675651283f7331c612d3c0eb64b5840&=&format=webp&quality=lossless)
+![Image of empty custom login page with fields 'Username or Email' and 'Password'](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/3)
 
 And luckily enough the admin credentials found earlier worked.
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481925984486821908/image.png?ex=69c985df&is=69c8345f&hm=a33b4b01cae53f927d400baa9292856afa5a43ecc89c670db82df75ef66a9a9e&=&format=webp&quality=lossless)
+![Image of custom login page with fields 'Username or Email' filled in with 'drathnis@gmail.com' and filled 'Password' not shown for privacy reasons](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/4)
 
 Awesome.
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481926096944365608/image.png?ex=69c985fa&is=69c8347a&hm=f4954ebb4fd6dfdc6f1ef7a8dfcbe4cc1df11dc7603f315d51e5efe42f259395&=&format=webp&quality=lossless)
+![Image of empty custom account register page that is only accessible to the account user; asks for details like first, last name, username, email, and password](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/5)
 
 Just in case I were to lose the admin account in the future, I added my own user account with phony details to try and blend in with the other existing users.
 
@@ -40,11 +40,11 @@ Anyways… back to trying to get RCE again on the server.
 Using the dumps of /var/www/html from earlier, I scanned through a bunch of different php files and found an interesting endpoint: /productCompare.php
 
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481926236493185105/image.png?ex=69c9861b&is=69c8349b&hm=180ff30fd411ceb40b746e4a1fe79a89372260f35c192676ee7fb1413df42fc3&=&format=webp&quality=lossless)
+![Image of low quality web page titled 'Compare Product Data' with some random fields including a file browse and upload button](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/6)
 
 Looking through the code, I spotted yet another file upload vulnerability (what's up with this server and not handling uploaded files correctly??)
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481926319360049273/image.png?ex=69c9862f&is=69c834af&hm=ba38e33f5e18c9d4b09e7d78ff74fe4dbb1cdd421cadeb04d72bf941acaff7fc&=&format=webp&quality=lossless)
+![Image of php code that clearly shows a unchecked file upload vulnerability](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/7)
 
 After uploading the same shell, I was confused because I didn’t see it in the file dropdown to reread the code and realized it only displays files ending in .xlsx (spreadsheet files). Directly visiting my shell at /uploads/ I’m back in again to my previous www-data environment.
 
@@ -57,15 +57,16 @@ Using pspy64, I found this interesting process
 ```
 2026/03/12 01:16:27 [35;1mCMD: UID=1000 PID=1014 | /var/www/html/CENSORED/venv/bin/ python flixtor_api.py
 ```
+
 UID 1000 refers to the Julian user on the system; apparently they have some flixtor_api (related to the flixtor login I was able to steal earlier; still has over a free year of premium access that isn't cheap I'm going to enjoy lol). It looked to be the only process being run by Julian so I know any easy attempt at getting any privilege escalation was going to be through this process.
 
 A huge oversight I saw was that the www-data user was in the same permissions group as Julian. While there weren't a lot of credential files I could access without being Julian, I had the ability to overwrite some files inside of this flixtor_api folder (bingo).
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481926487752839211/image.png?ex=69c98657&is=69c834d7&hm=297671d4e75fc5c79af24ca25c609f133a90d12ca6f4d38fceeb8151afaa2ea8&=&format=webp&quality=lossless)
+![Image of modified flixtor API python program with my own injected route that runs OS commands](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/8)
 
 I was able to inject my own flask endpoint, but there was a problem. I had no easy way of restarting the python and I didn't want to risk eliminating this priv esc potential vector by killing the python process.
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481926611279413390/image.png?ex=69c98674&is=69c834f4&hm=6e3cf7f4a75a8f8a7eb681c297d5056bbf8f38bd398a92abf9d40acc7fb650f1&=&format=webp&quality=lossless)
+![Image of command output of 'systemctl cat flixtor'; shows details about the systemctl flixtor service](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/9)
 
 While Restart=always is set in the systemctl config for flixtor; I still have no clue if manually killing the process would actually make it restart with my new endpoint attached (someone let me know if you know the answer to this).
 
@@ -76,65 +77,64 @@ This took my attention to changing out some Javascript wherever I could.
 Seeing “playwright” everywhere in the python files of this project (I have no clue what it does, I just saw a lot of mentions of it) I found the packages responsible for it in the python venv.
 
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481926753399083039/image.png?ex=69c98696&is=69c83516&hm=79f6c9ff85f4eda1ce8ed455ef81437bb50044b90d7b8d2774ed0a32ba779a43&=&format=webp&quality=lossless)
+![Image of command output of 'ls' in python flixtor program's playwright package driver directory](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/10)
 
 Great, everything is writable by people in the julian group, including www-data
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481926823443955752/image.png?ex=69c986a7&is=69c83527&hm=1044469bf02dd6d519b39add45c5abb1fdd46904b3055c029fc0c15a94ce1c8a&=&format=webp&quality=lossless)
+![Image of contents of default cli.js file](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/11)
 
 Changed this cli.js file to look like this
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481926908206907543/image.png?ex=69c986bb&is=69c8353b&hm=47bbddf47b5c7cb8b6dec6f8dbd6d441469b8d995c2cf6fcaa05d9ab1c92d4d5&=&format=webp&quality=lossless)
+![Image of new version of cli.js with javascript payload](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/12)
 
 Payload was generated using duck.ai and I was able to transfer this version of the file over pastebin to send to our target.
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481927022409285723/image.png?ex=69c986d7&is=69c83557&hm=537a893e51463bc9712a97ece1c7ec2d70cc09f93705417c948f671e14722beb&=&format=webp&quality=lossless)
+![Image of catted file output of changed cli.js](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/13)
 
 Great, we've injected our payload
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481927106899345479/image.png?ex=69c986eb&is=69c8356b&hm=b8059f2d59aacf76f9025d3ab44ba61786427a74ad88edd45bf955145c4bcfd6&=&format=webp&quality=lossless)
+![Image of attempted RCE through cli.js failing](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/14)
 
 Well that was disappointing; trying some other endpoints, nothing happened. Either there was something wrong with the javascript payload or it just isn't running at all.
 
 Something I had remembered was this debug code snippet from earlier; not sure why it didn't jump out to me sooner, maybe I'm just a little stupid
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481927225233379389/image.png?ex=69c98707&is=69c83587&hm=c29a7ddeb1c59117861424854b88de5705d6e0b62c92b878331ad8162c1ab0c6&=&format=webp&quality=lossless)
+![Image of earlier flixtor python program showing /debug/ endpoint](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/15)
 
 We can see in the config that DEBUG_DIR is the folder where they keep some random looking screenshots; not really sure why they're there but let's have fun with it
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481927549708927106/image.png?ex=69c98754&is=69c835d4&hm=d95a4a26f0a543cb456f05d1dc3e0530f69661a2c668d1bf32b1eb46e6f840fa&=&format=webp&quality=lossless)
+![Image of outputted config file contents showing where DEBUG_DIR resolves to](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/16)
 
 Great, so the endpoint reacts how you would expect it to
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481927612845654109/image.png?ex=69c98763&is=69c835e3&hm=2ab76f9c26d0c2b8847ed1399931a0f7cc7c2bbb172347ac7766993707684af2&=&format=webp&quality=lossless)
-
+![Image of curling http://127.0.0.1/debug (works)](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/17)
 Well this didn't really work the way I hoped it to
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481927690289287219/image.png?ex=69c98776&is=69c835f6&hm=9446b7259f90f4319fcf881f92c540eebd518877387668a1fe0ae0487f6a1f15&=&format=webp&quality=lossless)
+![Image of failed attempt at directory travesal in debug endpoint](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/18)
 
 This ended up feeling like a deadend; File linking didn't even work because I don't have group write access to / debug_screenshots; this was really discouraging and low key wanted to kill myself because I thought I was on to something.
 
 However, thinking more about system file links I kept digging through the source code and found this
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481927782605783171/image.png?ex=69c9878c&is=69c8360c&hm=a7257402c799ab96b8b2ef5447faff2b184e1822148bc347fba66654e2593b64&=&format=webp&quality=lossless)
+![Image of /js method in flixtor program](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/19)
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481927821361414226/image.png?ex=69c98795&is=69c83615&hm=c7f3e84404d003ae83b06982c4ae96735f8648348c3fd9b1d9a868f4316129f9&=&format=webp&quality=lossless)
+![Image of 'ls -la' inside of flixtor app directory (reveals JS filed served by /js endpoint)](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/20)
 
 We found another endpoint meant to be used by flixtor presumably? that serves the javascript file
 
 After linking the file to passwd and calling the endpoint…
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481927910695768084/image.png?ex=69c987aa&is=69c8362a&hm=487a4455fd059a3dcf4d22e110ab2a617f4bc667b2af165e7b187ae2d47aff2e&=&format=webp&quality=lossless)
+![Image of symbolically linking js file to /etc/passwd and curling /js to print contents of /etc/passwd](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/21)
 
 Halle - fucking - lujah, finally; we could read files as Julian. Previous attempts at priv esc failed, but at least it inspired this new file reading method
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481928145757012029/image.png?ex=69c987e2&is=69c83662&hm=b310ec0b6798eb307fdaaa31d715f1f9b15bc3f5bb2ded6a0d604598a2e3fecf&=&format=webp&quality=lossless)
+![Censored image of an anthropic token read through this vulnerability](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/22)
 
 An anthropic token? don't mind me yoink 
 
 Reading a bunch of other private files we discover more interesting passwords and users
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481928252871409664/image.png?ex=69c987fc&is=69c8367c&hm=e119b684bbf40efdfa0ee5a76b788fa0d469fc75267717cf8559895308512b43&=&format=webp&quality=lossless)
+![Image of censored output of .mysql_history revealing passwords on the system](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/23)
 
 This concludes part 1 of my writeup, stay tuned for future updates :-P
 
@@ -142,10 +142,9 @@ I’d love any feedback, harsh or not. Happy hacking.
 
 (PS: Side note I forgot to include but at some point I discovered some MD5 hash to some random php mysql user in the machine after accessing their local MySQL; using hashcat brute force I cracked it in like less than 2 seconds. it was the same as another password discovered earlier plus one extra number like LOL that isn't a big upgrade of a password)
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481940453807886427/image.png?ex=69c99359&is=69c841d9&hm=2543e35677910fddac2f691e3ff943694fa5fa31cc4232296ea2a411af89637b&=&format=webp&quality=lossless)
+![Image of hashcat cracking MD5 hashes on the system](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/24)
 
-![IMAGE ALT TEXT](https://media.discordapp.net/attachments/1481925633909985370/1481940706888122398/image.png?ex=69c99395&is=69c84215&hm=28d2d66c9812c84d7a39017902aed298373978db9fe7be5a40b9c9ec0c6ea4ed&=&format=webp&quality=lossless)
-
+![Image of successful output of the previous command](https://github.com/unified332/blog-img-cdn/raw/refs/heads/main/random-machine/25)
 
 btw if any FBI is reading this, this is a totally abandoned server with none of my actions actually inflicting any harm to individuals related to this service; to further this point law enforcement even the gemeni and anthropic tokens I found expired like in like August of last year, not really a well maintained server anyone is touching
 
