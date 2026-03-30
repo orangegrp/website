@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Button } from "$lib/components/ui/button/index.js";
 	import { cn } from "$lib/utils.js";
-	import { MenuIcon, XIcon, ChevronRightIcon, ChevronDownIcon, LockIcon } from "@lucide/svelte/icons";
+	import { MenuIcon, XIcon, ChevronRightIcon, ChevronDownIcon, LockIcon, ArrowRightIcon } from "@lucide/svelte/icons";
 
 	let pathname = $state(typeof window !== "undefined" ? window.location.pathname : "/");
 
@@ -147,21 +147,20 @@
 			</div>
 
 		<!-- Desktop: Members Area button -->
-		<div
-			class="hidden shrink-0 cursor-not-allowed md:inline-flex"
-			aria-disabled="true"
-			title="Members Area — coming soon"
+		<a
+			href="https://app.order332.com/login"
+			class="hidden shrink-0 md:inline-flex"
+			title="Members Area"
 		>
 			<Button
 				variant="glass"
 				size="sm"
-				class="pointer-events-none select-none tracking-wider opacity-50"
-				disabled
+				class="tracking-wider"
 			>
-				<LockIcon class="h-4 w-4 text-foreground drop-shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
-				<span class="text-xs tracking-widest text-foreground">Coming Soon</span>
+				<span class="text-xs tracking-widest text-foreground">Members Area</span>
+				<ArrowRightIcon class="h-4 w-4 text-foreground drop-shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
 			</Button>
-		</div>
+		</a>
 
 		<!-- Mobile: hamburger -->
 			<button
@@ -228,16 +227,23 @@
 					</div>
 				{/if}
 
-			<div class="mt-2 cursor-not-allowed border-t border-white/5 pt-2" aria-disabled="true" title="Members Area — coming soon">
-				<Button
-					variant="glass"
-					size="sm"
-					class="pointer-events-none w-full select-none tracking-wider opacity-50"
-					disabled
+				<div class="mt-2 border-t border-white/5 pt-2" title="Members Area">
+				<a
+					href="https://app.order332.com/login"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="w-full no-underline"
+					style="display: block"
 				>
-					<LockIcon class="h-4 w-4 text-foreground drop-shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
-					<span class="text-xs tracking-widest text-foreground">Coming Soon</span>
-				</Button>
+					<Button
+						variant="glass"
+						size="sm"
+						class="w-full tracking-wider"
+						type="button"
+					>
+						<span class="text-xs tracking-widest text-foreground">Members Area</span>
+					</Button>
+				</a>
 			</div>
 			</div>
 		{/if}
