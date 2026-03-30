@@ -158,7 +158,7 @@
 				class="tracking-wider"
 			>
 				<span class="text-xs tracking-widest text-foreground">Members Area</span>
-				<ArrowRightIcon class="h-4 w-4 text-foreground drop-shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
+				<ChevronRightIcon class="h-4 w-4 text-foreground drop-shadow-[0_0_4px_rgba(255,255,255,0.4)]" />
 			</Button>
 		</a>
 
