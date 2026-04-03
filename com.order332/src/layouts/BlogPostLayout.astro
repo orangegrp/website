@@ -93,8 +93,56 @@ const utterancesScriptAttrs = {
 				<slot />
 			</article>
 
-			<section class="blog-comments mt-12" aria-label="Comments">
-				<script is:inline src="https://utteranc.es/client.js" {...utterancesScriptAttrs}></script>
+			<section class="blog-comments mt-12" aria-label="Comments" data-utterances-section>
+				<div data-utterances-root class="blog-comments-widget">
+					<script is:inline src="https://utteranc.es/client.js" {...utterancesScriptAttrs}></script>
+				</div>
+				<p
+					class="blog-comments-fallback hidden text-sm leading-relaxed text-muted-foreground"
+					data-utterances-fallback
+					role="status"
+					aria-live="polite"
+					hidden
+				>
+					Comments could not load. This is often caused by a privacy extension or strict tracking protection
+					blocking GitHub. Try allowlisting this site or opening the page in another browser.
+				</p>
+				<script is:inline>
+					(function () {
+						var root = document.querySelector('[data-utterances-root]');
+						var fb = document.querySelector('[data-utterances-fallback]');
+						if (!root || !fb) return;
+						var done = false;
+						var tid;
+						function success() {
+							if (done) return;
+							done = true;
+							if (tid) clearTimeout(tid);
+							window.removeEventListener('message', onMsg);
+						}
+						function onMsg(e) {
+							if (e.origin !== 'https://utteranc.es') return;
+							var d = e.data;
+							if (d && d.type === 'resize' && typeof d.height === 'number' && d.height > 0) success();
+						}
+						function fail() {
+							if (done) return;
+							done = true;
+							window.removeEventListener('message', onMsg);
+							root.classList.add('hidden');
+							root.setAttribute('aria-hidden', 'true');
+							fb.classList.remove('hidden');
+							fb.removeAttribute('hidden');
+						}
+						window.addEventListener('message', onMsg);
+						function start() {
+							if (done) return;
+							tid = setTimeout(fail, 11000);
+						}
+						if (document.readyState === 'complete') start();
+						else window.addEventListener('load', start);
+					})();
+				</script>
 			</section>
 
 			<!-- Footer nav -->
@@ -120,6 +168,11 @@ const utterancesScriptAttrs = {
 
 	:global(.blog-comments .utterances-frame) {
 		width: 100%;
+	}
+
+	.blog-comments-fallback {
+		margin-top: 0;
+		max-width: 42rem;
 	}
 
 	.prose-332 {
