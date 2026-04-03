@@ -16,6 +16,16 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 	month: 'long',
 	day: 'numeric',
 }).format(date);
+
+// Utterances uses non-DOM script attrs (repo, issue-term, …); Astro's ScriptHTMLAttributes omit them.
+const utterancesScriptAttrs = {
+	repo: 'orangegrp/website',
+	'issue-term': 'pathname',
+	label: 'blog-comments',
+	theme: 'github-dark',
+	crossorigin: 'anonymous',
+	async: true,
+} as any;
 ---
 
 <PageLayout title={`${title} — 332`} description={description} ogImage="/og/blog.png">
@@ -83,6 +93,10 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 				<slot />
 			</article>
 
+			<section class="blog-comments mt-12" aria-label="Comments">
+				<script is:inline src="https://utteranc.es/client.js" {...utterancesScriptAttrs}></script>
+			</section>
+
 			<!-- Footer nav -->
 			<div class="mt-16 border-t border-white/5 pt-8">
 				<a
@@ -100,6 +114,14 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 </PageLayout>
 
 <style>
+	:global(.blog-comments .utterances) {
+		max-width: 100%;
+	}
+
+	:global(.blog-comments .utterances-frame) {
+		width: 100%;
+	}
+
 	.prose-332 {
 		color: oklch(0.75 0 0);
 		line-height: 1.8;
