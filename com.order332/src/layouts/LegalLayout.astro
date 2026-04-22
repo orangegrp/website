@@ -1,0 +1,242 @@
+---
+import PageLayout from './PageLayout.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	activeDoc: 'terms' | 'privacy';
+}
+
+const { title, description, activeDoc } = Astro.props;
+---
+
+<PageLayout title={title} description={description}>
+	<div class="page-root relative min-h-screen px-4 pb-24 pt-32">
+		<div class="dot-pattern pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+		<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+			<div
+				class="absolute -left-[10%] top-[5%] h-[600px] w-[600px] rounded-full"
+				style="background: radial-gradient(circle, oklch(0.9 0 0 / 6%), transparent 65%); filter: blur(100px);"
+			></div>
+			<div
+				class="absolute -right-[5%] top-[30%] h-[500px] w-[500px] rounded-full"
+				style="background: radial-gradient(circle, oklch(0.8 0 0 / 5%), transparent 65%); filter: blur(80px);"
+			></div>
+		</div>
+
+		<div class="relative z-10 mx-auto max-w-3xl">
+			<header class="mb-8">
+				<p class="section-label mb-3">App Legal</p>
+				<h1 class="mb-2 text-3xl tracking-wider text-foreground sm:text-4xl">{title}</h1>
+			</header>
+
+			<nav class="mb-4 flex items-center gap-3 text-sm" aria-label="Legal documents">
+				<a
+					href="/app-legal/terms"
+					class:list={[
+						'rounded-lg px-1 py-1 no-underline transition-all',
+						activeDoc === 'terms'
+							? 'text-foreground underline underline-offset-4'
+							: 'text-muted-foreground hover:text-foreground',
+					]}
+				>
+					Terms of Service
+				</a>
+				<a
+					href="/app-legal/privacy"
+					class:list={[
+						'rounded-lg px-1 py-1 no-underline transition-all',
+						activeDoc === 'privacy'
+							? 'text-foreground underline underline-offset-4'
+							: 'text-muted-foreground hover:text-foreground',
+					]}
+				>
+					Privacy Policy
+				</a>
+			</nav>
+
+			<section class="pb-4" data-legal-viewer>
+				<div
+					class="mb-6 inline-flex rounded-xl border border-white/10 bg-white/5 p-1"
+					role="tablist"
+					aria-label="Legal document view"
+				>
+					<button
+						type="button"
+						class="legal-toggle-btn is-active rounded-lg px-4 py-2 text-sm tracking-wide"
+						data-view-btn="simple"
+						aria-pressed="true"
+					>
+						Simple
+					</button>
+					<button
+						type="button"
+						class="legal-toggle-btn rounded-lg px-4 py-2 text-sm tracking-wide"
+						data-view-btn="full"
+						aria-pressed="false"
+					>
+						Full legal
+					</button>
+				</div>
+
+				<article class="prose-legal" data-view-panel="simple">
+					<slot name="simple" />
+				</article>
+				<article class="prose-legal hidden" data-view-panel="full">
+					<slot name="full" />
+				</article>
+			</section>
+		</div>
+	</div>
+</PageLayout>
+
+<style>
+	.legal-toggle-btn {
+		color: oklch(0.72 0 0);
+		background: transparent;
+		border: 1px solid transparent;
+		transition: all 0.2s ease;
+	}
+
+	.legal-toggle-btn:hover {
+		color: oklch(0.92 0 0);
+	}
+
+	.legal-toggle-btn.is-active {
+		color: oklch(0.95 0 0);
+		background: oklch(1 0 0 / 9%);
+		border-color: oklch(1 0 0 / 16%);
+	}
+
+	.prose-legal {
+		color: oklch(0.75 0 0);
+		line-height: 1.8;
+		font-size: 1rem;
+	}
+
+	.prose-legal :global(h1),
+	.prose-legal :global(h2),
+	.prose-legal :global(h3),
+	.prose-legal :global(h4) {
+		color: oklch(0.92 0 0);
+		letter-spacing: 0.04em;
+		margin-top: 1.8rem;
+		margin-bottom: 0.7rem;
+	}
+
+	.prose-legal :global(h2) {
+		font-size: 1.4rem;
+		padding-bottom: 0.45rem;
+		border-bottom: 1px solid oklch(1 0 0 / 8%);
+	}
+
+	.prose-legal :global(h3) {
+		font-size: 1.1rem;
+	}
+
+	.prose-legal :global(p) {
+		margin-bottom: 1rem;
+	}
+
+	.prose-legal :global(ul),
+	.prose-legal :global(ol) {
+		padding-left: 1.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.prose-legal :global(ul li) {
+		list-style-type: disc;
+		margin-bottom: 0.35rem;
+	}
+
+	.prose-legal :global(ol li) {
+		list-style-type: decimal;
+		margin-bottom: 0.35rem;
+	}
+
+	.prose-legal :global(a) {
+		color: oklch(0.87 0 0);
+		text-decoration: underline;
+		text-underline-offset: 3px;
+		text-decoration-color: oklch(1 0 0 / 25%);
+	}
+
+	.prose-legal :global(a:hover) {
+		color: oklch(0.95 0 0);
+		text-decoration-color: oklch(1 0 0 / 55%);
+	}
+
+	.prose-legal :global(hr) {
+		border: none;
+		border-top: 1px solid oklch(1 0 0 / 8%);
+		margin: 1.7rem 0;
+	}
+
+	.prose-legal :global(strong) {
+		color: oklch(0.89 0 0);
+	}
+
+	.prose-legal :global(table) {
+		width: 100%;
+		border-collapse: collapse;
+		display: block;
+		overflow-x: auto;
+		margin-bottom: 1.5rem;
+	}
+
+	.prose-legal :global(th) {
+		border-bottom: 1px solid oklch(1 0 0 / 15%);
+		padding: 0.5rem 0.7rem;
+		text-align: left;
+		color: oklch(0.88 0 0);
+		font-size: 0.82rem;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.prose-legal :global(td) {
+		border-bottom: 1px solid oklch(1 0 0 / 6%);
+		padding: 0.5rem 0.7rem;
+		vertical-align: top;
+	}
+	@media (max-width: 640px) {
+		.prose-legal {
+			font-size: 0.95rem;
+		}
+	}
+</style>
+
+<script>
+	const viewers = document.querySelectorAll<HTMLElement>('[data-legal-viewer]');
+
+	for (const viewer of viewers) {
+		const buttons = Array.from(
+			viewer.querySelectorAll<HTMLButtonElement>('[data-view-btn]')
+		);
+		const panels = Array.from(
+			viewer.querySelectorAll<HTMLElement>('[data-view-panel]')
+		);
+
+		const setView = (view: string) => {
+			for (const button of buttons) {
+				const isActive = button.dataset.viewBtn === view;
+				button.classList.toggle('is-active', isActive);
+				button.setAttribute('aria-pressed', String(isActive));
+			}
+
+			for (const panel of panels) {
+				const isVisible = panel.dataset.viewPanel === view;
+				panel.classList.toggle('hidden', !isVisible);
+			}
+		};
+
+		setView('simple');
+		for (const button of buttons) {
+			button.addEventListener('click', () => {
+				setView(button.dataset.viewBtn ?? 'simple');
+			});
+		}
+	}
+</script>

@@ -1,0 +1,27 @@
+---
+const links = [
+	{ href: '/', label: 'Home' },
+	{ href: '/about', label: 'About' },
+	{ href: '/projects', label: 'Projects' },
+	{ href: '/blog', label: 'Blog' },
+	{ href: '/app-legal/terms', label: 'Terms' },
+	{ href: '/app-legal/privacy', label: 'Privacy' },
+];
+---
+
+<footer class="border-t border-white/5 px-4 py-8">
+	<div class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 sm:flex-row">
+		<div class="flex items-center gap-2.5">
+			<img src="/polygon.svg" alt="332" class="h-5 w-5 opacity-60" width="20" height="20" />
+			<span class="text-sm tracking-widest text-muted-foreground">332</span>
+		</div>
+		<div class="flex items-center gap-6 text-xs tracking-wider text-muted-foreground">
+			{
+				links.map(link => (
+					<a href={link.href} class="hover:text-foreground transition-colors no-underline">{link.label}</a>
+				))
+			}
+		</div>
+		<p class="text-xs tracking-wider text-muted-foreground opacity-40">© {new Date().getFullYear()} 332</p>
+	</div>
+</footer>

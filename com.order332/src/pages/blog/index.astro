@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import BlogCard from '../../components/BlogCard.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
 import * as Alert from "$lib/components/ui/alert/";
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
@@ -76,20 +77,5 @@ const allTags = [...new Set(posts.flatMap(p => p.data.tags))].sort();
 	</div>
 
 	<!-- Footer -->
-	<footer class="border-t border-white/5 px-4 py-8">
-		<div class="mx-auto flex max-w-4xl flex-col items-center justify-between gap-4 sm:flex-row">
-			<div class="flex items-center gap-2.5">
-				<img src="/polygon.svg" alt="332" class="h-5 w-5 opacity-60" width="20" height="20" />
-				<span class="text-sm tracking-widest text-muted-foreground">332</span>
-			</div>
-			<div class="flex items-center gap-6 text-xs tracking-wider text-muted-foreground">
-				<a href="/" class="hover:text-foreground transition-colors no-underline">Home</a>
-				<a href="/about" class="hover:text-foreground transition-colors no-underline">About</a>
-				<a href="/projects" class="hover:text-foreground transition-colors no-underline">Projects</a>
-			</div>
-			<p class="text-xs tracking-wider text-muted-foreground opacity-40">
-				© {new Date().getFullYear()} 332
-			</p>
-		</div>
-	</footer>
+	<SiteFooter />
 </PageLayout>

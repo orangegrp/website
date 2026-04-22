@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from 'astro:content';
+import LegalLayout from '../../layouts/LegalLayout.astro';
+
+const legalEntries = await getCollection('legal');
+
+const findEntry = (candidates: string[]) =>
+	legalEntries.find(entry =>
+		candidates.some(candidate => {
+			const id = entry.id ?? '';
+			const filePath = entry.filePath ?? '';
+			return (
+				id === candidate ||
+				id.endsWith(candidate) ||
+				filePath.endsWith(candidate)
+			);
+		})
+	);
+
+const simpleEntry = findEntry([
+	'terms.simple',
+	'terms.simple.md',
+	'terms-simple',
+	'terms/simple',
+]);
+const fullEntry = findEntry([
+	'terms.full',
+	'terms.full.md',
+	'terms-full',
+	'terms/full',
+]);
+
+if (!simpleEntry || !fullEntry) {
+	throw new Error('Missing legal content entries for Terms of Service.');
+}
+
+const { Content: SimpleTerms } = await render(simpleEntry);
+const { Content: FullTerms } = await render(fullEntry);
+---
+
+<LegalLayout
+	title="Terms of Service"
+	description="Read the plain-English version or the full legal terms."
+	activeDoc="terms"
+>
+	<SimpleTerms slot="simple" />
+	<FullTerms slot="full" />
+</LegalLayout>
