@@ -98,6 +98,12 @@
   box-shadow: var(--glass-shadow-card);
 }
 
+.glass-card.glass-card--navbar {
+  /* Lighter scrim keeps blur readable on dark pages; backdrop brightness pulls bright areas down for text contrast */
+  background: color-mix(in oklch, var(--background, oklch(0.08 0 0)) 48%, transparent);
+  backdrop-filter: var(--glass-blur-lg) brightness(0.78);
+}
+
 /* ── Liquid Glass: Button ─────────────────────────────────────────── */
 
 .glass-button {

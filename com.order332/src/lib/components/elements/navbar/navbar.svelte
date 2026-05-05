@@ -24,7 +24,7 @@
 >
 	<div
 		class={cn(
-			"glass-card w-full max-w-3xl rounded-2xl px-4 py-2 transition-all duration-300",
+			"glass-card glass-card--navbar w-full max-w-3xl rounded-2xl px-4 py-2 transition-all duration-300",
 			mobileOpen && "rounded-b-2xl",
 		)}
 	>
