@@ -26,6 +26,8 @@ export function initBlogToolbar() {
 	const selectedTags = new Set<string>();
 	let browseExpanded = false;
 	let searchDebounce = 0;
+	let desktopWantsList = false;
+	const smMq = window.matchMedia('(min-width: 640px)');
 
 	function getSearchQuery() {
 		if (!(searchInput instanceof HTMLInputElement)) return '';
@@ -209,6 +211,10 @@ export function initBlogToolbar() {
 		postsEl.classList.toggle('blog-posts-list', list);
 	}
 
+	function applyLayoutForViewport() {
+		setViewMode(smMq.matches ? desktopWantsList : true);
+	}
+
 	if (layoutTrigger instanceof HTMLButtonElement && layoutDropdown instanceof HTMLElement) {
 		layoutTrigger.addEventListener('click', () => {
 			const open = !layoutDropdown.classList.contains('blog-layout-is-open');
@@ -221,10 +227,13 @@ export function initBlogToolbar() {
 			opt.addEventListener('click', (e) => {
 				e.stopPropagation();
 				const v = opt.getAttribute('data-layout');
-				setViewMode(v === 'list');
+				if (smMq.matches) desktopWantsList = v === 'list';
+				applyLayoutForViewport();
 			});
 		});
 	}
+
+	smMq.addEventListener('change', applyLayoutForViewport);
 
 	document.addEventListener('click', (e) => {
 		if (!(layoutDropdown instanceof HTMLElement)) return;
@@ -244,6 +253,6 @@ export function initBlogToolbar() {
 		});
 	}
 
-	setViewMode(false);
+	applyLayoutForViewport();
 	applyFilters();
 }

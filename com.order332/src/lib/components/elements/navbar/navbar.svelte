@@ -29,7 +29,13 @@
 	import type { NavMenuLink } from "./nav-types.js";
 	import { menuTriggerActive } from "./nav-utils.js";
 	import { cn } from "$lib/utils.js";
-	import { MenuIcon, XIcon, ChevronDownIcon, ChevronRightIcon, ExternalLinkIcon } from "@lucide/svelte/icons";
+	import {
+		MenuIcon,
+		XIcon,
+		ChevronDownIcon,
+		ChevronRightIcon,
+		ExternalLinkIcon,
+	} from "@lucide/svelte/icons";
 
 	let pathname = $state(typeof window !== "undefined" ? window.location.pathname : "/");
 
