@@ -1,53 +1,17 @@
 <script lang="ts">
 	import { Button } from "$lib/components/ui/button/index.js";
 	import { cn } from "$lib/utils.js";
-	import { MenuIcon, XIcon, ChevronRightIcon, ChevronDownIcon, LockIcon, ArrowRightIcon } from "@lucide/svelte/icons";
+	import { MenuIcon, XIcon, ChevronRightIcon } from "@lucide/svelte/icons";
 
 	let pathname = $state(typeof window !== "undefined" ? window.location.pathname : "/");
 
 	let mobileOpen = $state(false);
-	let projectsOpen = $state(false);
-	let mobileProjectsOpen = $state(false);
-
-	let triggerEl: HTMLButtonElement | undefined = $state();
-	let dropdownEl: HTMLDivElement | undefined = $state();
-	let dropdownTop = $state(0);
-	let dropdownLeft = $state(0);
 
 	const navLinks = [
 		{ label: "Home", href: "/" },
 		{ label: "Blog", href: "/blog" },
 		{ label: "About", href: "/about" },
 	];
-
-	const projects = [
-		{ label: "All Projects", href: "/projects", description: "Browse everything we're building" },
-		{ label: "Telos", href: "/projects/telos", description: "AI-powered Discord bot" },
-		{ label: "CTF", href: "/projects/ctf", description: "Capture the Flag platform" },
-		{ label: "332 Labs", href: "/projects/332-labs", description: "Coming soon" },
-		{ label: "TwanOS", href: "/projects/twanos", description: "Real-time separation kernel" },
-	];
-
-	$effect(() => {
-		if (!projectsOpen || !triggerEl) return;
-		requestAnimationFrame(() => {
-			const rect = triggerEl!.getBoundingClientRect();
-			dropdownTop = rect.bottom + 8;
-			dropdownLeft = rect.left + rect.width / 2;
-		});
-	});
-
-	$effect(() => {
-		if (!projectsOpen) return;
-		function handleClick(e: MouseEvent) {
-			const target = e.target as Node;
-			const insideTrigger = triggerEl?.contains(target);
-			const insideDropdown = dropdownEl?.contains(target);
-			if (!insideTrigger && !insideDropdown) projectsOpen = false;
-		}
-		document.addEventListener("click", handleClick);
-		return () => document.removeEventListener("click", handleClick);
-	});
 
 	function isActive(href: string) {
 		if (href === "/") return pathname === "/";
@@ -58,32 +22,6 @@
 <nav
 	class="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
 >
-	<!-- Projects dropdown rendered here — outside glass-card to escape its backdrop-filter stacking context -->
-	{#if projectsOpen}
-		<div
-			bind:this={dropdownEl}
-			class="glass-popover fixed z-[60] w-64 -translate-x-1/2 overflow-hidden p-1.5"
-			style="top: {dropdownTop}px; left: {dropdownLeft}px;"
-			role="menu"
-		>
-			{#each projects as project (project.href)}
-				<a
-					href={project.href}
-					class={cn(
-						"glass-link flex flex-col gap-0.5 rounded-lg px-3 py-2.5 no-underline transition-all",
-						isActive(project.href) && project.href !== "/projects"
-							? "text-foreground"
-							: "text-muted-foreground hover:text-foreground",
-					)}
-					role="menuitem"
-				>
-					<span class="text-sm tracking-wider text-foreground">{project.label}</span>
-					<span class="text-xs tracking-wide text-muted-foreground">{project.description}</span>
-				</a>
-			{/each}
-		</div>
-	{/if}
-
 	<div
 		class={cn(
 			"glass-card w-full max-w-3xl rounded-2xl px-4 py-2 transition-all duration-300",
@@ -125,25 +63,6 @@
 						{link.label}
 					</a>
 				{/each}
-
-				<!-- Projects dropdown trigger -->
-				<div class="relative">
-					<button
-						bind:this={triggerEl}
-						class={cn(
-							"glass-nav-trigger flex items-center gap-1 rounded-lg px-3 py-1.5 text-sm tracking-wider transition-all",
-							isActive("/projects") ? "text-foreground" : "text-muted-foreground hover:text-foreground",
-						)}
-						onclick={() => (projectsOpen = !projectsOpen)}
-						aria-expanded={projectsOpen}
-						aria-haspopup="true"
-					>
-						Projects
-						<ChevronDownIcon
-							class={cn("h-3.5 w-3.5 transition-transform duration-200", projectsOpen && "rotate-180")}
-						/>
-					</button>
-				</div>
 			</div>
 
 		<!-- Desktop: Members Area button -->
@@ -193,39 +112,6 @@
 						{link.label}
 					</a>
 				{/each}
-
-				<!-- Mobile projects accordion -->
-				<button
-					class={cn(
-						"glass-nav-link flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-left text-sm tracking-wider transition-all",
-						isActive("/projects") ? "text-foreground" : "text-muted-foreground",
-					)}
-					onclick={() => (mobileProjectsOpen = !mobileProjectsOpen)}
-					aria-expanded={mobileProjectsOpen}
-				>
-					Projects
-					<ChevronDownIcon
-						class={cn("h-3.5 w-3.5 transition-transform duration-200", mobileProjectsOpen && "rotate-180")}
-					/>
-				</button>
-
-				{#if mobileProjectsOpen}
-					<div class="ml-3 flex flex-col gap-0.5 border-l border-white/5 pl-3">
-						{#each projects as project (project.href)}
-							<a
-								href={project.href}
-								class={cn(
-									"glass-nav-link rounded-lg px-3 py-2 text-sm tracking-wider no-underline transition-all",
-									isActive(project.href) && project.href !== "/projects"
-										? "text-foreground"
-										: "text-muted-foreground hover:text-foreground",
-								)}
-							>
-								{project.label}
-							</a>
-						{/each}
-					</div>
-				{/if}
 
 				<div class="mt-2 border-t border-white/5 pt-2" title="Members Area">
 				<a

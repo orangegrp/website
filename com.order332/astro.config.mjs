@@ -1,11 +1,12 @@
 import { defineConfig } from 'astro/config';
+import react from '@astrojs/react';
 import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
 	site: 'https://www.order332.com',
-	integrations: [svelte(), mdx()],
+	integrations: [svelte(), mdx(), react()],
 	markdown: {
 		shikiConfig: {
 			theme: 'github-dark',

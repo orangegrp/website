@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import PageLayout from "../layouts/PageLayout.astro";
 import Hero from "../components/Hero.astro";
-import ProjectCard from "../components/ProjectCard.astro";
 import BlogCard from "../components/BlogCard.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 
@@ -10,46 +9,11 @@ const posts = await getCollection("blog", ({ data }) => !data.draft);
 const latestPosts = posts
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 	.slice(0, 3);
-
-const projects = [
-	{
-		name: "Telos",
-		description:
-			"A multifunction Discord bot with an AI assistant and smart memory system. Moderation, utilities, CTF access, and more.",
-		href: "/projects/telos",
-		status: "live" as const,
-		tags: ["Discord", "AI", "Bot"],
-	},
-	{
-		name: "CTF Platform",
-		description:
-			"Our Capture the Flag platform, accessible through Telos. Hosted challenges, scoreboards, and community-driven content.",
-		href: "/projects/ctf",
-		status: "live" as const,
-		tags: ["Security", "CTF", "Hacking"],
-	},
-	{
-		name: "332 Labs",
-		description:
-			"A platform bringing together the CTF platform, courses, video and audio content, and more. Coming soon.",
-		href: "/projects/332-labs",
-		status: "coming-soon" as const,
-		tags: ["Platform", "Courses", "Media"],
-	},
-	{
-		name: "TwanOS",
-		description:
-			"A lightweight real-time separation kernel designed for adaptability, mixed-criticality workloads, and paravirtualised guests.",
-		href: "/projects/twanos",
-		status: "active" as const,
-		tags: ["Kernel", "RTOS", "C"],
-	},
-];
 ---
 
 <PageLayout
 	title="332"
-	description="Welcome to 332's official website. Discover our community, projects, and more."
+	description="332 — invite-only Discord community since 2020. Read member posts or find out why it still smells like IRC with better audio."
 >
 	<!-- Hero -->
 	<Hero />
@@ -63,166 +27,29 @@ const projects = [
 		</div>
 		<div class="relative z-10 mx-auto max-w-4xl">
 			<div class="mb-10 text-center">
-				<p class="section-label">Who We Are</p>
 				<h2 class="text-2xl tracking-wider text-foreground sm:text-3xl">
-					About 332<span class="blink-cursor">_</span>
+					About us
 				</h2>
+				<p
+					class="mx-auto mt-3 max-w-lg text-sm text-muted-foreground sm:text-base"
+				>
+					Same origin story wherever you skim it—we just lead with
+					visuals here.
+				</p>
 			</div>
 
-			<div 
-				style="width:100%;max-width:960px;aspect-ratio:7/3;border-radius:24px;overflow:hidden; border-bottom: 1px solid var(--glass-border-subtle);" 
+			<div
+				style="width:100%;max-width:960px;aspect-ratio:7/3;border-radius:24px;overflow:hidden; border-bottom: 1px solid var(--glass-border-subtle);"
 				class="mb-16"
 			>
-				<iframe 
-					src="https://app.order332.com/share/-yCgMBOvrHb-MQ-mC553jfYsinX8ptlnzjW0xEw0DRM/embed" 
-					title="332 Trailer" 
-					loading="lazy" 
-					allow="autoplay; fullscreen; picture-in-picture" 
-					referrerpolicy="no-referrer" 
+				<iframe
+					src="https://app.order332.com/share/-yCgMBOvrHb-MQ-mC553jfYsinX8ptlnzjW0xEw0DRM/embed"
+					title="332 Trailer"
+					loading="lazy"
+					allow="autoplay; fullscreen; picture-in-picture"
+					referrerpolicy="no-referrer"
 					style="width:100%;height:100%;border:0;overflow:hidden;scrollbar-width:none;-ms-overflow-style:none;"
-					scrolling="no"
-				></iframe>
-			</div>
-
-			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-				<div class="glass-card rounded-2xl p-6">
-					<div class="mb-4 text-muted-foreground">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							><polyline points="4 17 10 11 4 5"></polyline><line
-								x1="12"
-								x2="20"
-								y1="19"
-								y2="19"></line></svg
-						>
-					</div>
-					<h3 class="mb-2 text-base tracking-wider text-foreground">
-						Our origin: Cyber
-					</h3>
-					<p class="text-sm leading-relaxed text-muted-foreground">
-						332 started on IRC and moved to Discord in 2020. It was
-						originally a place for us to chat and share ideas, but
-						it quickly grew into so much more.
-					</p>
-				</div>
-
-				<div class="glass-card rounded-2xl p-6">
-					<div class="mb-4 text-muted-foreground">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							><circle cx="12" cy="12" r="10"></circle><path
-								d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-							></path><path d="M2 12h20"></path></svg
-						>
-					</div>
-					<h3 class="mb-2 text-base tracking-wider text-foreground">
-						Our reach: Global
-					</h3>
-					<p class="text-sm leading-relaxed text-muted-foreground">
-						Members of 332 come from every corner of the world:
-						North America, Europe, Asia, the Middle East, and more.
-					</p>
-				</div>
-
-				<div
-					class="glass-card rounded-2xl p-6 sm:col-span-2 lg:col-span-1"
-				>
-					<div class="mb-4 text-muted-foreground">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20"
-							height="20"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<circle cx="8" cy="8" r="4"></circle>
-							<circle cx="16" cy="10" r="3"></circle>
-							<path d="M2 20c0-2.5 2.5-4.5 6-4.5s6 2 6 4.5"
-							></path>
-							<path
-								d="M14 20c0-1.38 1.79-2.5 4-2.5 1 .07 2 .56 2 2.5"
-							></path>
-						</svg>
-					</div>
-					<h3 class="mb-2 text-base tracking-wider text-foreground">
-						Our values: Community, knowledge and friendship
-					</h3>
-					<p class="text-sm leading-relaxed text-muted-foreground">
-						Our people are social beings, and we believe in building
-						strong ties with each other, sharing knowledge, and
-						being there for each other when needed. We're also open
-						and frank with each other, and we don't shy away from
-						discussing difficult topics or holding each other
-						accountable.
-					</p>
-				</div>
-			</div>
-
-			<div class="mt-8 text-center">
-				<a
-					href="/about"
-					class="glass-button inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm tracking-wider text-muted-foreground no-underline transition-all hover:text-foreground"
-				>
-					More about us
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-3.5 w-3.5"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					>
-						<path d="m9 18 6-6-6-6"></path>
-					</svg>
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- Projects section -->
-	<section class="relative overflow-hidden px-4 py-24">
-		<div class="relative z-10 mx-auto max-w-4xl">
-			<div class="mb-10 flex items-end justify-between gap-4">
-				<div>
-					<p class="section-label">What We Build</p>
-					<h2
-						class="text-2xl tracking-wider text-foreground sm:text-3xl"
-					>
-						Projects<span class="blink-cursor">_</span>
-					</h2>
-				</div>
-				<a
-					href="/projects"
-					class="glass-nav-link shrink-0 rounded-lg px-3 py-1.5 text-sm tracking-wider text-muted-foreground no-underline transition-all hover:text-foreground"
-				>
-					All projects →
-				</a>
-			</div>
-
-			<div class="grid gap-4 sm:grid-cols-2">
-				{projects.map((project) => <ProjectCard {...project} />)}
+					scrolling="no"></iframe>
 			</div>
 		</div>
 	</section>
@@ -238,9 +65,8 @@ const projects = [
 				<div class="relative z-10 mx-auto max-w-4xl">
 					<div class="mb-10 flex items-end justify-between gap-4">
 						<div>
-							<p class="section-label">From the Community</p>
 							<h2 class="text-2xl tracking-wider text-foreground sm:text-3xl">
-								Latest Posts<span class="blink-cursor">_</span>
+								Latest from the blog
 							</h2>
 						</div>
 						<a
@@ -279,19 +105,18 @@ const projects = [
 		</div>
 
 		<div class="relative z-10 mx-auto max-w-2xl text-center">
-			<p class="section-label">Membership</p>
 			<h2
 				class="mb-4 text-2xl tracking-wider text-foreground sm:text-3xl"
 			>
-				Invite only<span class="blink-cursor">_</span>
+				Invite-only community
 			</h2>
 			<p
 				class="mb-8 text-sm leading-relaxed text-muted-foreground sm:text-base"
 			>
-				332 is a private community. If you've been invited, or you know
-				someone who can vouch for you, use the link below to join.
-				Likewise, if you're interested in joining but don't have an
-				invite, you can apply to join using the same link.
+				332 is a private community. If you've been invited—or know
+				someone who can vouch for you—use the link below to join. If you
+				don't have an invite but are interested in joining, you can also
+				apply using the same link.
 			</p>
 
 			<div class="flex flex-wrap items-center justify-center gap-4">

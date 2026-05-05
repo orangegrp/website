@@ -7,13 +7,10 @@ Drop 1200×630 PNG files here. Each file name maps to a route:
 | `default.png`     | Fallback (used if named file missing) |
 | `index.png`       | `/`                                   |
 | `about.png`       | `/about`                              |
-| `projects.png`    | `/projects`                           |
-| `telos.png`       | `/projects/telos`                     |
-| `ctf.png`         | `/projects/ctf`                       |
-| `332-labs.png`    | `/projects/332-labs`                  |
-| `twanos.png`      | `/projects/twanos`                    |
 | `blog.png`        | `/blog` and all `/blog/*` posts       |
 | `design.png`      | `/design`                             |
+
+PNG files whose names don’t match a live route segment (for example leftovers from retired paths) can stay in this folder unused, or `ogImage` can point at them explicitly when needed.
 
 ## Override per-page
 

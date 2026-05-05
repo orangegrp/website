@@ -988,8 +988,8 @@
 						<Accordion.Content
 							class="text-xs text-muted-foreground"
 						>
-							A new kind of platform building tools, ideas, and
-							experiences worth paying attention to.
+							Invite-only Discord server with a blog bolted on—the
+							community predates the slick glass cards.
 						</Accordion.Content>
 					</Accordion.Item>
 					<Accordion.Item value="q2">

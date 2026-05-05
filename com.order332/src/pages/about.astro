@@ -5,9 +5,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 
 <PageLayout
 	title="About — 332"
-	description="332 started on IRC and moved to Discord in 2020. It was
-					originally a place for us to chat and share ideas, but it
-					quickly grew into so much more."
+	description="Invite-only Discord community since 2020, grown from IRC roots. Posts, ethos, and how to approach us."
 >
 	<div class="page-root relative min-h-screen px-4 pb-32 pt-32">
 		<div
@@ -34,17 +32,14 @@ import SiteFooter from "../components/SiteFooter.astro";
 
 		<div class="relative z-10 mx-auto max-w-4xl">
 			<!-- Page header -->
-			<div
-				class="mb-16 text-center animate-[fade-in-up_0.7s_ease-out_both]"
-			>
-				<p class="section-label">Who We Are</p>
+			<div class="mb-16 text-center">
 				<h1
-					class="mb-4 text-4xl tracking-wider text-foreground sm:text-5xl"
+					class="mb-5 text-4xl tracking-wider text-foreground sm:text-5xl"
 				>
-					About 332<span class="blink-cursor">_</span>
+					About 332
 				</h1>
 				<p
-					class="mx-auto max-w-xl text-base leading-relaxed text-muted-foreground"
+					class="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground"
 				>
 					332 started on IRC and moved to Discord in 2020. It was
 					originally a place for us to chat and share ideas, but it
@@ -52,26 +47,30 @@ import SiteFooter from "../components/SiteFooter.astro";
 				</p>
 			</div>
 
-			<!-- Origin story -->
 			<section class="mb-12">
-				<div class="glass-card rounded-2xl p-8 sm:p-12">
-					<p class="section-label">Background</p>
-					<h2 class="mb-6 text-2xl tracking-wider text-foreground">
-						Where we came from<span class="blink-cursor">_</span>
-					</h2>
-					<div
-						class="space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base"
-					>
-						<p class="scramble-text" data-length="320"></p>
-						<p class="scramble-text" data-length="280"></p>
-						<p class="scramble-text" data-length="300"></p>
-					</div>
+				<h2 class="mb-6 text-2xl tracking-wider text-foreground">
+					Who we are
+				</h2>
+
+				<div
+					style="width:100%;max-width:960px;aspect-ratio:7/3;border-radius:24px;overflow:hidden; border-bottom: 1px solid var(--glass-border-subtle);"
+					class="mb-16"
+				>
+					<iframe
+						src="https://app.order332.com/share/-yCgMBOvrHb-MQ-mC553jfYsinX8ptlnzjW0xEw0DRM/embed"
+						title="332 Trailer"
+						loading="lazy"
+						allow="autoplay; fullscreen; picture-in-picture"
+						referrerpolicy="no-referrer"
+						style="width:100%;height:100%;border:0;overflow:hidden;scrollbar-width:none;-ms-overflow-style:none;"
+						scrolling="no"></iframe>
 				</div>
 			</section>
 
-			<!-- Values grid -->
 			<section class="mb-12">
-				<p class="section-label mb-6">What We Stand For</p>
+				<p class="mb-6 text-2xl tracking-wider text-foreground">
+					What we stand for
+				</p>
 				<div class="grid gap-4 sm:grid-cols-2">
 					<div class="glass-card rounded-2xl p-6">
 						<div
@@ -221,29 +220,20 @@ import SiteFooter from "../components/SiteFooter.astro";
 						</p>
 					</div>
 				</div>
-
-				<p class="text-sm text-muted-foreground mt-4">
-					* As a Discord server, we have to abide by Discord's terms
-					of service and community guidelines. If you repeatedly
-					breach Discord's guidelines, you may be banned from the
-					server.
-				</p>
 			</section>
 
-			<!-- CTA -->
 			<section class="text-center">
 				<div class="rounded-2xl px-8 py-12 sm:px-16">
 					<h2 class="mb-4 text-2xl tracking-wider text-foreground">
-						Want in<span class="blink-cursor">?</span>
+						Want in?
 					</h2>
 					<p
 						class="mb-8 text-sm leading-relaxed text-muted-foreground sm:text-base"
 					>
-						332 is a private community. If you've been invited, or
-						you know someone who can vouch for you, use the link
-						below to join. Likewise, if you're interested in joining
-						but don't have an invite, you can apply to join using the
-						same link.
+						332 is a private community. If you've been invited—or
+						know someone who can vouch for you—use the link below to
+						join. If you don't have an invite but are interested in
+						joining, you can also apply using the same link.
 					</p>
 					<a
 						href="https://discord.gg/WuGrkMZeNG"
@@ -271,46 +261,14 @@ import SiteFooter from "../components/SiteFooter.astro";
 					</a>
 				</div>
 			</section>
+
+			<p class="text-xs text-muted-foreground/50">
+				* As a Discord server, we have to abide by Discord's terms
+				of service and community guidelines. If you repeatedly
+				breach Discord's guidelines, you may be banned from the
+				server.
+			</p>
 		</div>
 	</div>
-
-	<script>
-		const CHARS =
-			"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-		const SPACE_FREQ = 0.1;
-
-		function randomChar() {
-			return Math.random() < SPACE_FREQ
-				? " "
-				: CHARS[Math.floor(Math.random() * CHARS.length)];
-		}
-
-		function buildNoise(length: number) {
-			return Array.from({ length }, randomChar).join("");
-		}
-
-		document
-			.querySelectorAll<HTMLElement>(".scramble-text")
-			.forEach((el) => {
-				const len = parseInt(el.dataset.length ?? "280", 10);
-				el.textContent = buildNoise(len);
-				// Lock height after first render so reflow can't resize the card
-				requestAnimationFrame(() => {
-					el.style.height = el.offsetHeight + "px";
-					el.style.overflow = "hidden";
-				});
-				setInterval(() => {
-					const chars = el.textContent!.split("");
-					const numFlips = Math.floor(len * 0.08);
-					for (let i = 0; i < numFlips; i++) {
-						const idx = Math.floor(Math.random() * len);
-						chars[idx] = randomChar();
-					}
-					el.textContent = chars.join("");
-				}, 80);
-			});
-	</script>
-
-	<!-- Footer -->
 	<SiteFooter />
 </PageLayout>

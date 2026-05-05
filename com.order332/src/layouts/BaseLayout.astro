@@ -9,7 +9,7 @@ interface Props {
 	 * If omitted, auto-derived from the current route:
 	 *   /          → /og/index.png
 	 *   /about     → /og/about.png
-	 *   /projects/telos → /og/telos.png  (last path segment)
+	 *   /foo/bar   → /og/bar.png        (last path segment)
 	 *   /blog/*    → /og/blog.png        (all blog posts share one)
 	 * Fallback when no file exists: /og/default.png
 	 */
@@ -18,7 +18,7 @@ interface Props {
 
 const {
 	title = '332 — Order332',
-	description = 'A new kind of platform. Explore our blog, projects, and more.',
+	description = '332 Discord community hub — occasional blog posts plus the usual invite-only disclaimers.',
 	ogImage,
 } = Astro.props;
 

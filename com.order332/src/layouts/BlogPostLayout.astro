@@ -1,5 +1,5 @@
 ---
-import PageLayout from './PageLayout.astro';
+import PageLayout from "./PageLayout.astro";
 
 interface Props {
 	title: string;
@@ -9,38 +9,51 @@ interface Props {
 	tags?: string[];
 }
 
-const { title, description, date, author = '332', tags = [] } = Astro.props;
+const { title, description, date, author = "332", tags = [] } = Astro.props;
 
-const formattedDate = new Intl.DateTimeFormat('en-US', {
-	year: 'numeric',
-	month: 'long',
-	day: 'numeric',
+const formattedDate = new Intl.DateTimeFormat("en-US", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
 }).format(date);
 
 // Utterances uses non-DOM script attrs (repo, issue-term, …); Astro's ScriptHTMLAttributes omit them.
 const utterancesScriptAttrs = {
-	repo: 'orangegrp/website',
-	'issue-term': 'pathname',
-	label: 'blog-comments',
-	theme: 'github-dark',
-	crossorigin: 'anonymous',
+	repo: "orangegrp/website",
+	"issue-term": "pathname",
+	label: "blog-comments",
+	theme: "github-dark",
+	crossorigin: "anonymous",
 	async: true,
 } as any;
 ---
 
-<PageLayout title={`${title} — 332`} description={description} ogImage="/og/blog.png">
+<PageLayout
+	title={`${title} — 332`}
+	description={description}
+	ogImage="/og/blog.png"
+>
 	<div class="page-root relative min-h-screen px-4 pb-24 pt-32">
-		<div class="dot-pattern pointer-events-none absolute inset-0" aria-hidden="true"></div>
+		<div
+			class="dot-pattern pointer-events-none absolute inset-0"
+			aria-hidden="true"
+		>
+		</div>
 
-		<div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+		<div
+			class="pointer-events-none absolute inset-0 overflow-hidden"
+			aria-hidden="true"
+		>
 			<div
 				class="absolute -left-[10%] top-[5%] h-[600px] w-[600px] rounded-full"
 				style="background: radial-gradient(circle, oklch(0.9 0 0 / 6%), transparent 65%); filter: blur(100px);"
-			></div>
+			>
+			</div>
 			<div
 				class="absolute -right-[5%] top-[30%] h-[500px] w-[500px] rounded-full"
 				style="background: radial-gradient(circle, oklch(0.8 0 0 / 5%), transparent 65%); filter: blur(80px);"
-			></div>
+			>
+			</div>
 		</div>
 
 		<div class="relative z-10 mx-auto max-w-4xl">
@@ -50,26 +63,27 @@ const utterancesScriptAttrs = {
 					href="/blog"
 					class="glass-nav-link inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm tracking-wider text-muted-foreground transition-all hover:text-foreground no-underline"
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="m15 18-6-6 6-6"/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-3.5 w-3.5"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="m15 18-6-6 6-6"></path>
 					</svg>
 					Back to Blog
 				</a>
 			</nav>
 
 			<!-- Post header -->
-			<header class="glass-card mb-10 px-8 py-10 sm:px-12">
-				<div class="mb-4 flex flex-wrap items-center gap-3 text-xs tracking-widest text-muted-foreground uppercase">
-					<time datetime={date.toISOString()}>{formattedDate}</time>
-					{author && (
-						<>
-							<span class="opacity-30">·</span>
-							<span>{author}</span>
-						</>
-					)}
-				</div>
-
-				<h1 class="mb-4 text-3xl leading-tight tracking-wider text-foreground sm:text-4xl">
+			<header class="mb-10">
+				<h1
+					class="mb-2 text-6xl leading-tight tracking-wider text-foreground sm:text-5xl"
+				>
 					{title}
 				</h1>
 
@@ -77,25 +91,46 @@ const utterancesScriptAttrs = {
 					{description}
 				</p>
 
-				{tags.length > 0 && (
-					<div class="mt-6 flex flex-wrap gap-2">
-						{tags.map(tag => (
-							<span class="glass-button rounded-full px-3 py-0.5 text-xs tracking-wider text-muted-foreground">
-								{tag}
-							</span>
-						))}
-					</div>
-				)}
+				{
+					tags.length > 0 && (
+						<div class="mt-6 flex flex-wrap gap-2">
+							{tags.map((tag) => (
+								<span class="glass-button rounded-full px-3 py-0.5 text-xs tracking-wider text-muted-foreground">
+									{tag}
+								</span>
+							))}
+						</div>
+					)
+				}
 			</header>
 
 			<!-- Post body -->
 			<article class="prose-332">
 				<slot />
 			</article>
+			<footer>
+				<div class="mb-4 flex flex-wrap items-center gap-1 text-xs tracking-widest text-muted-foreground">
+					<span>Published on</span>
+					<time datetime={date.toISOString()}>{formattedDate}</time>
+					{author && (
+						<>
+							<span class="opacity-30">·</span>
+							<span>Written by {author}</span>
+						</>
+					)}
+				</div>
+			</footer>
 
-			<section class="blog-comments mt-12" aria-label="Comments" data-utterances-section>
+			<section
+				class="blog-comments mt-12"
+				aria-label="Comments"
+				data-utterances-section
+			>
 				<div data-utterances-root class="blog-comments-widget">
-					<script is:inline src="https://utteranc.es/client.js" {...utterancesScriptAttrs}></script>
+					<script
+						is:inline
+						src="https://utteranc.es/client.js"
+						{...utterancesScriptAttrs}></script>
 				</div>
 				<p
 					class="blog-comments-fallback hidden text-sm leading-relaxed text-muted-foreground"
@@ -104,13 +139,19 @@ const utterancesScriptAttrs = {
 					aria-live="polite"
 					hidden
 				>
-					Comments could not load. This is often caused by a privacy extension or strict tracking protection
-					blocking GitHub. Try allowlisting this site or opening the page in another browser.
+					Comments could not load. This is often caused by a privacy
+					extension or strict tracking protection blocking GitHub. Try
+					allowlisting this site or opening the page in another
+					browser.
 				</p>
 				<script is:inline>
 					(function () {
-						var root = document.querySelector('[data-utterances-root]');
-						var fb = document.querySelector('[data-utterances-fallback]');
+						var root = document.querySelector(
+							"[data-utterances-root]",
+						);
+						var fb = document.querySelector(
+							"[data-utterances-fallback]",
+						);
 						if (!root || !fb) return;
 						var done = false;
 						var tid;
@@ -118,29 +159,35 @@ const utterancesScriptAttrs = {
 							if (done) return;
 							done = true;
 							if (tid) clearTimeout(tid);
-							window.removeEventListener('message', onMsg);
+							window.removeEventListener("message", onMsg);
 						}
 						function onMsg(e) {
-							if (e.origin !== 'https://utteranc.es') return;
+							if (e.origin !== "https://utteranc.es") return;
 							var d = e.data;
-							if (d && d.type === 'resize' && typeof d.height === 'number' && d.height > 0) success();
+							if (
+								d &&
+								d.type === "resize" &&
+								typeof d.height === "number" &&
+								d.height > 0
+							)
+								success();
 						}
 						function fail() {
 							if (done) return;
 							done = true;
-							window.removeEventListener('message', onMsg);
-							root.classList.add('hidden');
-							root.setAttribute('aria-hidden', 'true');
-							fb.classList.remove('hidden');
-							fb.removeAttribute('hidden');
+							window.removeEventListener("message", onMsg);
+							root.classList.add("hidden");
+							root.setAttribute("aria-hidden", "true");
+							fb.classList.remove("hidden");
+							fb.removeAttribute("hidden");
 						}
-						window.addEventListener('message', onMsg);
+						window.addEventListener("message", onMsg);
 						function start() {
 							if (done) return;
 							tid = setTimeout(fail, 11000);
 						}
-						if (document.readyState === 'complete') start();
-						else window.addEventListener('load', start);
+						if (document.readyState === "complete") start();
+						else window.addEventListener("load", start);
 					})();
 				</script>
 			</section>
@@ -151,8 +198,17 @@ const utterancesScriptAttrs = {
 					href="/blog"
 					class="glass-nav-link inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm tracking-wider text-muted-foreground transition-all hover:text-foreground no-underline"
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-						<path d="m15 18-6-6 6-6"/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-3.5 w-3.5"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="m15 18-6-6 6-6"></path>
 					</svg>
 					All posts
 				</a>
@@ -214,7 +270,9 @@ const utterancesScriptAttrs = {
 		text-decoration: underline;
 		text-underline-offset: 3px;
 		text-decoration-color: oklch(1 0 0 / 25%);
-		transition: color 0.2s ease, text-decoration-color 0.2s ease;
+		transition:
+			color 0.2s ease,
+			text-decoration-color 0.2s ease;
 	}
 
 	.prose-332 :global(a:hover) {
@@ -293,7 +351,10 @@ const utterancesScriptAttrs = {
 		border-radius: var(--glass-radius-sm);
 		color: oklch(1 0 0 / 0%);
 		cursor: pointer;
-		transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+		transition:
+			background 0.2s ease,
+			border-color 0.2s ease,
+			color 0.2s ease;
 	}
 
 	.prose-332 :global(.pre-wrapper:hover .copy-btn) {
@@ -319,7 +380,11 @@ const utterancesScriptAttrs = {
 		max-height: 16rem;
 		overflow: hidden;
 		mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-		-webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+		-webkit-mask-image: linear-gradient(
+			to bottom,
+			black 60%,
+			transparent 100%
+		);
 	}
 
 	.prose-332 :global(.expand-bar) {
@@ -416,7 +481,9 @@ const utterancesScriptAttrs = {
 		font-family: monospace;
 		letter-spacing: 0.05em;
 		cursor: pointer;
-		transition: background 0.15s ease, color 0.15s ease;
+		transition:
+			background 0.15s ease,
+			color 0.15s ease;
 	}
 
 	:global(.code-modal-toolbar button:hover) {
@@ -450,7 +517,7 @@ const utterancesScriptAttrs = {
 		line-height: 1.7;
 	}
 
-.prose-332 :global(pre code) {
+	.prose-332 :global(pre code) {
 		background: none;
 		border: none;
 		border-radius: 0;
@@ -512,55 +579,55 @@ const utterancesScriptAttrs = {
 	const COLLAPSE_THRESHOLD = 50;
 
 	function makeCopyHandler(getText: () => string, btn: HTMLButtonElement) {
-		btn.addEventListener('click', async () => {
+		btn.addEventListener("click", async () => {
 			await navigator.clipboard.writeText(getText());
-			btn.innerHTML = checkIcon + ' copied!';
-			btn.classList.add('copied');
+			btn.innerHTML = checkIcon + " copied!";
+			btn.classList.add("copied");
 			setTimeout(() => {
-				btn.innerHTML = copyIcon + ' copy';
-				btn.classList.remove('copied');
+				btn.innerHTML = copyIcon + " copy";
+				btn.classList.remove("copied");
 			}, 2000);
 		});
 	}
 
 	function openModal(code: string, preEl: HTMLElement) {
-		const backdrop = document.createElement('div');
-		backdrop.className = 'code-modal-backdrop';
+		const backdrop = document.createElement("div");
+		backdrop.className = "code-modal-backdrop";
 
-		const modal = document.createElement('div');
-		modal.className = 'code-modal';
+		const modal = document.createElement("div");
+		modal.className = "code-modal";
 
 		// Toolbar
-		const toolbar = document.createElement('div');
-		toolbar.className = 'code-modal-toolbar';
+		const toolbar = document.createElement("div");
+		toolbar.className = "code-modal-toolbar";
 
-		const copyBtn = document.createElement('button');
-		copyBtn.innerHTML = copyIcon + ' copy';
+		const copyBtn = document.createElement("button");
+		copyBtn.innerHTML = copyIcon + " copy";
 		makeCopyHandler(() => code, copyBtn);
 
-		const dlBtn = document.createElement('button');
-		dlBtn.innerHTML = downloadIcon + ' download';
-		dlBtn.addEventListener('click', () => {
-			const blob = new Blob([code], { type: 'text/plain' });
+		const dlBtn = document.createElement("button");
+		dlBtn.innerHTML = downloadIcon + " download";
+		dlBtn.addEventListener("click", () => {
+			const blob = new Blob([code], { type: "text/plain" });
 			const url = URL.createObjectURL(blob);
-			const a = document.createElement('a');
+			const a = document.createElement("a");
 			a.href = url;
-			a.download = 'code.txt';
+			a.download = "code.txt";
 			a.click();
 			URL.revokeObjectURL(url);
 		});
 
-		const closeBtn = document.createElement('button');
-		closeBtn.className = 'close-btn';
+		const closeBtn = document.createElement("button");
+		closeBtn.className = "close-btn";
 		closeBtn.innerHTML = closeIcon;
-		closeBtn.setAttribute('aria-label', 'Close');
-		closeBtn.addEventListener('click', () => closeModal(backdrop));
+		closeBtn.setAttribute("aria-label", "Close");
+		closeBtn.addEventListener("click", () => closeModal(backdrop));
 
 		toolbar.append(copyBtn, dlBtn, closeBtn);
 
 		// Body — clone the original highlighted pre
-		const body = document.createElement('div');
-		body.className = 'code-modal-body';
+		const body = document.createElement("div");
+		body.className = "code-modal-body";
 		const clonedPre = preEl.cloneNode(true) as HTMLElement;
 		body.appendChild(clonedPre);
 
@@ -569,56 +636,64 @@ const utterancesScriptAttrs = {
 		document.body.appendChild(backdrop);
 
 		// Close on backdrop click
-		backdrop.addEventListener('click', (e) => {
+		backdrop.addEventListener("click", (e) => {
 			if (e.target === backdrop) closeModal(backdrop);
 		});
 
 		// Close on Escape
 		const onKey = (e: KeyboardEvent) => {
-			if (e.key === 'Escape') { closeModal(backdrop); document.removeEventListener('keydown', onKey); }
+			if (e.key === "Escape") {
+				closeModal(backdrop);
+				document.removeEventListener("keydown", onKey);
+			}
 		};
-		document.addEventListener('keydown', onKey);
+		document.addEventListener("keydown", onKey);
 
-		requestAnimationFrame(() => backdrop.classList.add('open'));
+		requestAnimationFrame(() => backdrop.classList.add("open"));
 	}
 
 	function closeModal(backdrop: HTMLElement) {
-		backdrop.classList.remove('open');
-		backdrop.addEventListener('transitionend', () => backdrop.remove(), { once: true });
+		backdrop.classList.remove("open");
+		backdrop.addEventListener("transitionend", () => backdrop.remove(), {
+			once: true,
+		});
 	}
 
-	document.querySelectorAll('.prose-332 pre').forEach((pre) => {
-		const wrapper = document.createElement('div');
-		wrapper.className = 'pre-wrapper';
+	document.querySelectorAll(".prose-332 pre").forEach((pre) => {
+		const wrapper = document.createElement("div");
+		wrapper.className = "pre-wrapper";
 		pre.parentNode?.insertBefore(wrapper, pre);
 		wrapper.appendChild(pre);
 
-		const code = (pre as HTMLElement).querySelector('code')?.innerText ?? '';
-		const lineCount = code.split('\n').length;
+		const code =
+			(pre as HTMLElement).querySelector("code")?.innerText ?? "";
+		const lineCount = code.split("\n").length;
 		const isLarge = lineCount > COLLAPSE_THRESHOLD;
 
 		if (isLarge) {
-			wrapper.classList.add('collapsed');
+			wrapper.classList.add("collapsed");
 
-			const expandBar = document.createElement('button');
-			expandBar.className = 'expand-bar';
+			const expandBar = document.createElement("button");
+			expandBar.className = "expand-bar";
 			expandBar.innerHTML = expandIcon + ` expand (${lineCount} lines)`;
-			expandBar.addEventListener('click', () => openModal(code, pre as HTMLElement));
+			expandBar.addEventListener("click", () =>
+				openModal(code, pre as HTMLElement),
+			);
 			wrapper.appendChild(expandBar);
 		}
 
 		// Inline copy button (on wrapper, aligned to block edge)
-		const btn = document.createElement('button') as HTMLButtonElement;
-		btn.className = 'copy-btn';
+		const btn = document.createElement("button") as HTMLButtonElement;
+		btn.className = "copy-btn";
 		btn.innerHTML = copyIcon;
-		btn.setAttribute('aria-label', 'Copy code');
-		btn.addEventListener('click', async () => {
+		btn.setAttribute("aria-label", "Copy code");
+		btn.addEventListener("click", async () => {
 			await navigator.clipboard.writeText(code);
 			btn.innerHTML = checkIcon;
-			btn.classList.add('copied');
+			btn.classList.add("copied");
 			setTimeout(() => {
 				btn.innerHTML = copyIcon;
-				btn.classList.remove('copied');
+				btn.classList.remove("copied");
 			}, 2000);
 		});
 		wrapper.appendChild(btn);
