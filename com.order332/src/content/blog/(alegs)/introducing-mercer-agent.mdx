@@ -7,5 +7,20 @@ tags: []
 draft: true
 ---
 
+<img src="https://wsuffkrtiaqwzqoghkcq.supabase.co/storage/v1/object/public/blog-images/99214a1d-7d1b-45f4-83b6-f4fcb93f5d70/1778197861044-oe4oia3f-mercer-logo.png.png" alt="mercer-logo.png" width="386" /># **Introducing Mercer: realtime multipurpose agent written in TypeScript**
 
-Write your post here.
+Hello readers!
+
+Thanks for stopping by the 332 blog again (we're still starting out), but hopefully this read is gonna make it worthwhile as I have some exciting stuff to share with y'all.
+
+Today I want to announce **Mercer** as I'm building it, and the first iterations are almost complete. This isn't your typical “Discord bot with GPT,” but a **realtime, multipurpose agent runtime** for anything that runs TypeScvript. A Discord bot within 332's server, which is our first serious battle test.
+
+## **What problem I'm trying to solve: speed and usability**
+
+The agents that **feel** fast today are almost always **CLI tools** or **desktop GUIs**: tight feedback loops, obvious progress, interactions shaped for latency. **Agentic bots in Discord** (and similar chat surfaces) usually aren’t in that world—you don’t get the same UI idioms, and you often don’t get comparable **snappiness** either. Moreover, many “Discord agents” are one-off integrations: just glue code around a single model, with little routing and scant attention to warm, reusable runtime behavior. And don't get me started on Hermes by Nous Research. It's awesome, but barely usable. So ... I kept searching for something closer to build once, run many times: a single harness worth investing in, that routes to different models for different tasks, and still delivers real-time performance on a host that's more than just a terminal window.
+
+Error 404
+
+I couldn't find it, so I made my own: **Mercer**.
+
+Mercer is a Node-first agent runtime featuring semantic routing, lazy tool/skill discovery, durable sessions, and a host layer optimized to avoid extra latency from architectural overhead—Discord is its first major battletest, but I don't see it as the only place it can work in the long run. This still isn’t a millisecond SLA against providers or tool I/O. Chat surfaces add real friction. The goal is to stop leaving performance on the table: same codebase, fast path by default, model choice as a routed decision—not a brand-new integration every time.
