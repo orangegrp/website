@@ -24,3 +24,14 @@ Error 404
 I couldn't find it, so I made my own: **Mercer**.
 
 Mercer is a Node-first agent runtime featuring semantic routing, lazy tool/skill discovery, durable sessions, and a host layer optimized to avoid extra latency from architectural overhead—Discord is its first major battletest, but I don't see it as the only place it can work in the long run. This still isn’t a millisecond SLA against providers or tool I/O. Chat surfaces add real friction. The goal is to stop leaving performance on the table: same codebase, fast path by default, model choice as a routed decision—not a brand-new integration every time.
+
+## **Multipurpose Agent: One Engine, Many Roles**
+
+When building the core functionality, the biggest constraint is maintaining **one core loop** to handle diverse workloads without forking the codebase for each type of agent or assistant.
+
+That's why we developed the core agent SDK, which handles:
+
+- **Routing** — Classifies and directs traffic (e.g., coding vs. search vs. conversation) using **semantic similarity** (local embeddings against route centroids), with practical fallbacks for robust routing.
+- **Tools** — The model **acts** through tools, not just prose. Tools support **lazy loading** (`agentTools`-style discovery, skill loaders), so you avoid shipping a massive static tool list on every turn.
+- **Policies** — Same SDK, varying risk levels: **run now**, **confirm** before side effects, or **deny**. Production agents need this more than yet another clever prompt.
+- **Memory** — A dead simple SQLite server as the backend for sessions in the current stack: messages, usage, optional vector memory bridges, and compaction when context hits soft limits—so long threads avoid “budget firehose” or “silent truncation surprise.”
