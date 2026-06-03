@@ -22,7 +22,7 @@ export default function HeroMotion() {
 				<img
 					src="/polygon.svg"
 					alt="332"
-					className="hero-polygon-pride h-20 w-20 sm:h-24 sm:w-24"
+					className="h-20 w-20 sm:h-24 sm:w-24"
 					fetchPriority="high"
 					width={96}
 					height={96}
