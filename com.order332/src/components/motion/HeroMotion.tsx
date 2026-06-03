@@ -26,9 +26,6 @@ export default function HeroMotion() {
 					fetchPriority="high"
 					width={96}
 					height={96}
-					style={{
-						filter: "drop-shadow(0 0 16px oklch(1 0 0 / 15%))",
-					}}
 				/>
 
 				<div className="flex flex-col items-center gap-4">
