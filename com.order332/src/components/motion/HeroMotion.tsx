@@ -22,13 +22,10 @@ export default function HeroMotion() {
 				<img
 					src="/polygon.svg"
 					alt="332"
-					className="h-20 w-20 sm:h-24 sm:w-24"
+					className="hero-polygon-pride h-20 w-20 sm:h-24 sm:w-24"
 					fetchPriority="high"
 					width={96}
 					height={96}
-					style={{
-						filter: "drop-shadow(0 0 16px oklch(1 0 0 / 15%))",
-					}}
 				/>
 
 				<div className="flex flex-col items-center gap-4">

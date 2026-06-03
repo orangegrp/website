@@ -200,6 +200,15 @@
   }
 }
 
+@keyframes pride-rainbow-shift {
+  0% {
+    filter: drop-shadow(0 0 16px oklch(1 0 0 / 15%)) sepia(1) saturate(5) hue-rotate(0deg);
+  }
+  100% {
+    filter: drop-shadow(0 0 16px oklch(1 0 0 / 15%)) sepia(1) saturate(5) hue-rotate(360deg);
+  }
+}
+
 .page-root,
 .showcase {
   background: var(--background);
@@ -216,6 +225,11 @@
 
 .blink-cursor {
   animation: blink-cursor 1s step-end infinite;
+}
+
+.hero-polygon-pride {
+  animation: pride-rainbow-shift 6s linear infinite;
+  will-change: filter;
 }
 
 .section-label {
