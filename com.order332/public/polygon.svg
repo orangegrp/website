@@ -53,6 +53,11 @@
       <rect x="-200" y="44.93055" width="600" height="8.98611" fill="#750787"/>
     </g>
   </pattern>
+  <mask id="eagle-mask">
+    <use href="#layer1"/>
+    <use href="#layer5"/>
+    <use href="#layer6"/>
+  </mask>
   </defs><g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -164,10 +169,10 @@
          x="22.48958"
          y="11.611334"
          inkscape:label="rect9136" /></g></g>
-  <path
-     d="M 26.45833,0.67564 32.91637,13.69324 39.37442,26.59821 52.29051,52.63342 0.62615,52.63342 13.54224,26.59821 20.00028,13.69324 Z"
+  <rect
+     x="0" y="0" width="52.91666" height="52.91666"
      fill="url(#pride-scroll)"
-     style="mix-blend-mode:multiply"
+     mask="url(#eagle-mask)"
      class="pride-overlay" />
 </svg>
 
