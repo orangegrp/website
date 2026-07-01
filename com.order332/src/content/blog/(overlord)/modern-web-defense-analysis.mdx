@@ -240,7 +240,7 @@ To set it up, run npm install puppeteer puppeteer-extra puppeteer-extra-plugin-s
 node bypass.js "https://target.com/login" "/api/users"
 ```
 
-The stealth plugin does most of the heavy lifting. It patches a bunch of browser properties that bot detection scripts look for, things like navigator.plugins, chrome.runtime, permissions API, and a bunch of other stuff that puppeteer leaks by default. Without it, pretty much every bot detection system will catch you immediately.
+The stealth plugin `http_code` does most of the heavy lifting. It patches a bunch of browser properties that bot detection scripts look for, things like navigator.plugins, chrome.runtime, permissions API, and a bunch of other stuff that puppeteer leaks by default. Without it, pretty much every bot detection system will catch you immediately.
 
 The key insight is that you're not trying to fake the token. You're letting the real browser generate a real token by actually running the bot detection JavaScript, and then making your API calls from that same browser context where the token is valid. It's not a bypass in the traditional sense, more like... using the system as intended but from an automated browser.
 
