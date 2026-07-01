@@ -3,9 +3,45 @@ title: bentley ig
 description: ''
 date: '2026-07-01'
 author: overlord
-tags: []
-draft: true
+tags:
+  - hacking
+draft: false
 ---
 
 
-Write your post here.
+01 the recon
+
+Was doing some passive recon on bentleymotors.com and stumbled onto a subdomain I hadn't seen before, id.bentleymotors.com. Running NGINX, clearly some kind of identity / login portal. Looked custom-built, which is always interesting because custom auth flows tend to have weird edges.
+
+The first thing that caught my eye was the CSP header. Buried in img-src there was a wildcard pointing at https://*.vwgroup.io. That's a pretty strong signal this isn't actually a Bentley-owned stack. It's VW Group's shared "Identity Kit" platform that Bentley just happens to be a tenant on. Filed that away for later because it ends up mattering.
+02 the landing page that shouldn't have loaded
+
+Started mapping routes. Most of them behaved. Hit /api/profile unauthenticated, got bounced with a 401, no big surprise. Then I tried /landing-page.
+$ curl -s -w "\nStatus: %{http_code}\n" https://id.bentleymotors.com/landing-page
+# Returns: Status: 200 (Dumps internal app HTML/JS)
+
+200 OK. Full internal application shell. HTML, JS routing, the API map, all of it, served to me with no session, no token, nothing. The frontend auth guard was clearly doing its job client-side, but the server wasn't enforcing anything on this route. Classic case of trusting the SPA to handle auth.
+
+Remembering the VW Group CSP tie-in, I pointed the same request at id.vwgroup.io. Identical behavior, same route, same 200, same dump.
+$ curl -s -w "\nStatus: %{http_code}\n" https://id.vwgroup.io/landing-page
+# Returns: Status: 200 (Dumps internal app HTML/JS)
+
+So this isn't a Bentley misconfiguration. It's a misconfiguration in the underlying Identity Kit platform that every VW Group tenant is inheriting. That raised the scope question real fast.
+03 the cookie that shouldn't exist
+
+While poking at authenticated routes, I noticed something weirder. Hit the OAuth callback with a bogus redirect:
+$ curl -s -I "https://id.bentleymotors.com/authorized/callback?redirect_uri=https://tester.com"
+
+HTTP/2 401
+set-cookie: identity-kit-profile-session=[TOKEN]; Expires=...; HttpOnly
+www-authenticate: Bearer error="Missing access token in cookies"
+content-security-policy: ... img-src 'self' blob: data: https://*.vwgroup.io; ...
+
+Two things wrong here. First, the www-authenticate header is telling me exactly where the app expects the access token to live ("in cookies"). That's free intel for an attacker, you don't have to guess where to stuff a stolen token.
+
+Second, and this is the weird one, a failed 401 auth attempt is mutating state. The server is issuing a valid session cookie (identity-kit-profile-session) on a request that just got rejected. Error responses shouldn't be writing session state. At minimum it's sloppy, at worst it could be abused depending on what downstream code trusts that cookie's presence.
+04 stopping point
+
+The moment I confirmed this was VW Group shared infrastructure and not just Bentley, I stopped. Bentley's bug bounty scope is Bentley's IT systems, and going further on a platform that handles identity for the entire VW Group would've blown past that line. Reported both findings to Bentley, noted the VW Group tie-in, and let them handle escalation internally.
+
+As of writing, both issues are still unpatched. The landing page route still serves the internal app shell to unauthenticated users, and the 401 response still leaks the session cookie and the access token location.
