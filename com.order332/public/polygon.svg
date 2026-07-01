@@ -39,18 +39,18 @@
   <pattern id="pride-scroll" x="0" y="0" width="200" height="53.91666" patternUnits="userSpaceOnUse" patternTransform="rotate(-18 26.45833 26.45833)">
     <g>
       <animateTransform attributeName="transform" type="translate" from="0 0" to="0 53.91666" dur="4s" repeatCount="indefinite" />
-      <rect x="-200" y="-53.91666" width="600" height="8.98611" fill="#E40303"/>
-      <rect x="-200" y="-44.93055" width="600" height="8.98611" fill="#FF8C00"/>
-      <rect x="-200" y="-35.94444" width="600" height="8.98611" fill="#FFED00"/>
-      <rect x="-200" y="-26.95833" width="600" height="8.98611" fill="#008026"/>
-      <rect x="-200" y="-17.97222" width="600" height="8.98611" fill="#004DFF"/>
-      <rect x="-200" y="-8.98611" width="600" height="8.98611" fill="#750787"/>
-      <rect x="-200" y="0" width="600" height="8.98611" fill="#E40303"/>
-      <rect x="-200" y="8.98611" width="600" height="8.98611" fill="#FF8C00"/>
-      <rect x="-200" y="17.97222" width="600" height="8.98611" fill="#FFED00"/>
-      <rect x="-200" y="26.95833" width="600" height="8.98611" fill="#008026"/>
-      <rect x="-200" y="35.94444" width="600" height="8.98611" fill="#004DFF"/>
-      <rect x="-200" y="44.93055" width="600" height="8.98611" fill="#750787"/>
+      <rect x="-200" y="-53.91666" width="600" height="8.98611" fill="#012169"/>
+      <rect x="-200" y="-44.93055" width="600" height="8.98611" fill="#FFFFFF"/>
+      <rect x="-200" y="-35.94444" width="600" height="8.98611" fill="#C8102E"/>
+      <rect x="-200" y="-26.95833" width="600" height="8.98611" fill="#012169"/>
+      <rect x="-200" y="-17.97222" width="600" height="8.98611" fill="#FFFFFF"/>
+      <rect x="-200" y="-8.98611" width="600" height="8.98611" fill="#C8102E"/>
+      <rect x="-200" y="0" width="600" height="8.98611" fill="#012169"/>
+      <rect x="-200" y="8.98611" width="600" height="8.98611" fill="#FFFFFF"/>
+      <rect x="-200" y="17.97222" width="600" height="8.98611" fill="#C8102E"/>
+      <rect x="-200" y="26.95833" width="600" height="8.98611" fill="#012169"/>
+      <rect x="-200" y="35.94444" width="600" height="8.98611" fill="#FFFFFF"/>
+      <rect x="-200" y="44.93055" width="600" height="8.98611" fill="#C8102E"/>
     </g>
   </pattern>
   <mask id="eagle-mask">
@@ -175,4 +175,3 @@
      mask="url(#eagle-mask)"
      class="pride-overlay" />
 </svg>
-
