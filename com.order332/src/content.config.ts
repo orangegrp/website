@@ -17,4 +17,8 @@ const legal = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/legal' }),
 });
 
-export const collections = { blog, legal };
+const appBugBounty = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/app-bug-bounty' }),
+});
+
+export const collections = { blog, legal, appBugBounty };

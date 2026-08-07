@@ -3,4 +3,5 @@ export interface NavMenuLink {
 	href: string;
 	external?: boolean;
 	description?: string;
+	new?: boolean;
 }

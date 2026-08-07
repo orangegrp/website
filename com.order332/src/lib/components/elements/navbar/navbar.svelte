@@ -60,6 +60,7 @@
 		{ label: "Members area registration", href: "https://app.order332.com/register", external: true },
 		{ label: "Apply to join", href: "https://discord.gg/WuGrkMZeNG", external: true },
 		{ label: "Dev team GitHub", href: "https://github.com/orangegrp", external: true },
+		{ label: "Bug Bounty", href: "https://order332.com/app-bug-bounty", new: true },
 		{ label: "Privacy Policy", href: "/app-legal/privacy" },
 		{ label: "Terms of Service", href: "/app-legal/terms" },
 	];
@@ -119,7 +120,11 @@
 				>
 					<span class="flex w-full min-w-0 items-start justify-between gap-2">
 						<span class="text-sm tracking-wider text-foreground">{link.label}</span>
-						{#if link.external}
+						{#if link.new}
+							<span class="rounded-full bg-pink-300 px-2 py-0.5 text-xs font-semibold uppercase tracking-widest text-background">
+								New
+							</span>
+						{:else if link.external}
 							<ExternalLinkIcon
 								class="mt-0.5 h-3.5 w-3.5 shrink-0 opacity-80 text-muted-foreground"
 								aria-hidden="true"

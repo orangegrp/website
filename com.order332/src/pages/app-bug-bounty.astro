@@ -1,0 +1,78 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+import { getCollection, render } from "astro:content";
+
+const bugBountyEntries = await getCollection("appBugBounty");
+
+const findEntry = (candidates: string[]) =>
+    bugBountyEntries.find((entry) =>
+        candidates.some((candidate) => {
+            const id = entry.id ?? "";
+            const filePath = entry.filePath ?? "";
+            return (
+                id === candidate ||
+                id.endsWith(candidate) ||
+                filePath.endsWith(candidate)
+            );
+        }),
+    );
+
+const rules = findEntry([
+    "rules",
+    "rules.md",
+    "app-bug-bounty-rules",
+    "app-bug-bounty/rules",
+]);
+const rewards = findEntry([
+    "rewards",
+    "rewards.md",
+    "app-bug-bounty-rewards",
+    "app-bug-bounty/rewards",
+]);
+
+const { Content: RulesContent } = await render(rules);
+const { Content: RewardsContent } = await render(rewards);
+---
+
+<PageLayout
+    title="Bug bounty program - 332"
+    description="Welcome to 332's bug bounty program. Find vulnerabilities in our software and hosted apps and get rewarded."
+>
+    <section class="relative overflow-hidden pt-24 px-4">
+        <div class="relative z-10 mx-auto max-w-2xl text-center">
+            <h2
+                class="mb-4 text-2xl tracking-wider text-foreground sm:text-3xl"
+            >
+                order332.com Bug Bounty Program
+            </h2>
+            <p
+                class="mb-8 text-sm leading-relaxed text-muted-foreground sm:text-base"
+            >
+                Welcome to 332's bug bounty program. Find vulnerabilities in our
+                software and hosted apps and get rewarded. On this page you'll
+                find all the information you need to get started, including our
+                scope, rules, and how to submit a report. We appreciate your
+                help in keeping our software and hosted apps secure.
+            </p>
+        </div>
+    </section>
+
+    <section class="relative overflow-hidden px-4">
+        <div class="relative z-10 mx-auto max-w-2xl">
+            <div class="prose-332">
+                <RulesContent slot="rules" />
+            </div>
+        </div>
+    </section>
+
+    <section class="relative overflow-hidden px-4">
+        <div class="relative z-10 mx-auto max-w-2xl">
+            <div class="prose-332">
+                <RewardsContent slot="rewards" />
+            </div>
+        </div>
+    </section>
+    <SiteFooter />
+</PageLayout>

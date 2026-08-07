@@ -38,19 +38,19 @@
      id="defs1951">
   <pattern id="pride-scroll" x="0" y="0" width="52.91666" height="52.91666" patternUnits="userSpaceOnUse">
     <!-- Blue background -->
-    <rect width="52.91666" height="52.91666" fill="#012169"/>
+    <rect width="52.91666" height="52.91666" fill="#ffffff"/>
     <!-- White diagonal X (St Andrew's cross) -->
     <polygon points="7.485,0 52.917,45.432 45.432,52.917 0,7.485" fill="#FFFFFF"/>
     <polygon points="45.432,0 52.917,7.485 7.485,52.917 0,45.432" fill="#FFFFFF"/>
     <!-- Red diagonal X (St Patrick's cross, centred within white) -->
-    <polygon points="2.495,0 52.917,50.422 50.422,52.917 0,2.495" fill="#C8102E"/>
-    <polygon points="50.422,0 52.917,2.495 2.495,52.917 0,50.422" fill="#C8102E"/>
+    <polygon points="2.495,0 52.917,50.422 50.422,52.917 0,2.495" fill="#FFFFFF"/>
+    <polygon points="50.422,0 52.917,2.495 2.495,52.917 0,50.422" fill="#FFFFFF"/>
     <!-- White cross (St George's cross) -->
     <rect x="0" y="21.167" width="52.917" height="10.583" fill="#FFFFFF"/>
     <rect x="21.167" y="0" width="10.583" height="52.917" fill="#FFFFFF"/>
     <!-- Red cross (St George's cross, narrower, centred in white) -->
-    <rect x="0" y="24.694" width="52.917" height="3.528" fill="#C8102E"/>
-    <rect x="24.694" y="0" width="3.528" height="52.917" fill="#C8102E"/>
+    <rect x="0" y="24.694" width="52.917" height="3.528" fill="#FFFFFF"/>
+    <rect x="24.694" y="0" width="3.528" height="52.917" fill="#FFFFFF"/>
   </pattern>
   <mask id="eagle-mask">
     <use href="#layer1"/>
