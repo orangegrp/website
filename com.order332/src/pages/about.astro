@@ -1,81 +1,42 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
-import SiteFooter from "../components/SiteFooter.astro";
 ---
 
 <PageLayout
 	title="About — 332"
 	description="Invite-only Discord community since 2020, grown from IRC roots. Posts, ethos, and how to approach us."
 >
-	<div class="page-root relative min-h-screen px-4 pb-32 pt-32">
-		<div
-			class="dot-pattern pointer-events-none absolute inset-0"
-			aria-hidden="true"
-		>
-		</div>
-
-		<div
-			class="pointer-events-none absolute inset-0 overflow-hidden"
-			aria-hidden="true"
-		>
-			<div
-				class="absolute -left-[10%] top-[5%] h-[600px] w-[600px] rounded-full"
-				style="background: radial-gradient(circle, oklch(0.9 0 0 / 6%), transparent 65%); filter: blur(100px);"
-			>
-			</div>
-			<div
-				class="absolute -right-[5%] top-[40%] h-[500px] w-[500px] rounded-full"
-				style="background: radial-gradient(circle, oklch(0.8 0 0 / 5%), transparent 65%); filter: blur(80px);"
-			>
-			</div>
-		</div>
-
-		<div class="relative z-10 mx-auto max-w-4xl">
-			<!-- Page header -->
-			<div class="mb-16 text-center">
-				<h1
-					class="mb-5 text-4xl tracking-wider text-foreground sm:text-5xl"
-				>
-					About 332
-				</h1>
-				<p
-					class="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground"
-				>
+	<div>
+		<div>
+			<div>
+				<h1>About 332</h1>
+				<p>
 					332 started on IRC and moved to Discord in 2020. It was
 					originally a place for us to chat and share ideas, but it
 					quickly grew into so much more.
 				</p>
 			</div>
 
-			<section class="mb-12">
-				<h2 class="mb-6 text-2xl tracking-wider text-foreground">
-					Who we are
-				</h2>
+			<section>
+				<h2>Who we are</h2>
 
-				<div
-					style="width:100%;max-width:960px;aspect-ratio:7/3;border-radius:24px;overflow:hidden; border-bottom: 1px solid var(--glass-border-subtle);"
-					class="mb-16"
-				>
+				<div>
 					<iframe
 						src="https://app.order332.com/share/-yCgMBOvrHb-MQ-mC553jfYsinX8ptlnzjW0xEw0DRM/embed"
 						title="332 Trailer"
 						loading="lazy"
 						allow="autoplay; fullscreen; picture-in-picture"
 						referrerpolicy="no-referrer"
-						style="width:100%;height:100%;border:0;overflow:hidden;scrollbar-width:none;-ms-overflow-style:none;"
-						scrolling="no"></iframe>
+						scrolling="no"
+					></iframe>
 				</div>
 			</section>
 
-			<section class="mb-12">
-				<p class="mb-6 text-2xl tracking-wider text-foreground">
-					What we stand for
-				</p>
-				<div class="grid gap-4 sm:grid-cols-2">
-					<div class="glass-card rounded-2xl p-6">
-						<div
-							class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground"
-						>
+			<section>
+				<h2>What we stand for</h2>
+				<div>
+					<div>
+						<div>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="18"
@@ -86,19 +47,14 @@ import SiteFooter from "../components/SiteFooter.astro";
 								stroke-width="1.5"
 								stroke-linecap="round"
 								stroke-linejoin="round"
-								><path
-									d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-								></path></svg
 							>
+								<path
+									d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+								></path>
+							</svg>
 						</div>
-						<h3
-							class="mb-2 text-base tracking-wider text-foreground"
-						>
-							Freedom
-						</h3>
-						<p
-							class="text-sm leading-relaxed text-muted-foreground"
-						>
+						<h3>Freedom</h3>
+						<p>
 							Because 332 is private, freedom of speech and
 							expression reigns supreme. You can say whatever you
 							want, however you want, without the fear of being
@@ -108,10 +64,8 @@ import SiteFooter from "../components/SiteFooter.astro";
 						</p>
 					</div>
 
-					<div class="glass-card rounded-2xl p-6">
-						<div
-							class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground"
-						>
+					<div>
+						<div>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="20"
@@ -123,22 +77,13 @@ import SiteFooter from "../components/SiteFooter.astro";
 								stroke-linecap="round"
 								stroke-linejoin="round"
 							>
-								<!-- Medal circle, shifted down by 2px -->
 								<circle cx="12" cy="10" r="6"></circle>
-								<!-- Medal ribbon left, shorter (4px instead of 6), shifted down by 2px -->
 								<path d="M9 16l-2 4"></path>
-								<!-- Medal ribbon right, shorter (4px instead of 6), shifted down by 2px -->
 								<path d="M15 16l2 4"></path>
 							</svg>
 						</div>
-						<h3
-							class="mb-2 text-base tracking-wider text-foreground"
-						>
-							Winning at life
-						</h3>
-						<p
-							class="text-sm leading-relaxed text-muted-foreground"
-						>
+						<h3>Winning at life</h3>
+						<p>
 							332 was built to outlast, to win, and to be the
 							best. If that's you, then we have something in
 							common. You don't need to have "made it", to join.
@@ -147,10 +92,8 @@ import SiteFooter from "../components/SiteFooter.astro";
 						</p>
 					</div>
 
-					<div class="glass-card rounded-2xl p-6">
-						<div
-							class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground"
-						>
+					<div>
+						<div>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="18"
@@ -161,19 +104,16 @@ import SiteFooter from "../components/SiteFooter.astro";
 								stroke-width="1.5"
 								stroke-linecap="round"
 								stroke-linejoin="round"
-								><circle cx="12" cy="12" r="10"></circle><path
-									d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-								></path><path d="M2 12h20"></path></svg
 							>
+								<circle cx="12" cy="12" r="10"></circle>
+								<path
+									d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+								></path>
+								<path d="M2 12h20"></path>
+							</svg>
 						</div>
-						<h3
-							class="mb-2 text-base tracking-wider text-foreground"
-						>
-							Being truly global
-						</h3>
-						<p
-							class="text-sm leading-relaxed text-muted-foreground"
-						>
+						<h3>Being truly global</h3>
+						<p>
 							In the eyes of 332, the world has no borders, and
 							neither do we. Members of 332 come from every corner
 							of the world including North America, Europe, Asia,
@@ -181,10 +121,8 @@ import SiteFooter from "../components/SiteFooter.astro";
 						</p>
 					</div>
 
-					<div class="glass-card rounded-2xl p-6">
-						<div
-							class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl glass-button text-muted-foreground"
-						>
+					<div>
+						<div>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="18"
@@ -195,24 +133,22 @@ import SiteFooter from "../components/SiteFooter.astro";
 								stroke-width="1.5"
 								stroke-linecap="round"
 								stroke-linejoin="round"
-								><rect
+							>
+								<rect
 									width="18"
 									height="11"
 									x="3"
 									y="11"
 									rx="2"
-									ry="2"></rect><path
-									d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg
-							>
+									ry="2"
+								></rect>
+								<path
+									d="M7 11V7a5 5 0 0 1 10 0v4"
+								></path>
+							</svg>
 						</div>
-						<h3
-							class="mb-2 text-base tracking-wider text-foreground"
-						>
-							Mutual trust
-						</h3>
-						<p
-							class="text-sm leading-relaxed text-muted-foreground"
-						>
+						<h3>Mutual trust</h3>
+						<p>
 							Because 332 is private and relies on trust, what is
 							said in 332 must stay in 332. This keeps our
 							community safe and secure and it's the only golden
@@ -222,14 +158,10 @@ import SiteFooter from "../components/SiteFooter.astro";
 				</div>
 			</section>
 
-			<section class="text-center">
-				<div class="rounded-2xl px-8 py-12 sm:px-16">
-					<h2 class="mb-4 text-2xl tracking-wider text-foreground">
-						Want in?
-					</h2>
-					<p
-						class="mb-8 text-sm leading-relaxed text-muted-foreground sm:text-base"
-					>
+			<section>
+				<div>
+					<h2>Want in?</h2>
+					<p>
 						332 is a private community. If you've been invited—or
 						know someone who can vouch for you—use the link below to
 						join. If you don't have an invite but are interested in
@@ -237,14 +169,12 @@ import SiteFooter from "../components/SiteFooter.astro";
 					</p>
 					<a
 						href="https://discord.gg/WuGrkMZeNG"
-						class="glass-button glass-button-glass inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm tracking-wider text-foreground no-underline transition-all"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						Join on Discord
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
-							class="h-4 w-4"
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="currentColor"
@@ -262,7 +192,7 @@ import SiteFooter from "../components/SiteFooter.astro";
 				</div>
 			</section>
 
-			<p class="text-xs text-muted-foreground/50">
+			<p>
 				* As a Discord server, we have to abide by Discord's terms
 				of service and community guidelines. If you repeatedly
 				breach Discord's guidelines, you may be banned from the
@@ -270,5 +200,19 @@ import SiteFooter from "../components/SiteFooter.astro";
 			</p>
 		</div>
 	</div>
-	<SiteFooter />
+
+	<footer>
+		<div>
+			<div>
+				<img src="/polygon.svg" alt="332" width="20" height="20" />
+				<span>332</span>
+			</div>
+			<div>
+				<a href="/">Home</a>
+				<a href="/about">About</a>
+				<a href="/blog">Blog</a>
+			</div>
+			<p>© {new Date().getFullYear()} 332</p>
+		</div>
+	</footer>
 </PageLayout>

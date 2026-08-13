@@ -1,6 +1,5 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import Navbar from '$lib/components/elements/navbar/navbar.svelte';
 
 interface Props {
 	title?: string;
@@ -9,9 +8,22 @@ interface Props {
 }
 
 const { title, description, ogImage } = Astro.props;
+
+const navLinks = [
+	{ href: '/', label: 'Home' },
+	{ href: '/about', label: 'About' },
+	{ href: '/blog', label: 'Blog' },
+	{ href: '#', label: 'CTF Platform' },
+	{ href: '#', label: 'Join 332' },
+	{ href: '#', label: 'Bug Bounty' }
+];
 ---
 
 <BaseLayout title={title} description={description} ogImage={ogImage}>
-	<Navbar client:load />
+	<nav class="universal-margin flex flex-row gap-4 font-light py-4">
+		{navLinks.map(link => <a class="no-underline! hover:underline!" href={link.href}>{link.label}</a>)}
+	</nav>
 	<slot />
 </BaseLayout>
+
+

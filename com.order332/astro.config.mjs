@@ -1,19 +1,16 @@
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
-import svelte from '@astrojs/svelte';
+import tailwindcss from "@tailwindcss/vite";
 import mdx from '@astrojs/mdx';
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
 	site: 'https://www.order332.com',
-	integrations: [svelte(), mdx(), react()],
+	integrations: [mdx()],
 	markdown: {
 		shikiConfig: {
 			theme: 'github-dark',
 			transformers: [
 				{
 					pre(node) {
-						// Remove Shiki's inline background-color so CSS can control it
 						if (node.properties.style) {
 							node.properties.style = node.properties.style
 								.replace(/background-color:[^;]+;?/, '')
@@ -30,22 +27,9 @@ export default defineConfig({
 		defaultStrategy: 'hover',
 	},
 	vite: {
-		plugins: [tailwindcss()],
 		resolve: {
-			noExternal: ['bits-ui', 'runed', 'svelte-toolbelt', '@lucide/svelte'],
 			alias: { '$lib': '/src/lib' }
 		},
-		build: {
-			cssMinify: 'lightningcss',
-			rollupOptions: {
-				output: {
-					manualChunks(id) {
-						if (id.includes('ComponentShowcase')) {
-							return 'showcase';
-						}
-					},
-				},
-			},
-		},
+		plugins: [tailwindcss()],
 	}
 });

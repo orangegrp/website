@@ -1,51 +1,39 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
 	title?: string;
 	description?: string;
-	/**
-	 * Path to the OG image relative to /public, e.g. "/og/about.png".
-	 * If omitted, auto-derived from the current route:
-	 *   /          → /og/index.png
-	 *   /about     → /og/about.png
-	 *   /foo/bar   → /og/bar.png        (last path segment)
-	 *   /blog/*    → /og/blog.png        (all blog posts share one)
-	 * Fallback when no file exists: /og/default.png
-	 */
 	ogImage?: string;
 }
 
 const {
-	title = '332 — Order332',
-	description = '332 Discord community hub — occasional blog posts plus the usual invite-only disclaimers.',
+	title = "332",
+	description = "332, formerly Order 332 is an online Discord community centered around IT and cybersecurity. Today it is much more than that, though.",
 	ogImage,
 } = Astro.props;
 
 function deriveOgImage(pathname: string): string {
-	if (pathname === '/') return '/og/index.png';
-	const segments = pathname.replace(/\/$/, '').split('/').filter(Boolean);
-	// All blog post pages share one image
-	if (segments[0] === 'blog' && segments.length > 1) return '/og/blog.png';
-	// Use last path segment as filename
+	if (pathname === "/") return "/og/index.png";
+	const segments = pathname.replace(/\/$/, "").split("/").filter(Boolean);
+	if (segments[0] === "blog" && segments.length > 1) return "/og/blog.png";
 	return `/og/${segments[segments.length - 1]}.png`;
 }
 
 const siteOrigin = Astro.url.origin;
-const resolvedOgImage = siteOrigin + (ogImage ?? deriveOgImage(Astro.url.pathname));
+const resolvedOgImage =
+	siteOrigin + (ogImage ?? deriveOgImage(Astro.url.pathname));
 const canonicalUrl = Astro.url.href;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-		<meta name="theme-color" content="#0d0d0d" />
-		<link rel="preload" href="/fonts/VT323-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
-		<link rel="preload" href="/fonts/VT323-latin-ext.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
-		<link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
-		<link rel="preload" href="/polygon.svg" as="image" type="image/svg+xml" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, viewport-fit=cover"
+		/>
 		<link rel="icon" href="/polygon.svg" type="image/svg+xml" />
 		<link rel="canonical" href={canonicalUrl} />
 		<title>{title}</title>
@@ -60,10 +48,58 @@ const canonicalUrl = Astro.url.href;
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={resolvedOgImage} />
+		<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="273a5781-93e3-4711-aa48-eb52520a7ff1" data-blockingmode="auto" type="text/javascript"></script>
 	</head>
 	<body>
-		<div class="min-h-screen">
-			<slot />
+		<div
+			class="p-2 bg-gray-100 hover:cursor-pointer flex-col"
+			id="domainHintBar"
+		>
+			<div class="text-xs universal-margin flex flex-row justify-between">
+				<div class="flex flex-row">
+					<img
+						src="/polygon.svg"
+						alt="332 logo"
+						class="w-4 h-4 mr-2 invert"
+					/>
+					<span
+						>An official website of the 332 community. Here's how
+						you know</span
+					>
+				</div>
+				<span id="domainToggleIcon">&#9658;</span>
+			</div>
+			<div
+				class="font-light universal-margin my-4 hidden"
+				id="domainHintDetails"
+			>
+				<p>
+					All 332 websites are under the <i>*.order332.com</i> domain.
+					<b>Never</b> share your personal information, including on this official website unless it is reasonable to do so and the connection is encrypted using <b>HTTPS</b>. If in doubt, contact your local cyber security centre or <a href="https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online" target="_blank">learn more</a> about staying safe online.
+				</p>
+			</div>
 		</div>
+		<slot />
 	</body>
+	<script>
+		let domainHintCollapsed: boolean = true;
+
+		const domainBar = document.getElementById("domainHintBar");
+		const domainToggleIcon = document.getElementById("domainToggleIcon");
+		const detailledHint = document.getElementById("domainHintDetails");
+		if (domainBar) {
+			domainBar.addEventListener("click", () => {
+				domainHintCollapsed = !domainHintCollapsed;
+				if (domainToggleIcon && detailledHint) {
+					domainToggleIcon.innerHTML = domainHintCollapsed
+						? "&#9658;"
+						: "&#9650;";
+					detailledHint.classList.toggle(
+						"hidden",
+						domainHintCollapsed,
+					);
+				}
+			});
+		}
+	</script>
 </html>
