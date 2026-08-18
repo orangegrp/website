@@ -20,8 +20,9 @@ const navLinks = [
 ---
 
 <BaseLayout title={title} description={description} ogImage={ogImage}>
-	<nav class="universal-margin flex flex-row gap-4 font-light py-4">
+	<nav class="universal-margin flex flex-row gap-6 font-light items-center py-4">
 		{navLinks.map(link => <a class="no-underline! hover:underline!" href={link.href}>{link.label}</a>)}
+		<a class="ml-auto no-underline! hover:underline! bg-black text-white! p-2" href="/login">Members Area</a>
 	</nav>
 	<slot />
 </BaseLayout>
